@@ -18,7 +18,9 @@
         <legend><?= __('Edit Jogo') ?></legend>
         <?php
             echo $this->Form->input('titulo');
-            echo $this->Form->input('categoria');
+            $options = ['' => 'Selecione uma categoria', 'E' => 'Econômico', 'L' => 'Lançamento', 'N' => 'Normal', 
+                        'M' => 'Mais alugados'];
+            echo $this->Form->select('categoria', $options);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

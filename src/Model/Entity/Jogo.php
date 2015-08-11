@@ -19,14 +19,23 @@ class Jogo extends Entity
         'id' => false,
     ];
 
-    public static function statuses($value = null) {
-	    $options = array(
-	        self::LANCAMENTO => __('Lançamento',true),
-	        
-	    );
-	    return parent::enum($value, $options);
-	}
-	 
-	const LANCAMENTO = 'L'; # causes sound, then marks itself as "unread"
-	
+    protected function _getDescricaoCategoria(){
+        switch ($this->_properties['categoria']) {
+            case 'E':
+                return 'Econômico';
+                break;
+            case 'L':
+                return 'Lançamento';
+                break;
+            case 'N':
+                return 'Normal';
+                break;    
+            case 'M':
+                return 'Mais Alugados';
+                break;    
+            default:
+                return ' - ';
+                break;
+        }
+    }
 }

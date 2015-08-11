@@ -23,7 +23,7 @@
         <tr>
             <td><?= $this->Number->format($conta->id) ?></td>
             <td>
-                <?= $conta->has('jogo') ? $this->Html->link($conta->jogo->id, ['controller' => 'Jogos', 'action' => 'view', $conta->jogo->id]) : '' ?>
+                <?= $conta->has('jogo') ? $this->Html->link($conta->jogo->titulo, ['controller' => 'Jogos', 'action' => 'view', $conta->jogo->id]) : '' ?>
             </td>
             <td><?= h($conta->email) ?></td>
             <td class="actions">

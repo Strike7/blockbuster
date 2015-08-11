@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  * Contas Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Jogos
+ * @property \Cake\ORM\Association\HasMany $Alugueis
  * @property \Cake\ORM\Association\HasMany $Senhas
  */
 class ContasTable extends Table
@@ -32,6 +33,9 @@ class ContasTable extends Table
         $this->belongsTo('Jogos', [
             'foreignKey' => 'jogo_id',
             'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Alugueis', [
+            'foreignKey' => 'conta_id'
         ]);
         $this->hasMany('Senhas', [
             'foreignKey' => 'conta_id'

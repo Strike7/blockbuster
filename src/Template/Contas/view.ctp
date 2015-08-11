@@ -12,11 +12,11 @@
     </ul>
 </div>
 <div class="contas view large-10 medium-9 columns">
-    <h2><?= h($conta->id) ?></h2>
+    <h2><?= h($conta->email) ?></h2>
     <div class="row">
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Jogo') ?></h6>
-            <p><?= $conta->has('jogo') ? $this->Html->link($conta->jogo->id, ['controller' => 'Jogos', 'action' => 'view', $conta->jogo->id]) : '' ?></p>
+            <p><?= $conta->has('jogo') ? $this->Html->link($conta->jogo->titulo, ['controller' => 'Jogos', 'action' => 'view', $conta->jogo->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Email') ?></h6>
             <p><?= h($conta->email) ?></p>
         </div>

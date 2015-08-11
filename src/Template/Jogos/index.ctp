@@ -21,7 +21,7 @@
         <tr>
             <td><?= $this->Number->format($jogo->id) ?></td>
             <td><?= h($jogo->titulo) ?></td>
-            <td><?= h($jogo->categoria) ?></td>
+            <td><?= h($jogo->descricao_categoria) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $jogo->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $jogo->id]) ?>

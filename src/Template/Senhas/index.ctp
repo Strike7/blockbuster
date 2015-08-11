@@ -28,7 +28,7 @@
                 <?= $senha->has('conta') ? $this->Html->link($senha->conta->email, ['controller' => 'Contas', 'action' => 'view', $senha->conta->id]) : '' ?>
             </td>
             <td>
-                <?= $senha->has('usuario') ? $this->Html->link($senha->usuario->id, ['controller' => 'Usuarios', 'action' => 'view', $senha->usuario->id]) : '' ?>
+                <?= $senha->has('usuario') ? $this->Html->link($senha->usuario->nome, ['controller' => 'Usuarios', 'action' => 'view', $senha->usuario->id]) : '' ?>
             </td>
             <td><?= h($senha->senha) ?></td>
             <td><?= h($senha->data_cadastro) ?></td>

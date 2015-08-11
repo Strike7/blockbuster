@@ -19,10 +19,10 @@
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
             <p><?= $this->Number->format($aluguel->id) ?></p>
-            <h6 class="subheader"><?= __('Id Cliente') ?></h6>
-            <p><?= $this->Number->format($aluguel->id_cliente) ?></p>
-            <h6 class="subheader"><?= __('Id Conta') ?></h6>
-            <p><?= $this->Number->format($aluguel->id_conta) ?></p>
+            <h6 class="subheader"><?= __('Cliente Id') ?></h6>
+            <p><?= $this->Number->format($aluguel->cliente_id) ?></p>
+            <h6 class="subheader"><?= __('Conta Id') ?></h6>
+            <p><?= $this->Number->format($aluguel->conta_id) ?></p>
             <h6 class="subheader"><?= __('Seq Aluguel') ?></h6>
             <p><?= $this->Number->format($aluguel->seq_aluguel) ?></p>
         </div>

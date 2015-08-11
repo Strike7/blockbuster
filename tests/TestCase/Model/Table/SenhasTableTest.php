@@ -20,6 +20,8 @@ class SenhasTableTest extends TestCase
         'app.senhas',
         'app.contas',
         'app.jogos',
+        'app.alugueis',
+        'app.clientes',
         'app.usuarios'
     ];
 
@@ -63,6 +65,16 @@ class SenhasTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

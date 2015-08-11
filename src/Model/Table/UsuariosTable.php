@@ -26,7 +26,7 @@ class UsuariosTable extends Table
         parent::initialize($config);
 
         $this->table('usuarios');
-        $this->displayField('id');
+        $this->displayField('nome');
         $this->primaryKey('id');
         $this->hasMany('Senhas', [
             'foreignKey' => 'usuario_id'

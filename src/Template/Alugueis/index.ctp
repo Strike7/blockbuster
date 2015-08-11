@@ -9,8 +9,8 @@
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('id_cliente') ?></th>
-            <th><?= $this->Paginator->sort('id_conta') ?></th>
+            <th><?= $this->Paginator->sort('cliente_id') ?></th>
+            <th><?= $this->Paginator->sort('conta_id') ?></th>
             <th><?= $this->Paginator->sort('data_inicio') ?></th>
             <th><?= $this->Paginator->sort('data_fim') ?></th>
             <th><?= $this->Paginator->sort('situacao') ?></th>
@@ -22,8 +22,8 @@
     <?php foreach ($alugueis as $aluguel): ?>
         <tr>
             <td><?= $this->Number->format($aluguel->id) ?></td>
-            <td><?= $this->Number->format($aluguel->id_cliente) ?></td>
-            <td><?= $this->Number->format($aluguel->id_conta) ?></td>
+            <td><?= $this->Number->format($aluguel->cliente_id) ?></td>
+            <td><?= $this->Number->format($aluguel->conta_id) ?></td>
             <td><?= h($aluguel->data_inicio) ?></td>
             <td><?= h($aluguel->data_fim) ?></td>
             <td><?= h($aluguel->situacao) ?></td>

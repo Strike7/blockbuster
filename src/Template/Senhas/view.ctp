@@ -18,7 +18,7 @@
             <h6 class="subheader"><?= __('Conta') ?></h6>
             <p><?= $senha->has('conta') ? $this->Html->link($senha->conta->email, ['controller' => 'Contas', 'action' => 'view', $senha->conta->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Usuario') ?></h6>
-            <p><?= $senha->has('usuario') ? $this->Html->link($senha->usuario->id, ['controller' => 'Usuarios', 'action' => 'view', $senha->usuario->id]) : '' ?></p>
+            <p><?= $senha->has('usuario') ? $this->Html->link($senha->usuario->nome, ['controller' => 'Usuarios', 'action' => 'view', $senha->usuario->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Senha') ?></h6>
             <p><?= h($senha->senha) ?></p>
         </div>

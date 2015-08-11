@@ -10,6 +10,8 @@ use Cake\Validation\Validator;
 /**
  * Alugueis Model
  *
+ * @property \Cake\ORM\Association\BelongsTo $Clientes
+ * @property \Cake\ORM\Association\BelongsTo $Contas
  */
 class AlugueisTable extends Table
 {
@@ -27,6 +29,14 @@ class AlugueisTable extends Table
         $this->table('alugueis');
         $this->displayField('id');
         $this->primaryKey('id');
+        $this->belongsTo('Clientes', [
+            'foreignKey' => 'cliente_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Contas', [
+            'foreignKey' => 'conta_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -39,14 +49,6 @@ class AlugueisTable extends Table
     {
         $validator
             ->allowEmpty('id', 'create');
-
-        $validator
-            ->requirePresence('id_cliente', 'create')
-            ->notEmpty('id_cliente');
-
-        $validator
-            ->requirePresence('id_conta', 'create')
-            ->notEmpty('id_conta');
 
         $validator
             ->requirePresence('data_inicio', 'create')
@@ -71,5 +73,19 @@ class AlugueisTable extends Table
             ->allowEmpty('tipo');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['cliente_id'], 'Clientes'));
+        $rules->add($rules->existsIn(['conta_id'], 'Contas'));
+        return $rules;
     }
 }

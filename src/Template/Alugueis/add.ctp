@@ -9,8 +9,8 @@
     <fieldset>
         <legend><?= __('Add Aluguel') ?></legend>
         <?php
-            echo $this->Form->input('id_cliente');
-            echo $this->Form->input('id_conta');
+            echo $this->Form->input('cliente_id');
+            echo $this->Form->input('conta_id');
             echo $this->Form->input('data_inicio');
             echo $this->Form->input('data_fim');
             echo $this->Form->input('situacao');

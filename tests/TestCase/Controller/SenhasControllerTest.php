@@ -19,6 +19,8 @@ class SenhasControllerTest extends IntegrationTestCase
         'app.senhas',
         'app.contas',
         'app.jogos',
+        'app.alugueis',
+        'app.clientes',
         'app.usuarios'
     ];
 

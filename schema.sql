@@ -29,7 +29,7 @@ CREATE UNIQUE INDEX unique_email ON contas (email);
 CREATE TABLE senhas (
 	id bigserial,
 	conta_id bigint NOT NULL,
-	id_usuario bigint NOT NULL,
+	usuario_id bigint NOT NULL,
 	senha varchar(20) NOT NULL,
 	data_cadastro timestamp NOT NULL DEFAULT now(),
 
@@ -37,7 +37,7 @@ CREATE TABLE senhas (
 	CONSTRAINT senhas_contas_fk FOREIGN KEY (conta_id)
 	  REFERENCES contas (id) MATCH SIMPLE
 	  ON UPDATE NO ACTION ON DELETE NO ACTION,
-	CONSTRAINT senhas_usuarios_fk FOREIGN KEY (id_usuario)
+	CONSTRAINT senhas_usuarios_fk FOREIGN KEY (usuario_id)
 	  REFERENCES usuarios (id) MATCH SIMPLE
 	  ON UPDATE NO ACTION ON DELETE NO ACTION  
 );
