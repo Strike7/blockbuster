@@ -18,4 +18,38 @@ class Aluguel extends Entity
         '*' => true,
         'id' => false,
     ];
+
+    protected function _getDescricaoSituacao(){
+        switch ($this->_properties['situacao']) {
+            case 'U':
+                return 'Em uso';
+                break;
+            case 'R':
+                return 'Reservado';
+                break;
+            case 'C':
+                return 'Cancelado';
+                break;    
+            case 'F':
+                return 'Finalizado';
+                break;    
+            default:
+                return ' - ';
+                break;
+        }
+    }
+
+    protected function _getDescricaoTipo(){
+        switch ($this->_properties['tipo']) {
+            case 'A':
+                return 'Avulso';
+                break;
+            case 'M':
+                return 'Mercado Livre';
+                break;
+            default:
+                return ' - ';
+                break;
+        }
+    }
 }

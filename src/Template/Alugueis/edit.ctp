@@ -8,6 +8,10 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Alugueis'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Clientes'), ['controller' => 'Clientes', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Cliente'), ['controller' => 'Clientes', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Contas'), ['controller' => 'Contas', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Conta'), ['controller' => 'Contas', 'action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="alugueis form large-10 medium-9 columns">
@@ -15,14 +19,19 @@
     <fieldset>
         <legend><?= __('Edit Aluguel') ?></legend>
         <?php
-            echo $this->Form->input('cliente_id');
-            echo $this->Form->input('conta_id');
+            echo $this->Form->input('id_pai');
+            echo $this->Form->input('cliente_id', ['options' => $clientes]);
+            echo $this->Form->input('conta_id', ['options' => $contas]);
             echo $this->Form->input('data_inicio');
             echo $this->Form->input('data_fim');
-            echo $this->Form->input('situacao');
+            $optionsSituacao = ['' => 'Selecione uma situação', 'U' => 'Em uso', 
+                                'R' => 'Reservado', 'C' => 'Cancelado', 
+                                'F' => 'Finalizado'];
+            echo $this->Form->select('situacao', $optionsSituacao);
+            $optionsTipo = ['' => 'Selecione um tipo', 'A' => 'Avulso', 
+                            'M' => 'Mercado Livre'];
+            echo $this->Form->select('tipo', $optionsTipo);
             echo $this->Form->input('data_cadastro');
-            echo $this->Form->input('seq_aluguel');
-            echo $this->Form->input('tipo');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

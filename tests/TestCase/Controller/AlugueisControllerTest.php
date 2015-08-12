@@ -16,7 +16,12 @@ class AlugueisControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.alugueis'
+        'app.alugueis',
+        'app.clientes',
+        'app.contas',
+        'app.jogos',
+        'app.senhas',
+        'app.usuarios'
     ];
 
     /**

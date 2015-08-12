@@ -8,7 +8,7 @@ CREATE TABLE usuarios (
 CREATE TABLE jogos (
 	id bigserial,
 	titulo varchar(200) NOT NULL,
-	categoria char(1), -- M - MAIS ALUGADOS, L - LANCAMENTO
+	categoria char(1), -- M - MAIS ALUGADOS, L - LANCAMENTO, N - NORMAL, E - ECONOMICO
 
 	CONSTRAINT jogos_pk PRIMARY KEY (id)
 );
@@ -54,7 +54,7 @@ CREATE TABLE clientes (
 
 CREATE TABLE alugueis (
 	id bigserial,
-	seq_aluguel bigint NOT NULL,
+	id_pai bigint NOT NULL,
 	cliente_id bigint NOT NULL,
 	conta_id bigint NOT NULL,
 	data_inicio timestamp NOT NULL,

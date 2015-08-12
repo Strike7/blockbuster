@@ -18,6 +18,9 @@ class AlugueisController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Clientes', 'Contas']
+        ];
         $this->set('alugueis', $this->paginate($this->Alugueis));
         $this->set('_serialize', ['alugueis']);
     }
@@ -32,7 +35,7 @@ class AlugueisController extends AppController
     public function view($id = null)
     {
         $aluguel = $this->Alugueis->get($id, [
-            'contain' => []
+            'contain' => ['Clientes', 'Contas']
         ]);
         $this->set('aluguel', $aluguel);
         $this->set('_serialize', ['aluguel']);
@@ -55,7 +58,13 @@ class AlugueisController extends AppController
                 $this->Flash->error(__('The aluguel could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('aluguel'));
+        $clientes = $this->Alugueis->Clientes->find('list', ['limit' => 200,
+                                                             'order' => ['Clientes.nome' => 'ASC']  
+                                                            ]);
+        $contas = $this->Alugueis->Contas->find('list', ['limit' => 200,
+                                                         'order' => ['Contas.email' => 'ASC']  
+                                                        ]);
+        $this->set(compact('aluguel', 'clientes', 'contas'));
         $this->set('_serialize', ['aluguel']);
     }
 
@@ -80,7 +89,9 @@ class AlugueisController extends AppController
                 $this->Flash->error(__('The aluguel could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('aluguel'));
+        $clientes = $this->Alugueis->Clientes->find('list', ['limit' => 200]);
+        $contas = $this->Alugueis->Contas->find('list', ['limit' => 200]);
+        $this->set(compact('aluguel', 'clientes', 'contas'));
         $this->set('_serialize', ['aluguel']);
     }
 

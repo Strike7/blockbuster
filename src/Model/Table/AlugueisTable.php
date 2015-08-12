@@ -28,7 +28,7 @@ class AlugueisTable extends Table
 
         $this->table('alugueis');
         $this->displayField('id');
-        $this->primaryKey('id');
+        $this->primaryKey('id', 'seq_aluguel');
         $this->belongsTo('Clientes', [
             'foreignKey' => 'cliente_id',
             'joinType' => 'INNER'
@@ -51,6 +51,9 @@ class AlugueisTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->allowEmpty('seq_aluguel', 'create');
+
+        $validator
             ->requirePresence('data_inicio', 'create')
             ->notEmpty('data_inicio');
 
@@ -62,15 +65,11 @@ class AlugueisTable extends Table
             ->allowEmpty('situacao');
 
         $validator
+            ->allowEmpty('tipo');
+
+        $validator
             ->requirePresence('data_cadastro', 'create')
             ->notEmpty('data_cadastro');
-
-        $validator
-            ->requirePresence('seq_aluguel', 'create')
-            ->notEmpty('seq_aluguel');
-
-        $validator
-            ->allowEmpty('tipo');
 
         return $validator;
     }

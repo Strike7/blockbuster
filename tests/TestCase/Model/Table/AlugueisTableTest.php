@@ -17,7 +17,12 @@ class AlugueisTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.alugueis'
+        'app.alugueis',
+        'app.clientes',
+        'app.contas',
+        'app.jogos',
+        'app.senhas',
+        'app.usuarios'
     ];
 
     /**
@@ -60,6 +65,16 @@ class AlugueisTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
