@@ -58,7 +58,7 @@ class ContasController extends AppController
                 $this->Flash->error(__('The conta could not be saved. Please, try again.'));
             }
         }
-        $jogos = $this->Contas->Jogos->find('list', ['limit' => 200]);
+        $jogos = $this->Contas->Jogos->find('list', ['limit' => 200, 'order' => ['Jogos.titulo' => 'ASC']]);
         $this->set(compact('conta', 'jogos'));
         $this->set('_serialize', ['conta']);
     }

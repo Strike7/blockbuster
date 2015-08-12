@@ -58,8 +58,10 @@ class SenhasController extends AppController
                 $this->Flash->error(__('The senha could not be saved. Please, try again.'));
             }
         }
-        $contas = $this->Senhas->Contas->find('list', ['limit' => 200]);
-        $usuarios = $this->Senhas->Usuarios->find('list', ['limit' => 200]);
+        $contas = $this->Senhas->Contas->find('list', ['limit' => 200, 'order' => ['Contas.email' => 'ASC']]);
+        $usuarios = $this->Senhas->Usuarios->find('list', ['limit' => 200, 
+                                                            'order' => ['Usuarios.nome' => 'ASC']
+                                                          ]);
         $this->set(compact('senha', 'contas', 'usuarios'));
         $this->set('_serialize', ['senha']);
     }
