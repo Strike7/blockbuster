@@ -1,3 +1,4 @@
+<?php echo $this->Html->script('http://code.jquery.com/jquery.min.js'); ?>
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
@@ -9,13 +10,14 @@
     </ul>
 </div>
 <div class="alugueis form large-10 medium-9 columns">
-    <?= $this->Form->create($aluguel) ?>
+    <?= $this->Form->create($aluguel); ?>
     <fieldset>
         <legend><?= __('Add Aluguel') ?></legend>
         <?php
-            echo $this->Form->input('id_pai');
             echo $this->Form->input('cliente_id', ['options' => $clientes]);
-            echo $this->Form->input('conta_id', ['options' => $contas]);
+            echo $this->Form->input('jogo_id', ['options' => $jogos, 
+                                                'onchange' => 'loadContas(this.value)']);
+            echo $this->Form->select('conta_id');
             echo $this->Form->input('data_inicio');
             echo $this->Form->input('data_fim');
             echo $this->Form->input('data_cadastro');
@@ -32,3 +34,24 @@
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+       
+    });
+
+    function loadContas(jogo_id) {
+        
+        if (jogo_id) {
+            alert(jogo_id);
+            var url = '/alugueis/add';
+            $.ajax({
+              url: url,
+              data: { id: jogo_id}
+            }).done(function(json) {
+              console.log(json.data);
+            });
+        }    
+    }
+</script>

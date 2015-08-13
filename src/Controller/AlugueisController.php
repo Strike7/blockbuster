@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Alugueis Controller
@@ -58,13 +59,34 @@ class AlugueisController extends AppController
                 $this->Flash->error(__('The aluguel could not be saved. Please, try again.'));
             }
         }
+
+        if ($this->request->is('ajax')){
+            
+            $jogo_id = $this->request->query('id');
+                        
+            $contasTable = TableRegistry::get('Contas');
+            $query = $contasTable->find('all')
+                                ->where(['Contas.jogo_id' => $jogo_id])
+                                ->order(['email' => 'ASC']);
+
+            $this->autoRender = false;
+            $this->response->type('json');
+
+            $json = json_encode(array('data'=> $query->toArray()));
+            $this->response->body($json);
+        }
+
         $clientes = $this->Alugueis->Clientes->find('list', ['limit' => 200,
                                                              'order' => ['Clientes.nome' => 'ASC']  
                                                             ]);
-        $contas = $this->Alugueis->Contas->find('list', ['limit' => 200,
-                                                         'order' => ['Contas.email' => 'ASC']  
-                                                        ]);
-        $this->set(compact('aluguel', 'clientes', 'contas'));
+        // $contas = $this->Alugueis->Contas->find('list', ['limit' => 200,
+        //                                                  'order' => ['Contas.email' => 'ASC']  
+        //                                                 ]);
+        $jogosTable = TableRegistry::get('Jogos');
+        $query = $jogosTable->find('list')->order(['titulo' => 'ASC']);
+        $jogos = $query->toArray();
+
+        $this->set(compact('aluguel', 'clientes', 'jogos'));
         $this->set('_serialize', ['aluguel']);
     }
 
