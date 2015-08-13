@@ -16,18 +16,26 @@
         <?php
             echo $this->Form->input('cliente_id', ['options' => $clientes]);
             echo $this->Form->input('jogo_id', ['options' => $jogos, 
-                                                'onchange' => 'loadContas(this.value)']);
+                                                'onchange' => 'loadContas(this.value)',
+                                                'empty' => 'Selectione um jogo']);
             echo $this->Form->select('conta_id');
             echo $this->Form->input('data_inicio');
             echo $this->Form->input('data_fim');
             echo $this->Form->input('data_cadastro');
-            $optionsSituacao = ['' => 'Selecione uma situação', 'U' => 'Em uso', 
+
+            $optionsSituacao = ['U' => 'Em uso', 
                                 'R' => 'Reservado', 'C' => 'Cancelado', 
                                 'F' => 'Finalizado'];
-            echo $this->Form->select('situacao', $optionsSituacao);
+
+            echo $this->Form->select('situacao', $optionsSituacao,
+                                    ['empty' => 'Selecione uma situação']);
+
             $optionsTipo = ['' => 'Selecione um tipo', 'A' => 'Avulso', 
                             'M' => 'Mercado Livre'];
-            echo $this->Form->select('tipo', $optionsTipo);
+
+            echo $this->Form->select('tipo', $optionsTipo,
+                                    ['empty' => 'Selecione um tipo']);
+
             echo $this->Form->input('data_cadastro');
         ?>
     </fieldset>
