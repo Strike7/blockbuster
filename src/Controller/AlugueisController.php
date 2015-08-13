@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
+use App\Controller\Component\ContasComboBoxComponent;
 
 /**
  * Alugueis Controller
@@ -12,6 +13,11 @@ use Cake\ORM\TableRegistry;
 class AlugueisController extends AppController
 {
 
+    
+    public function initialize()
+    {
+        $this->loadComponent('ContasComboBox');
+    }
     /**
      * Index method
      *
@@ -61,7 +67,7 @@ class AlugueisController extends AppController
         }
 
         if ($this->request->is('ajax')){
-            
+
             $jogo_id = $this->request->query('id');
                         
             $contasTable = TableRegistry::get('Contas');
@@ -70,10 +76,9 @@ class AlugueisController extends AppController
                                 ->order(['email' => 'ASC']);
 
             $this->autoRender = false;
-            $this->response->type('json');
-
-            $json = json_encode(array('data'=> $query->toArray()));
-            $this->response->body($json);
+            
+            $this->ContasComboBox->get('conta_id', $query->toArray());
+            
         }
 
         $clientes = $this->Alugueis->Clientes->find('list', ['limit' => 200,

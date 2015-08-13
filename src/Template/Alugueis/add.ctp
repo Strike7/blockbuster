@@ -18,10 +18,12 @@
             echo $this->Form->input('jogo_id', ['options' => $jogos, 
                                                 'onchange' => 'loadContas(this.value)',
                                                 'empty' => 'Selectione um jogo']);
-            echo $this->Form->select('conta_id');
+            echo $this->Form->select('conta_id', null, ['id' => 'conta_id']);
             echo $this->Form->input('data_inicio');
             echo $this->Form->input('data_fim');
             echo $this->Form->input('data_cadastro');
+
+            echo $this->Form->label('situação');
 
             $optionsSituacao = ['U' => 'Em uso', 
                                 'R' => 'Reservado', 'C' => 'Cancelado', 
@@ -30,11 +32,14 @@
             echo $this->Form->select('situacao', $optionsSituacao,
                                     ['empty' => 'Selecione uma situação']);
 
+            echo $this->Form->label('tipo');
+
             $optionsTipo = ['' => 'Selecione um tipo', 'A' => 'Avulso', 
                             'M' => 'Mercado Livre'];
-
+            
             echo $this->Form->select('tipo', $optionsTipo,
-                                    ['empty' => 'Selecione um tipo']);
+                                    ['empty' => 'Selecione um tipo',
+                                    'label' => true]);
 
             echo $this->Form->input('data_cadastro');
         ?>
@@ -52,13 +57,12 @@
     function loadContas(jogo_id) {
         
         if (jogo_id) {
-            alert(jogo_id);
             var url = '/alugueis/add';
             $.ajax({
-              url: url,
-              data: { id: jogo_id}
-            }).done(function(json) {
-              console.log(json.data);
+                url: url,
+                data: { id: jogo_id}
+            }).done(function(data) {
+                $("#conta_id").html(data); 
             });
         }    
     }
