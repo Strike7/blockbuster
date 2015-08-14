@@ -57,12 +57,26 @@
     function loadContas(jogo_id) {
         
         if (jogo_id) {
-            var url = '/alugueis/add';
+            var url = '/contas/json';
             $.ajax({
                 url: url,
-                data: { id: jogo_id}
+                data: {filtro: jogo_id},
+                dataType: 'json'
             }).done(function(data) {
-                $("#conta_id").html(data); 
+                var contas = data.contas;
+
+                $('#conta_id').find('option').remove().end();
+                $('#conta_id')
+                    .append($('<option>', { 
+                        value: '',
+                        text : 'Selecione uma conta' 
+                    }));
+                
+                for (var i in contas){
+                    $('#conta_id').append($('<option>', { 
+                        value: contas[i].id,
+                        text : contas[i].email}));
+                }
             });
         }    
     }
