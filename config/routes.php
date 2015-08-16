@@ -41,6 +41,8 @@ use Cake\Routing\Router;
  */
 Router::defaultRouteClass('Route');
 
+Router::extensions(['html', 'json']);
+
 Router::scope('/', function ($routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',

@@ -23,12 +23,18 @@ class ContasController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Jogos']
-        ];
-        $this->set('contas', $this->paginate($this->Contas));
+        
+        $jogo_id = $this->request->query('jogo_id');
+
+        $contas = $this->Contas->find();
+        $contas->contain(['Jogos']);
+        if(!empty($jogo_id))
+            $contas->where(['jogo_id' => $jogo_id]);
+
+        $contas->order(['email' => 'ASC']);
+        
+        $this->set('contas', $this->paginate($contas));
         $this->set('_serialize', ['contas']);
-        $this->set(compact('contas'));
     }
 
     /**
@@ -112,24 +118,5 @@ class ContasController extends AppController
             $this->Flash->error(__('The conta could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
-    }
-
-    public function json(){
-        
-        $this->autoRender = false;
-        $this->request->allowMethod(['ajax', 'get']);
-
-        $jogo_id = $this->request->query('filtro');
-        
-        $contas = $this->Contas->find();
-        $contas->order(['email' => 'ASC']);
-
-        if (!empty($jogo_id)){
-            $contas->where(['jogo_id' => $jogo_id]);    
-        }
-        
-        $contas->toArray();
-        
-        echo json_encode(compact('contas'));
     }
 }

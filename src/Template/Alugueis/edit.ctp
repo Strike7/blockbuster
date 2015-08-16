@@ -19,7 +19,6 @@
     <fieldset>
         <legend><?= __('Edit Aluguel') ?></legend>
         <?php
-            echo $this->Form->input('id_pai');
             echo $this->Form->input('cliente_id', ['options' => $clientes]);
             echo $this->Form->input('conta_id', ['options' => $contas]);
             echo $this->Form->input('data_inicio');

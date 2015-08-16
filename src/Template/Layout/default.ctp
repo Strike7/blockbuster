@@ -32,6 +32,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?php echo $this->Html->script('http://code.jquery.com/jquery.min.js'); ?>
 </head>
 <body>
     <header>
@@ -41,6 +42,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="header-help">
             <span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
             <span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
+            <span><a href="/users/logout">Sair</a></span>
         </div>
     </header>
     <div id="container">

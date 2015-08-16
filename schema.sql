@@ -1,8 +1,12 @@
-CREATE TABLE usuarios (
-	id bigserial,
-	nome varchar(200),
+CREATE TABLE users (
+    id bigserial,
+    username varchar(50),
+    password varchar(255),
+    role varchar(20),
+    created timestamp DEFAULT now(),
+    modified timestamp DEFAULT now(),
 
-	CONSTRAINT usuarios_pk PRIMARY KEY (id)
+    CONSTRAINT users_pk PRIMARY KEY (id)
 );
 
 CREATE TABLE jogos (
@@ -54,7 +58,7 @@ CREATE TABLE clientes (
 
 CREATE TABLE alugueis (
 	id bigserial,
-	id_pai bigint NOT NULL,
+	id_pai bigint,
 	cliente_id bigint NOT NULL,
 	conta_id bigint NOT NULL,
 	data_inicio timestamp NOT NULL,
@@ -62,6 +66,7 @@ CREATE TABLE alugueis (
 	situacao char(1), -- U - EM USO, R - RESERVADO, C - CANCELADO, F - FINALIZADO
 	tipo char(1), -- A - Avulso, M - Mercado Livre
 	data_cadastro timestamp NOT NULL DEFAULT now(),
+	ativo, -- S - Sim
 
 	CONSTRAINT alugueis_pk PRIMARY KEY (id),
 	CONSTRAINT alugueis_clientes_fk FOREIGN KEY (cliente_id)

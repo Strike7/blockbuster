@@ -1,0 +1,794 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-08-16 15:04+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/AlugueisController.php:57;108
+msgid "The aluguel has been saved."
+msgstr ""
+
+#: Controller/AlugueisController.php:60;111
+msgid "The aluguel could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/AlugueisController.php:132
+msgid "The aluguel has been deleted."
+msgstr ""
+
+#: Controller/AlugueisController.php:134
+msgid "The aluguel could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/ClientesController.php:52;77
+msgid "The cliente has been saved."
+msgstr ""
+
+#: Controller/ClientesController.php:55;80
+msgid "The cliente could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ClientesController.php:99
+msgid "The cliente has been deleted."
+msgstr ""
+
+#: Controller/ClientesController.php:101
+msgid "The cliente could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/ContasController.php:67;93
+msgid "The conta has been saved."
+msgstr ""
+
+#: Controller/ContasController.php:70;96
+msgid "The conta could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ContasController.php:116
+msgid "The conta has been deleted."
+msgstr ""
+
+#: Controller/ContasController.php:118
+msgid "The conta could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/JogosController.php:52;77
+msgid "The jogo has been saved."
+msgstr ""
+
+#: Controller/JogosController.php:55;80
+msgid "The jogo could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/JogosController.php:99
+msgid "The jogo has been deleted."
+msgstr ""
+
+#: Controller/JogosController.php:101
+msgid "The jogo could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/SenhasController.php:55;84
+msgid "The senha has been saved."
+msgstr ""
+
+#: Controller/SenhasController.php:58;87
+msgid "The senha could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/SenhasController.php:108
+msgid "The senha has been deleted."
+msgstr ""
+
+#: Controller/SenhasController.php:110
+msgid "The senha could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsuariosController.php:52;77
+msgid "The usuario has been saved."
+msgstr ""
+
+#: Controller/UsuariosController.php:55;80
+msgid "The usuario could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/UsuariosController.php:99
+msgid "The usuario has been deleted."
+msgstr ""
+
+#: Controller/UsuariosController.php:101
+msgid "The usuario could not be deleted. Please, try again."
+msgstr ""
+
+#: Template/Alugueis/add.ctp:2
+#: Template/Alugueis/edit.ctp:2
+#: Template/Alugueis/index.ctp:2;22
+#: Template/Alugueis/view.ctp:2
+#: Template/Clientes/add.ctp:2
+#: Template/Clientes/edit.ctp:2
+#: Template/Clientes/index.ctp:2;16
+#: Template/Clientes/view.ctp:2
+#: Template/Contas/add.ctp:2
+#: Template/Contas/edit.ctp:2
+#: Template/Contas/index.ctp:2;18
+#: Template/Contas/view.ctp:2;40
+#: Template/Jogos/add.ctp:2
+#: Template/Jogos/edit.ctp:2
+#: Template/Jogos/index.ctp:2;16
+#: Template/Jogos/view.ctp:2;36
+#: Template/Senhas/add.ctp:2
+#: Template/Senhas/edit.ctp:2
+#: Template/Senhas/index.ctp:2;20
+#: Template/Senhas/view.ctp:2
+#: Template/Usuarios/add.ctp:2
+#: Template/Usuarios/edit.ctp:2
+#: Template/Usuarios/index.ctp:2;15
+#: Template/Usuarios/view.ctp:2;36
+msgid "Actions"
+msgstr ""
+
+#: Template/Alugueis/add.ctp:4
+#: Template/Alugueis/edit.ctp:10
+#: Template/Alugueis/view.ctp:6
+msgid "List Alugueis"
+msgstr ""
+
+#: Template/Alugueis/add.ctp:5
+#: Template/Alugueis/edit.ctp:11
+#: Template/Alugueis/index.ctp:5
+#: Template/Alugueis/view.ctp:8
+#: Template/Clientes/add.ctp:4
+#: Template/Clientes/edit.ctp:10
+#: Template/Clientes/view.ctp:6
+msgid "List Clientes"
+msgstr ""
+
+#: Template/Alugueis/add.ctp:6
+#: Template/Alugueis/edit.ctp:12
+#: Template/Alugueis/index.ctp:6
+#: Template/Alugueis/view.ctp:9
+#: Template/Clientes/index.ctp:4
+#: Template/Clientes/view.ctp:7
+msgid "New Cliente"
+msgstr ""
+
+#: Template/Alugueis/add.ctp:7
+#: Template/Alugueis/edit.ctp:13
+#: Template/Alugueis/index.ctp:7
+#: Template/Alugueis/view.ctp:10
+#: Template/Contas/add.ctp:4
+#: Template/Contas/edit.ctp:10
+#: Template/Contas/view.ctp:6
+#: Template/Jogos/add.ctp:5
+#: Template/Jogos/edit.ctp:11
+#: Template/Jogos/index.ctp:5
+#: Template/Jogos/view.ctp:8
+#: Template/Senhas/add.ctp:5
+#: Template/Senhas/edit.ctp:11
+#: Template/Senhas/index.ctp:5
+#: Template/Senhas/view.ctp:8
+msgid "List Contas"
+msgstr ""
+
+#: Template/Alugueis/add.ctp:8
+#: Template/Alugueis/edit.ctp:14
+#: Template/Alugueis/index.ctp:8
+#: Template/Alugueis/view.ctp:11
+#: Template/Contas/index.ctp:4
+#: Template/Contas/view.ctp:7
+#: Template/Jogos/add.ctp:6
+#: Template/Jogos/edit.ctp:12
+#: Template/Jogos/index.ctp:6
+#: Template/Jogos/view.ctp:9
+#: Template/Senhas/add.ctp:6
+#: Template/Senhas/edit.ctp:12
+#: Template/Senhas/index.ctp:6
+#: Template/Senhas/view.ctp:9
+msgid "New Conta"
+msgstr ""
+
+#: Template/Alugueis/add.ctp:14
+msgid "Add Aluguel"
+msgstr ""
+
+#: Template/Alugueis/add.ctp:48
+#: Template/Alugueis/edit.ctp:37
+#: Template/Clientes/add.ctp:18
+#: Template/Clientes/edit.ctp:24
+#: Template/Contas/add.ctp:20
+#: Template/Contas/edit.ctp:26
+#: Template/Jogos/add.ctp:20
+#: Template/Jogos/edit.ctp:26
+#: Template/Senhas/add.ctp:22
+#: Template/Senhas/edit.ctp:28
+#: Template/Usuarios/add.ctp:17
+#: Template/Usuarios/edit.ctp:23
+#: View/Helper/FormHelper.php:1740
+msgid "Submit"
+msgstr ""
+
+#: Template/Alugueis/edit.ctp:5
+#: Template/Alugueis/index.ctp:42
+#: Template/Clientes/edit.ctp:5
+#: Template/Clientes/index.ctp:30
+#: Template/Contas/edit.ctp:5
+#: Template/Contas/index.ctp:32
+#: Template/Contas/view.ctp:55
+#: Template/Jogos/edit.ctp:5
+#: Template/Jogos/index.ctp:28
+#: Template/Jogos/view.ctp:49
+#: Template/Senhas/edit.ctp:5
+#: Template/Senhas/index.ctp:38
+#: Template/Usuarios/edit.ctp:5
+#: Template/Usuarios/index.ctp:26
+#: Template/Usuarios/view.ctp:51
+msgid "Delete"
+msgstr ""
+
+#: Template/Alugueis/edit.ctp:7
+#: Template/Alugueis/index.ctp:42
+#: Template/Alugueis/view.ctp:5
+#: Template/Clientes/edit.ctp:7
+#: Template/Clientes/index.ctp:30
+#: Template/Clientes/view.ctp:5
+#: Template/Contas/edit.ctp:7
+#: Template/Contas/index.ctp:32
+#: Template/Contas/view.ctp:5;55
+#: Template/Jogos/edit.ctp:7
+#: Template/Jogos/index.ctp:28
+#: Template/Jogos/view.ctp:5;49
+#: Template/Senhas/edit.ctp:7
+#: Template/Senhas/index.ctp:38
+#: Template/Senhas/view.ctp:5
+#: Template/Usuarios/edit.ctp:7
+#: Template/Usuarios/index.ctp:26
+#: Template/Usuarios/view.ctp:5;51
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Alugueis/edit.ctp:20
+#: Template/Alugueis/view.ctp:4
+msgid "Edit Aluguel"
+msgstr ""
+
+#: Template/Alugueis/index.ctp:4
+#: Template/Alugueis/view.ctp:7
+msgid "New Aluguel"
+msgstr ""
+
+#: Template/Alugueis/index.ctp:40
+#: Template/Clientes/index.ctp:28
+#: Template/Contas/index.ctp:30
+#: Template/Contas/view.ctp:51
+#: Template/Jogos/index.ctp:26
+#: Template/Jogos/view.ctp:45
+#: Template/Senhas/index.ctp:36
+#: Template/Usuarios/index.ctp:24
+#: Template/Usuarios/view.ctp:47
+msgid "View"
+msgstr ""
+
+#: Template/Alugueis/index.ctp:41
+#: Template/Clientes/index.ctp:29
+#: Template/Contas/index.ctp:31
+#: Template/Contas/view.ctp:53
+#: Template/Jogos/index.ctp:27
+#: Template/Jogos/view.ctp:47
+#: Template/Senhas/index.ctp:37
+#: Template/Usuarios/index.ctp:25
+#: Template/Usuarios/view.ctp:49
+msgid "Edit"
+msgstr ""
+
+#: Template/Alugueis/index.ctp:51
+#: Template/Clientes/index.ctp:39
+#: Template/Contas/index.ctp:41
+#: Template/Jogos/index.ctp:37
+#: Template/Senhas/index.ctp:47
+#: Template/Usuarios/index.ctp:35
+msgid "previous"
+msgstr ""
+
+#: Template/Alugueis/index.ctp:53
+#: Template/Clientes/index.ctp:41
+#: Template/Contas/index.ctp:43
+#: Template/Jogos/index.ctp:39
+#: Template/Senhas/index.ctp:49
+#: Template/Usuarios/index.ctp:37
+msgid "next"
+msgstr ""
+
+#: Template/Alugueis/view.ctp:5
+msgid "Delete Aluguel"
+msgstr ""
+
+#: Template/Alugueis/view.ctp:18
+msgid "Cliente"
+msgstr ""
+
+#: Template/Alugueis/view.ctp:20
+#: Template/Senhas/view.ctp:18
+msgid "Conta"
+msgstr ""
+
+#: Template/Alugueis/view.ctp:22
+msgid "Situacao"
+msgstr ""
+
+#: Template/Alugueis/view.ctp:24
+msgid "Tipo"
+msgstr ""
+
+#: Template/Alugueis/view.ctp:28
+#: Template/Clientes/view.ctp:22
+#: Template/Contas/view.ctp:24;35
+#: Template/Jogos/view.ctp:22;33
+#: Template/Senhas/view.ctp:26
+#: Template/Usuarios/view.ctp:20;31
+msgid "Id"
+msgstr ""
+
+#: Template/Alugueis/view.ctp:30
+msgid "Id Pai"
+msgstr ""
+
+#: Template/Alugueis/view.ctp:34
+msgid "Data Inicio"
+msgstr ""
+
+#: Template/Alugueis/view.ctp:36
+msgid "Data Fim"
+msgstr ""
+
+#: Template/Alugueis/view.ctp:38
+#: Template/Contas/view.ctp:39
+#: Template/Senhas/view.ctp:30
+#: Template/Usuarios/view.ctp:35
+msgid "Data Cadastro"
+msgstr ""
+
+#: Template/Clientes/add.ctp:10
+msgid "Add Cliente"
+msgstr ""
+
+#: Template/Clientes/edit.ctp:16
+#: Template/Clientes/view.ctp:4
+msgid "Edit Cliente"
+msgstr ""
+
+#: Template/Clientes/view.ctp:5
+msgid "Delete Cliente"
+msgstr ""
+
+#: Template/Clientes/view.ctp:14
+#: Template/Usuarios/view.ctp:16
+msgid "Nome"
+msgstr ""
+
+#: Template/Clientes/view.ctp:16
+#: Template/Contas/view.ctp:20
+#: Template/Jogos/view.ctp:35
+msgid "Email"
+msgstr ""
+
+#: Template/Clientes/view.ctp:18
+msgid "Game Tag"
+msgstr ""
+
+#: Template/Clientes/view.ctp:24
+msgid "Id Google"
+msgstr ""
+
+#: Template/Contas/add.ctp:5
+#: Template/Contas/edit.ctp:11
+#: Template/Contas/index.ctp:5
+#: Template/Contas/view.ctp:8
+#: Template/Jogos/add.ctp:4
+#: Template/Jogos/edit.ctp:10
+#: Template/Jogos/view.ctp:6
+msgid "List Jogos"
+msgstr ""
+
+#: Template/Contas/add.ctp:6
+#: Template/Contas/edit.ctp:12
+#: Template/Contas/index.ctp:6
+#: Template/Contas/view.ctp:9
+#: Template/Jogos/index.ctp:4
+#: Template/Jogos/view.ctp:7
+msgid "New Jogo"
+msgstr ""
+
+#: Template/Contas/add.ctp:7
+#: Template/Contas/edit.ctp:13
+#: Template/Contas/index.ctp:7
+#: Template/Contas/view.ctp:10
+#: Template/Senhas/add.ctp:4
+#: Template/Senhas/edit.ctp:10
+#: Template/Senhas/view.ctp:6
+#: Template/Usuarios/add.ctp:5
+#: Template/Usuarios/edit.ctp:11
+#: Template/Usuarios/index.ctp:5
+#: Template/Usuarios/view.ctp:8
+msgid "List Senhas"
+msgstr ""
+
+#: Template/Contas/add.ctp:8
+#: Template/Contas/edit.ctp:14
+#: Template/Contas/index.ctp:8
+#: Template/Contas/view.ctp:11
+#: Template/Senhas/index.ctp:4
+#: Template/Senhas/view.ctp:7
+#: Template/Usuarios/add.ctp:6
+#: Template/Usuarios/edit.ctp:12
+#: Template/Usuarios/index.ctp:6
+#: Template/Usuarios/view.ctp:9
+msgid "New Senha"
+msgstr ""
+
+#: Template/Contas/add.ctp:14
+msgid "Add Conta"
+msgstr ""
+
+#: Template/Contas/edit.ctp:20
+#: Template/Contas/view.ctp:4
+msgid "Edit Conta"
+msgstr ""
+
+#: Template/Contas/view.ctp:5
+msgid "Delete Conta"
+msgstr ""
+
+#: Template/Contas/view.ctp:18
+msgid "Jogo"
+msgstr ""
+
+#: Template/Contas/view.ctp:31
+#: Template/Usuarios/view.ctp:27
+msgid "Related Senhas"
+msgstr ""
+
+#: Template/Contas/view.ctp:36
+#: Template/Usuarios/view.ctp:32
+msgid "Conta Id"
+msgstr ""
+
+#: Template/Contas/view.ctp:37
+#: Template/Usuarios/view.ctp:33
+msgid "Usuario Id"
+msgstr ""
+
+#: Template/Contas/view.ctp:38
+#: Template/Senhas/view.ctp:22
+#: Template/Usuarios/view.ctp:34
+msgid "Senha"
+msgstr ""
+
+#: Template/Jogos/add.ctp:12
+msgid "Add Jogo"
+msgstr ""
+
+#: Template/Jogos/edit.ctp:18
+#: Template/Jogos/view.ctp:4
+msgid "Edit Jogo"
+msgstr ""
+
+#: Template/Jogos/view.ctp:5
+msgid "Delete Jogo"
+msgstr ""
+
+#: Template/Jogos/view.ctp:16
+msgid "Titulo"
+msgstr ""
+
+#: Template/Jogos/view.ctp:18
+msgid "Categoria"
+msgstr ""
+
+#: Template/Jogos/view.ctp:29
+msgid "Related Contas"
+msgstr ""
+
+#: Template/Jogos/view.ctp:34
+msgid "Jogo Id"
+msgstr ""
+
+#: Template/Senhas/add.ctp:7
+#: Template/Senhas/edit.ctp:13
+#: Template/Senhas/index.ctp:7
+#: Template/Senhas/view.ctp:10
+#: Template/Usuarios/add.ctp:4
+#: Template/Usuarios/edit.ctp:10
+#: Template/Usuarios/view.ctp:6
+msgid "List Usuarios"
+msgstr ""
+
+#: Template/Senhas/add.ctp:8
+#: Template/Senhas/edit.ctp:14
+#: Template/Senhas/index.ctp:8
+#: Template/Senhas/view.ctp:11
+#: Template/Usuarios/index.ctp:4
+#: Template/Usuarios/view.ctp:7
+msgid "New Usuario"
+msgstr ""
+
+#: Template/Senhas/add.ctp:14
+msgid "Add Senha"
+msgstr ""
+
+#: Template/Senhas/edit.ctp:20
+#: Template/Senhas/view.ctp:4
+msgid "Edit Senha"
+msgstr ""
+
+#: Template/Senhas/view.ctp:5
+msgid "Delete Senha"
+msgstr ""
+
+#: Template/Senhas/view.ctp:20
+msgid "Usuario"
+msgstr ""
+
+#: Template/Usuarios/add.ctp:12
+msgid "Add Usuario"
+msgstr ""
+
+#: Template/Usuarios/edit.ctp:18
+#: Template/Usuarios/view.ctp:4
+msgid "Edit Usuario"
+msgstr ""
+
+#: Template/Usuarios/view.ctp:5
+msgid "Delete Usuario"
+msgstr ""
+
+#: Template/Error/error400.ctp:33
+#: Template/Error/error500.ctp:35
+msgid "Error"
+msgstr ""
+
+#: Template/Error/error400.ctp:35
+msgid "The requested address %s was not found on this server."
+msgstr ""
+
+#: Template/Error/error500.ctp:33
+msgid "An Internal Error Has Occurred"
+msgstr ""
+
+#: Controller/Component/AuthComponent.php:435
+msgid "You are not authorized to access that location."
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:148;152
+msgid "Invalid CSRF token."
+msgstr ""
+
+#: Error/ExceptionRenderer.php:225
+msgid "Not Found"
+msgstr ""
+
+#: Error/ExceptionRenderer.php:227
+msgid "An Internal Error Has Occurred."
+msgstr ""
+
+#: I18n/Number.php:75
+msgid "{0,number,#,###.##} KB"
+msgstr ""
+
+#: I18n/Number.php:77
+msgid "{0,number,#,###.##} MB"
+msgstr ""
+
+#: I18n/Number.php:79
+msgid "{0,number,#,###.##} GB"
+msgstr ""
+
+#: I18n/Number.php:81
+msgid "{0,number,#,###.##} TB"
+msgstr ""
+
+#: I18n/Number.php:73
+msgid "{0,number,integer} Byte"
+msgid_plural "{0,number,integer} Bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:254
+msgid "%s ago"
+msgstr ""
+
+#: I18n/Time.php:255
+msgid "on %s"
+msgstr ""
+
+#: I18n/Time.php:295
+msgid "just now"
+msgstr ""
+
+#: I18n/Time.php:411
+msgid "about a second ago"
+msgstr ""
+
+#: I18n/Time.php:412
+msgid "about a minute ago"
+msgstr ""
+
+#: I18n/Time.php:413
+msgid "about an hour ago"
+msgstr ""
+
+#: I18n/Time.php:414
+msgid "about a day ago"
+msgstr ""
+
+#: I18n/Time.php:415
+msgid "about a week ago"
+msgstr ""
+
+#: I18n/Time.php:416
+msgid "about a year ago"
+msgstr ""
+
+#: I18n/Time.php:425
+msgid "in about a second"
+msgstr ""
+
+#: I18n/Time.php:426
+msgid "in about a minute"
+msgstr ""
+
+#: I18n/Time.php:427
+msgid "in about an hour"
+msgstr ""
+
+#: I18n/Time.php:428
+msgid "in about a day"
+msgstr ""
+
+#: I18n/Time.php:429
+msgid "in about a week"
+msgstr ""
+
+#: I18n/Time.php:430
+msgid "in about a year"
+msgstr ""
+
+#: I18n/Time.php:384
+msgid "{0} year"
+msgid_plural "{0} years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:387
+msgid "{0} month"
+msgid_plural "{0} months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:390
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:393
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:396
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:399
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:402
+msgid "{0} second"
+msgid_plural "{0} seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: Network/Response.php:1435
+msgid "The requested file was not found"
+msgstr ""
+
+#: ORM/RulesChecker.php:49
+msgid "This value is already in use"
+msgstr ""
+
+#: ORM/RulesChecker.php:83
+msgid "This value does not exist"
+msgstr ""
+
+#: Utility/Text.php:724
+msgid "and"
+msgstr ""
+
+#: Validation/Validator.php:103
+msgid "This field is required"
+msgstr ""
+
+#: Validation/Validator.php:104
+msgid "This field cannot be left empty"
+msgstr ""
+
+#: Validation/Validator.php:652
+msgid "The provided value is invalid"
+msgstr ""
+
+#: View/Helper/FormHelper.php:943
+msgid "New %s"
+msgstr ""
+
+#: View/Helper/FormHelper.php:946
+msgid "Edit %s"
+msgstr ""
+
+#: View/Helper/HtmlHelper.php:770
+msgid "Home"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:513
+msgid "January"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:514
+msgid "February"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:515
+msgid "March"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:516
+msgid "April"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:517
+msgid "May"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:518
+msgid "June"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:519
+msgid "July"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:520
+msgid "August"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:521
+msgid "September"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:522
+msgid "October"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:523
+msgid "November"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:524
+msgid "December"
+msgstr ""
+

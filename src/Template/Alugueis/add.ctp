@@ -1,4 +1,3 @@
-<?php echo $this->Html->script('http://code.jquery.com/jquery.min.js'); ?>
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
@@ -18,9 +17,11 @@
             echo $this->Form->input('jogo_id', ['options' => $jogos, 
                                                 'onchange' => 'loadContas(this.value)',
                                                 'empty' => 'Selectione um jogo']);
+            echo $this->Form->label('Conta');
             echo $this->Form->select('conta_id', null, ['id' => 'conta_id']);
+            
             echo $this->Form->input('data_inicio');
-            echo $this->Form->input('data_fim');
+            echo $this->Form->input('data_fim', ['id' => 'data_fim']);
             echo $this->Form->input('data_cadastro');
 
             echo $this->Form->label('situação');
@@ -50,17 +51,15 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-
-       
+        
     });
 
     function loadContas(jogo_id) {
         
         if (jogo_id) {
-            var url = '/contas/json';
+            var url = '/contas.json?jogo_id=' + jogo_id;
             $.ajax({
                 url: url,
-                data: {filtro: jogo_id},
                 dataType: 'json'
             }).done(function(data) {
                 var contas = data.contas;

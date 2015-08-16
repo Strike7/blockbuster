@@ -35,7 +35,7 @@
             </td>
             <td><?= h($aluguel->data_inicio) ?></td>
             <td><?= h($aluguel->data_fim) ?></td>
-            <td><?= h($aluguel->situacao) ?></td>
+            <td><?= h($aluguel->descricao_situacao) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $aluguel->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $aluguel->id]) ?>

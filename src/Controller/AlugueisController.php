@@ -13,11 +13,6 @@ use App\Controller\Component\ContasComboBoxComponent;
 class AlugueisController extends AppController
 {
 
-    
-    public function initialize()
-    {
-        $this->loadComponent('ContasComboBox');
-    }
     /**
      * Index method
      *
@@ -66,21 +61,6 @@ class AlugueisController extends AppController
             }
         }
 
-        if ($this->request->is('ajax')){
-
-            $jogo_id = $this->request->query('id');
-                        
-            $contasTable = TableRegistry::get('Contas');
-            $query = $contasTable->find('all')
-                                ->where(['Contas.jogo_id' => $jogo_id])
-                                ->order(['email' => 'ASC']);
-
-            $this->autoRender = false;
-            
-            $this->ContasComboBox->get('conta_id', $query->toArray());
-            
-        }
-
         $clientes = $this->Alugueis->Clientes->find('list', ['limit' => 200,
                                                              'order' => ['Clientes.nome' => 'ASC']  
                                                             ]);
@@ -107,8 +87,12 @@ class AlugueisController extends AppController
         $aluguel = $this->Alugueis->get($id, [
             'contain' => []
         ]);
+        
         if ($this->request->is(['patch', 'post', 'put'])) {
+            $aluguel = $this->Alugueis->newEntity();
             $aluguel = $this->Alugueis->patchEntity($aluguel, $this->request->data);
+            $aluguel->set('id_pai', $id);
+            
             if ($this->Alugueis->save($aluguel)) {
                 $this->Flash->success(__('The aluguel has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -116,6 +100,7 @@ class AlugueisController extends AppController
                 $this->Flash->error(__('The aluguel could not be saved. Please, try again.'));
             }
         }
+
         $clientes = $this->Alugueis->Clientes->find('list', ['limit' => 200]);
         $contas = $this->Alugueis->Contas->find('list', ['limit' => 200]);
         $this->set(compact('aluguel', 'clientes', 'contas'));
