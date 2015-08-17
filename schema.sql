@@ -76,3 +76,21 @@ CREATE TABLE alugueis (
 	  REFERENCES contas (id) MATCH SIMPLE
 	  ON UPDATE NO ACTION ON DELETE NO ACTION  
 );
+
+CREATE OR REPLACE FUNCTION alugueis_remove_ativo()
+  RETURNS trigger AS
+  $BODY$
+    BEGIN
+        UPDATE alugueis SET ativo = null
+        WHERE id = NEW.id_pai;
+
+        RETURN NEW;
+    END;
+  $BODY$
+  LANGUAGE plpgsql VOLATILE;
+
+CREATE TRIGGER alugueis_remove_ativo_tg
+  AFTER INSERT
+  ON alugueis
+  FOR EACH ROW
+  EXECUTE PROCEDURE alugueis_remove_ativo();

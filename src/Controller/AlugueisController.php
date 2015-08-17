@@ -23,7 +23,12 @@ class AlugueisController extends AppController
         $this->paginate = [
             'contain' => ['Clientes', 'Contas']
         ];
-        $this->set('alugueis', $this->paginate($this->Alugueis));
+
+        $alugueis = $this->Alugueis->find();
+        $alugueis->where(['ativo' => 'S']);
+        $alugueis->contain(['Clientes', 'Contas']);
+
+        $this->set('alugueis', $this->paginate($alugueis));
         $this->set('_serialize', ['alugueis']);
     }
 
@@ -53,6 +58,8 @@ class AlugueisController extends AppController
         $aluguel = $this->Alugueis->newEntity();
         if ($this->request->is('post')) {
             $aluguel = $this->Alugueis->patchEntity($aluguel, $this->request->data);
+            $aluguel->set('ativo', 'S');
+
             if ($this->Alugueis->save($aluguel)) {
                 $this->Flash->success(__('The aluguel has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -64,9 +71,7 @@ class AlugueisController extends AppController
         $clientes = $this->Alugueis->Clientes->find('list', ['limit' => 200,
                                                              'order' => ['Clientes.nome' => 'ASC']  
                                                             ]);
-        // $contas = $this->Alugueis->Contas->find('list', ['limit' => 200,
-        //                                                  'order' => ['Contas.email' => 'ASC']  
-        //                                                 ]);
+                                                        
         $jogosTable = TableRegistry::get('Jogos');
         $query = $jogosTable->find('list')->order(['titulo' => 'ASC']);
         $jogos = $query->toArray();
@@ -92,6 +97,7 @@ class AlugueisController extends AppController
             $aluguel = $this->Alugueis->newEntity();
             $aluguel = $this->Alugueis->patchEntity($aluguel, $this->request->data);
             $aluguel->set('id_pai', $id);
+            $aluguel->set('ativo', 'S');
             
             if ($this->Alugueis->save($aluguel)) {
                 $this->Flash->success(__('The aluguel has been saved.'));
