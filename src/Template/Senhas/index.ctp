@@ -4,8 +4,8 @@
         <li><?= $this->Html->link(__('New Senha'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Contas'), ['controller' => 'Contas', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Conta'), ['controller' => 'Contas', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Usuarios'), ['controller' => 'Usuarios', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Usuario'), ['controller' => 'Usuarios', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="senhas index large-10 medium-9 columns">
@@ -14,7 +14,7 @@
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('conta_id') ?></th>
-            <th><?= $this->Paginator->sort('usuario_id') ?></th>
+            <th><?= $this->Paginator->sort('user_id') ?></th>
             <th><?= $this->Paginator->sort('senha') ?></th>
             <th><?= $this->Paginator->sort('data_cadastro') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
@@ -28,7 +28,7 @@
                 <?= $senha->has('conta') ? $this->Html->link($senha->conta->email, ['controller' => 'Contas', 'action' => 'view', $senha->conta->id]) : '' ?>
             </td>
             <td>
-                <?= $senha->has('usuario') ? $this->Html->link($senha->usuario->nome, ['controller' => 'Usuarios', 'action' => 'view', $senha->usuario->id]) : '' ?>
+                <?= $senha->has('user') ? $this->Html->link($senha->user->username, ['controller' => 'Users', 'action' => 'view', $senha->user->id]) : '' ?>
             </td>
             <td><?= h($senha->senha) ?></td>
             <td><?= h($senha->data_cadastro) ?></td>

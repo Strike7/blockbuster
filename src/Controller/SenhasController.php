@@ -19,7 +19,7 @@ class SenhasController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Contas', 'Usuarios']
+            'contain' => ['Contas', 'Users']
         ];
         $this->set('senhas', $this->paginate($this->Senhas));
         $this->set('_serialize', ['senhas']);
@@ -35,7 +35,7 @@ class SenhasController extends AppController
     public function view($id = null)
     {
         $senha = $this->Senhas->get($id, [
-            'contain' => ['Contas', 'Usuarios']
+            'contain' => ['Contas', 'Users']
         ]);
         $this->set('senha', $senha);
         $this->set('_serialize', ['senha']);
@@ -59,10 +59,10 @@ class SenhasController extends AppController
             }
         }
         $contas = $this->Senhas->Contas->find('list', ['limit' => 200, 'order' => ['Contas.email' => 'ASC']]);
-        $usuarios = $this->Senhas->Usuarios->find('list', ['limit' => 200, 
-                                                            'order' => ['Usuarios.nome' => 'ASC']
-                                                          ]);
-        $this->set(compact('senha', 'contas', 'usuarios'));
+        $users = $this->Senhas->Users->find('list', ['limit' => 200, 
+                                                    'order' => ['Users.username' => 'ASC']
+                                                    ]);
+        $this->set(compact('senha', 'contas', 'users'));
         $this->set('_serialize', ['senha']);
     }
 
@@ -88,8 +88,8 @@ class SenhasController extends AppController
             }
         }
         $contas = $this->Senhas->Contas->find('list', ['limit' => 200]);
-        $usuarios = $this->Senhas->Usuarios->find('list', ['limit' => 200]);
-        $this->set(compact('senha', 'contas', 'usuarios'));
+        $users = $this->Senhas->Users->find('list', ['limit' => 200]);
+        $this->set(compact('senha', 'contas', 'users'));
         $this->set('_serialize', ['senha']);
     }
 

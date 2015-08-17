@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  * Senhas Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Contas
- * @property \Cake\ORM\Association\BelongsTo $Usuarios
+ * @property \Cake\ORM\Association\BelongsTo $Users
  */
 class SenhasTable extends Table
 {
@@ -33,8 +33,8 @@ class SenhasTable extends Table
             'foreignKey' => 'conta_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Usuarios', [
-            'foreignKey' => 'usuario_id',
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -71,7 +71,7 @@ class SenhasTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['conta_id'], 'Contas'));
-        $rules->add($rules->existsIn(['usuario_id'], 'Usuarios'));
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
         return $rules;
     }
 }

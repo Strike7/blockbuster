@@ -25,9 +25,12 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->table('users');
-        $this->displayField('id');
+        $this->displayField('username');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->hasMany('Senhas', [
+            'foreignKey' => 'user_id'
+        ]);
     }
 
     /**
