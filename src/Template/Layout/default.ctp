@@ -25,22 +25,55 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
+    <?= $this->Html->css('sb-admin-2.css') ?>
+    <?= $this->Html->css('timeline.css') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
-
+    <?php echo $this->Html->script('http://code.jquery.com/jquery.min.js'); ?>
+    <?= $this->Html->script('sb-admin-2.js') ?>
+    <?php echo $this->Html->css('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'); ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-    <?php echo $this->Html->script('http://code.jquery.com/jquery.min.js'); ?>
+    
+    
+    
 </head>
 <body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Strike7 Games</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav in" id="side-menu">
+                        <?= $this->cell('Menu') ?>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+    </div>
+    
     <header>
         <div class="header-title">
             <span><?= $this->fetch('title') ?></span>
-            <span><?= $this->cell('Menu') ?></span>
+            
         </div>
         <div class="header-help">
+            <span><?= $this->cell('Menu') ?></span>  
             <span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
             <span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
             <span><a href="/users/logout">Sair</a></span>
@@ -60,3 +93,4 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </body>
 </html>
+
