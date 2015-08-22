@@ -31,6 +31,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?php echo $this->Html->script('http://code.jquery.com/jquery.min.js'); ?>
     <?= $this->Html->script('sb-admin-2.js') ?>
     <?php echo $this->Html->css('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'); ?>
+    <?php echo $this->Html->css('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'); ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
@@ -50,10 +51,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </button>
                 <a class="navbar-brand" href="/">Strike7 Games</a>
             </div>
-            <!-- /.navbar-header -->
-
-            
-            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -66,31 +63,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <!-- /.navbar-static-side -->
         </nav>
     </div>
-    
-    <header>
-        <div class="header-title">
-            <span><?= $this->fetch('title') ?></span>
-            
-        </div>
-        <div class="header-help">
-            <span><?= $this->cell('Menu') ?></span>  
-            <span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
-            <span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
-            <span><a href="/users/logout">Sair</a></span>
-        </div>
-    </header>
-    <div id="container">
 
-        <div id="content">
-            <?= $this->Flash->render() ?>
-
-            <div class="row">
-                <?= $this->fetch('content') ?>
-            </div>
+    <div class="page-wrapper" style="min-height: 323px;">
+        <?= $this->Flash->render() ?>
+        <div class="row">
+            <?= $this->fetch('content') ?>
         </div>
-        <footer>
-        </footer>
     </div>
+  
 </body>
 </html>
 
