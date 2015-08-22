@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ef2254b87b67630e4f4e3b4655ece177",
+    "hash": "a9c7847ecab59ce1b75d5b72fa19cf64",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -127,16 +127,16 @@
         },
         {
             "name": "cakephp/cakephp",
-            "version": "3.0.11",
+            "version": "3.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "1fa60a537fcb4d0c6ca5647f55632d91e9b1da19"
+                "reference": "5ff3f8de114699cecea6e280f169e2fe3ffa106a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/1fa60a537fcb4d0c6ca5647f55632d91e9b1da19",
-                "reference": "1fa60a537fcb4d0c6ca5647f55632d91e9b1da19",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/5ff3f8de114699cecea6e280f169e2fe3ffa106a",
+                "reference": "5ff3f8de114699cecea6e280f169e2fe3ffa106a",
                 "shasum": ""
             },
             "require": {
@@ -198,20 +198,20 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-08-06 01:34:24"
+            "time": "2015-08-22 01:46:55"
         },
         {
             "name": "cakephp/migrations",
-            "version": "1.2",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/migrations.git",
-                "reference": "2c0bec392cc77d5a8656dde9482c869153bfd615"
+                "reference": "21156cad08ee7e68dcdc8fddbd8ce345eea604c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/migrations/zipball/2c0bec392cc77d5a8656dde9482c869153bfd615",
-                "reference": "2c0bec392cc77d5a8656dde9482c869153bfd615",
+                "url": "https://api.github.com/repos/cakephp/migrations/zipball/21156cad08ee7e68dcdc8fddbd8ce345eea604c5",
+                "reference": "21156cad08ee7e68dcdc8fddbd8ce345eea604c5",
                 "shasum": ""
             },
             "require": {
@@ -248,7 +248,7 @@
                 "cakephp",
                 "migrations"
             ],
-            "time": "2015-07-31 13:26:04"
+            "time": "2015-08-11 17:32:27"
         },
         {
             "name": "cakephp/plugin-installer",
@@ -289,6 +289,43 @@
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
             "time": "2015-06-10 10:35:13"
+        },
+        {
+            "name": "holt59/cakephp3-bootstrap-helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Holt59/cakephp3-bootstrap-helpers.git",
+                "reference": "00fbf7aa770c1e5e2f99840a7598fb2e0c3a3da7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Holt59/cakephp3-bootstrap-helpers/zipball/00fbf7aa770c1e5e2f99840a7598fb2e0c3a3da7",
+                "reference": "00fbf7aa770c1e5e2f99840a7598fb2e0c3a3da7",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0"
+            },
+            "type": "cakephp-plugin",
+            "extra": {
+                "installer-name": "Bootstrap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bootstrap\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache"
+            ],
+            "description": "Bootstrap Helpers for CakePHP 3.0",
+            "keywords": [
+                "bootstrap",
+                "cakephp"
+            ],
+            "time": "2015-08-20 17:41:53"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -741,16 +778,16 @@
     "packages-dev": [
         {
             "name": "cakephp/bake",
-            "version": "1.0.11",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/bake.git",
-                "reference": "68dcbbf239a87265e81f2ebd44ae39135c3d186b"
+                "reference": "36a58b1d953bd31c3d380394639850cbc726cd09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/bake/zipball/68dcbbf239a87265e81f2ebd44ae39135c3d186b",
-                "reference": "68dcbbf239a87265e81f2ebd44ae39135c3d186b",
+                "url": "https://api.github.com/repos/cakephp/bake/zipball/36a58b1d953bd31c3d380394639850cbc726cd09",
+                "reference": "36a58b1d953bd31c3d380394639850cbc726cd09",
                 "shasum": ""
             },
             "require": {
@@ -783,7 +820,7 @@
                 "bake",
                 "cakephp"
             ],
-            "time": "2015-07-26 21:50:43"
+            "time": "2015-08-21 16:51:34"
         },
         {
             "name": "cakephp/debug_kit",
@@ -1196,6 +1233,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "holt59/cakephp3-bootstrap-helpers": 20,
         "psy/psysh": 0
     },
     "prefer-stable": true,
