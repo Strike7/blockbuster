@@ -26,22 +26,6 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
-    public $helpers = [
-        'Html' => [
-            'className' => 'Bootstrap.BootstrapHtml',
-            'useFontAwesome' => true
-        ],
-        'Form' => [
-            'className' => 'Bootstrap.BootstrapForm'
-        ],
-        'Paginator' => [
-            'className' => 'Bootstrap.BootstrapPaginator'
-        ],
-        'Modal' => [
-            'className' => 'Bootstrap.BootstrapModal'
-        ]
-    ];
-
     public function initialize()
     {
         $this->loadComponent('Flash');

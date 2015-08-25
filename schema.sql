@@ -51,7 +51,7 @@ CREATE TABLE clientes (
 	nome varchar(200) NOT NULL,
 	email varchar(200) NOT NULL,
     id_google bigint, -- Link para o contato do google
-    game_tag varchar(50)
+    game_tag varchar(50),
 
 	CONSTRAINT clientes_pk PRIMARY KEY (id)
 );
@@ -66,7 +66,7 @@ CREATE TABLE alugueis (
 	situacao char(1), -- U - EM USO, R - RESERVADO, C - CANCELADO, F - FINALIZADO
 	tipo char(1), -- A - Avulso, M - Mercado Livre
 	data_cadastro timestamp NOT NULL DEFAULT now(),
-	ativo, -- S - Sim
+	ativo char(1), -- S - Sim
 
 	CONSTRAINT alugueis_pk PRIMARY KEY (id),
 	CONSTRAINT alugueis_clientes_fk FOREIGN KEY (cliente_id)

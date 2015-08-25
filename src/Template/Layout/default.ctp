@@ -25,52 +25,38 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-    <?= $this->Html->css('sb-admin-2.css') ?>
-    <?= $this->Html->css('timeline.css') ?>
 
-    <?php echo $this->Html->script('http://code.jquery.com/jquery.min.js'); ?>
-    <?= $this->Html->script('sb-admin-2.js') ?>
-    <?php echo $this->Html->css('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'); ?>
-    <?php echo $this->Html->css('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'); ?>
+    <?= $this->Html->css('base.css') ?>
+    <?= $this->Html->css('cake.css') ?>
+
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-    
-    
-    
+    <?php echo $this->Html->script('http://code.jquery.com/jquery.min.js'); ?>
 </head>
 <body>
-    <div id="wrapper">
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">Strike7 Games</a>
-            </div>
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav in" id="side-menu">
-                        <?= $this->cell('Menu') ?>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
-    </div>
-
-    <div class="page-wrapper" style="min-height: 323px;">
-        <?= $this->Flash->render() ?>
-        <div class="row">
-            <?= $this->fetch('content') ?>
+    <header>
+        <div class="header-title">
+            <span><?= $this->fetch('title') ?></span>
         </div>
+        <div class="header-help">
+            <span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
+            <span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
+            <span><a href="/users/logout">Sair</a></span>
+        </div>
+    </header>
+    <div id="container">
+
+        <div id="content">
+            <?= $this->Flash->render() ?>
+
+            <div class="row">
+                <?= $this->fetch('content') ?>
+            </div>
+        </div>
+        <footer>
+        </footer>
     </div>
-  
 </body>
 </html>
 
