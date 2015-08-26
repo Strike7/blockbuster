@@ -2,6 +2,7 @@
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
 
+//postgres://postgres:postgres@localhost:5432/strike7games
 
 return [
     /**
