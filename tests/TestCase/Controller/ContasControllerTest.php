@@ -19,7 +19,7 @@ class ContasControllerTest extends IntegrationTestCase
         'app.contas',
         'app.jogos',
         'app.senhas',
-        'app.usuarios'
+        'app.users'
     ];
 
     /**

@@ -34,7 +34,7 @@
         <tr>
             <th><?= __('Id') ?></th>
             <th><?= __('Conta Id') ?></th>
-            <th><?= __('Usuario Id') ?></th>
+            <th><?= __('User Id') ?></th>
             <th><?= __('Senha') ?></th>
             <th><?= __('Data Cadastro') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
@@ -43,7 +43,7 @@
         <tr>
             <td><?= h($senhas->id) ?></td>
             <td><?= h($senhas->conta_id) ?></td>
-            <td><?= h($senhas->usuario_id) ?></td>
+            <td><?= h($senhas->user_id) ?></td>
             <td><?= h($senhas->senha) ?></td>
             <td><?= h($senhas->data_cadastro) ?></td>
 

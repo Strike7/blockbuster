@@ -7,8 +7,8 @@
         <li><?= $this->Html->link(__('New Senha'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Contas'), ['controller' => 'Contas', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Conta'), ['controller' => 'Contas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Usuarios'), ['controller' => 'Usuarios', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Usuario'), ['controller' => 'Usuarios', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="senhas view large-10 medium-9 columns">
@@ -17,8 +17,8 @@
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Conta') ?></h6>
             <p><?= $senha->has('conta') ? $this->Html->link($senha->conta->email, ['controller' => 'Contas', 'action' => 'view', $senha->conta->id]) : '' ?></p>
-            <h6 class="subheader"><?= __('Usuario') ?></h6>
-            <p><?= $senha->has('usuario') ? $this->Html->link($senha->usuario->nome, ['controller' => 'Usuarios', 'action' => 'view', $senha->usuario->id]) : '' ?></p>
+            <h6 class="subheader"><?= __('User') ?></h6>
+            <p><?= $senha->has('user') ? $this->Html->link($senha->user->nome, ['controller' => 'Users', 'action' => 'view', $senha->user->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Senha') ?></h6>
             <p><?= h($senha->senha) ?></p>
         </div>

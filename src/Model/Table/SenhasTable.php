@@ -54,10 +54,6 @@ class SenhasTable extends Table
             ->requirePresence('senha', 'create')
             ->notEmpty('senha');
 
-        $validator
-            ->requirePresence('data_cadastro', 'create')
-            ->notEmpty('data_cadastro');
-
         return $validator;
     }
 

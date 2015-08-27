@@ -22,7 +22,7 @@ class AlugueisTableTest extends TestCase
         'app.contas',
         'app.jogos',
         'app.senhas',
-        'app.usuarios'
+        'app.users'
     ];
 
     /**

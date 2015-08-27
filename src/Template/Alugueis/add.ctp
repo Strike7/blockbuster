@@ -41,7 +41,6 @@
             echo $this->Form->select('tipo', $optionsTipo,
                                     ['empty' => 'Selecione um tipo',
                                     'label' => true]);
-
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

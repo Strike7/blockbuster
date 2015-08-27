@@ -21,7 +21,7 @@ class AlugueisControllerTest extends IntegrationTestCase
         'app.contas',
         'app.jogos',
         'app.senhas',
-        'app.usuarios'
+        'app.users'
     ];
 
     /**

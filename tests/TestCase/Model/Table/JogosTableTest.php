@@ -20,7 +20,7 @@ class JogosTableTest extends TestCase
         'app.jogos',
         'app.contas',
         'app.senhas',
-        'app.usuarios'
+        'app.users'
     ];
 
     /**

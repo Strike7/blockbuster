@@ -94,20 +94,20 @@ msgstr ""
 msgid "The senha could not be deleted. Please, try again."
 msgstr ""
 
-#: Controller/UsuariosController.php:52;77
-msgid "The usuario has been saved."
+#: Controller/UsersController.php:52;77
+msgid "The user has been saved."
 msgstr ""
 
-#: Controller/UsuariosController.php:55;80
-msgid "The usuario could not be saved. Please, try again."
+#: Controller/UsersController.php:55;80
+msgid "The user could not be saved. Please, try again."
 msgstr ""
 
-#: Controller/UsuariosController.php:99
-msgid "The usuario has been deleted."
+#: Controller/UsersController.php:99
+msgid "The user has been deleted."
 msgstr ""
 
-#: Controller/UsuariosController.php:101
-msgid "The usuario could not be deleted. Please, try again."
+#: Controller/UsersController.php:101
+msgid "The user could not be deleted. Please, try again."
 msgstr ""
 
 #: Template/Alugueis/add.ctp:2
@@ -130,10 +130,10 @@ msgstr ""
 #: Template/Senhas/edit.ctp:2
 #: Template/Senhas/index.ctp:2;20
 #: Template/Senhas/view.ctp:2
-#: Template/Usuarios/add.ctp:2
-#: Template/Usuarios/edit.ctp:2
-#: Template/Usuarios/index.ctp:2;15
-#: Template/Usuarios/view.ctp:2;36
+#: Template/Users/add.ctp:2
+#: Template/Users/edit.ctp:2
+#: Template/Users/index.ctp:2;15
+#: Template/Users/view.ctp:2;36
 msgid "Actions"
 msgstr ""
 
@@ -211,8 +211,8 @@ msgstr ""
 #: Template/Jogos/edit.ctp:26
 #: Template/Senhas/add.ctp:22
 #: Template/Senhas/edit.ctp:28
-#: Template/Usuarios/add.ctp:17
-#: Template/Usuarios/edit.ctp:23
+#: Template/Users/add.ctp:17
+#: Template/Users/edit.ctp:23
 #: View/Helper/FormHelper.php:1740
 msgid "Submit"
 msgstr ""
@@ -229,9 +229,9 @@ msgstr ""
 #: Template/Jogos/view.ctp:49
 #: Template/Senhas/edit.ctp:5
 #: Template/Senhas/index.ctp:38
-#: Template/Usuarios/edit.ctp:5
-#: Template/Usuarios/index.ctp:26
-#: Template/Usuarios/view.ctp:51
+#: Template/Users/edit.ctp:5
+#: Template/Users/index.ctp:26
+#: Template/Users/view.ctp:51
 msgid "Delete"
 msgstr ""
 
@@ -250,9 +250,9 @@ msgstr ""
 #: Template/Senhas/edit.ctp:7
 #: Template/Senhas/index.ctp:38
 #: Template/Senhas/view.ctp:5
-#: Template/Usuarios/edit.ctp:7
-#: Template/Usuarios/index.ctp:26
-#: Template/Usuarios/view.ctp:5;51
+#: Template/Users/edit.ctp:7
+#: Template/Users/index.ctp:26
+#: Template/Users/view.ctp:5;51
 msgid "Are you sure you want to delete # {0}?"
 msgstr ""
 
@@ -273,8 +273,8 @@ msgstr ""
 #: Template/Jogos/index.ctp:26
 #: Template/Jogos/view.ctp:45
 #: Template/Senhas/index.ctp:36
-#: Template/Usuarios/index.ctp:24
-#: Template/Usuarios/view.ctp:47
+#: Template/Users/index.ctp:24
+#: Template/Users/view.ctp:47
 msgid "View"
 msgstr ""
 
@@ -285,8 +285,8 @@ msgstr ""
 #: Template/Jogos/index.ctp:27
 #: Template/Jogos/view.ctp:47
 #: Template/Senhas/index.ctp:37
-#: Template/Usuarios/index.ctp:25
-#: Template/Usuarios/view.ctp:49
+#: Template/Users/index.ctp:25
+#: Template/Users/view.ctp:49
 msgid "Edit"
 msgstr ""
 
@@ -295,7 +295,7 @@ msgstr ""
 #: Template/Contas/index.ctp:41
 #: Template/Jogos/index.ctp:37
 #: Template/Senhas/index.ctp:47
-#: Template/Usuarios/index.ctp:35
+#: Template/Users/index.ctp:35
 msgid "previous"
 msgstr ""
 
@@ -304,7 +304,7 @@ msgstr ""
 #: Template/Contas/index.ctp:43
 #: Template/Jogos/index.ctp:39
 #: Template/Senhas/index.ctp:49
-#: Template/Usuarios/index.ctp:37
+#: Template/Users/index.ctp:37
 msgid "next"
 msgstr ""
 
@@ -334,7 +334,7 @@ msgstr ""
 #: Template/Contas/view.ctp:24;35
 #: Template/Jogos/view.ctp:22;33
 #: Template/Senhas/view.ctp:26
-#: Template/Usuarios/view.ctp:20;31
+#: Template/Users/view.ctp:20;31
 msgid "Id"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgstr ""
 #: Template/Alugueis/view.ctp:38
 #: Template/Contas/view.ctp:39
 #: Template/Senhas/view.ctp:30
-#: Template/Usuarios/view.ctp:35
+#: Template/Users/view.ctp:35
 msgid "Data Cadastro"
 msgstr ""
 
@@ -371,7 +371,7 @@ msgid "Delete Cliente"
 msgstr ""
 
 #: Template/Clientes/view.ctp:14
-#: Template/Usuarios/view.ctp:16
+#: Template/Users/view.ctp:16
 msgid "Nome"
 msgstr ""
 
@@ -415,10 +415,10 @@ msgstr ""
 #: Template/Senhas/add.ctp:4
 #: Template/Senhas/edit.ctp:10
 #: Template/Senhas/view.ctp:6
-#: Template/Usuarios/add.ctp:5
-#: Template/Usuarios/edit.ctp:11
-#: Template/Usuarios/index.ctp:5
-#: Template/Usuarios/view.ctp:8
+#: Template/Users/add.ctp:5
+#: Template/Users/edit.ctp:11
+#: Template/Users/index.ctp:5
+#: Template/Users/view.ctp:8
 msgid "List Senhas"
 msgstr ""
 
@@ -428,10 +428,10 @@ msgstr ""
 #: Template/Contas/view.ctp:11
 #: Template/Senhas/index.ctp:4
 #: Template/Senhas/view.ctp:7
-#: Template/Usuarios/add.ctp:6
-#: Template/Usuarios/edit.ctp:12
-#: Template/Usuarios/index.ctp:6
-#: Template/Usuarios/view.ctp:9
+#: Template/Users/add.ctp:6
+#: Template/Users/edit.ctp:12
+#: Template/Users/index.ctp:6
+#: Template/Users/view.ctp:9
 msgid "New Senha"
 msgstr ""
 
@@ -453,23 +453,23 @@ msgid "Jogo"
 msgstr ""
 
 #: Template/Contas/view.ctp:31
-#: Template/Usuarios/view.ctp:27
+#: Template/Users/view.ctp:27
 msgid "Related Senhas"
 msgstr ""
 
 #: Template/Contas/view.ctp:36
-#: Template/Usuarios/view.ctp:32
+#: Template/Users/view.ctp:32
 msgid "Conta Id"
 msgstr ""
 
 #: Template/Contas/view.ctp:37
-#: Template/Usuarios/view.ctp:33
-msgid "Usuario Id"
+#: Template/Users/view.ctp:33
+msgid "User Id"
 msgstr ""
 
 #: Template/Contas/view.ctp:38
 #: Template/Senhas/view.ctp:22
-#: Template/Usuarios/view.ctp:34
+#: Template/Users/view.ctp:34
 msgid "Senha"
 msgstr ""
 
@@ -506,19 +506,19 @@ msgstr ""
 #: Template/Senhas/edit.ctp:13
 #: Template/Senhas/index.ctp:7
 #: Template/Senhas/view.ctp:10
-#: Template/Usuarios/add.ctp:4
-#: Template/Usuarios/edit.ctp:10
-#: Template/Usuarios/view.ctp:6
-msgid "List Usuarios"
+#: Template/Users/add.ctp:4
+#: Template/Users/edit.ctp:10
+#: Template/Users/view.ctp:6
+msgid "List Users"
 msgstr ""
 
 #: Template/Senhas/add.ctp:8
 #: Template/Senhas/edit.ctp:14
 #: Template/Senhas/index.ctp:8
 #: Template/Senhas/view.ctp:11
-#: Template/Usuarios/index.ctp:4
-#: Template/Usuarios/view.ctp:7
-msgid "New Usuario"
+#: Template/Users/index.ctp:4
+#: Template/Users/view.ctp:7
+msgid "New User"
 msgstr ""
 
 #: Template/Senhas/add.ctp:14
@@ -535,20 +535,20 @@ msgid "Delete Senha"
 msgstr ""
 
 #: Template/Senhas/view.ctp:20
-msgid "Usuario"
+msgid "User"
 msgstr ""
 
-#: Template/Usuarios/add.ctp:12
-msgid "Add Usuario"
+#: Template/Users/add.ctp:12
+msgid "Add User"
 msgstr ""
 
-#: Template/Usuarios/edit.ctp:18
-#: Template/Usuarios/view.ctp:4
-msgid "Edit Usuario"
+#: Template/Users/edit.ctp:18
+#: Template/Users/view.ctp:4
+msgid "Edit User"
 msgstr ""
 
-#: Template/Usuarios/view.ctp:5
-msgid "Delete Usuario"
+#: Template/Users/view.ctp:5
+msgid "Delete User"
 msgstr ""
 
 #: Template/Error/error400.ctp:33

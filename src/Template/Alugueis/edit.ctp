@@ -30,7 +30,6 @@
             $optionsTipo = ['' => 'Selecione um tipo', 'A' => 'Avulso', 
                             'M' => 'Mercado Livre'];
             echo $this->Form->select('tipo', $optionsTipo);
-            echo $this->Form->input('data_cadastro');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

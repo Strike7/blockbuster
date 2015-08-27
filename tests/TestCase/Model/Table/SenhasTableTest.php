@@ -22,7 +22,7 @@ class SenhasTableTest extends TestCase
         'app.jogos',
         'app.alugueis',
         'app.clientes',
-        'app.usuarios'
+        'app.users'
     ];
 
     /**
