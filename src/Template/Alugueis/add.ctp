@@ -13,7 +13,8 @@
     <fieldset>
         <legend><?= __('Add Aluguel') ?></legend>
         <?php
-            echo $this->Form->input('cliente_id', ['options' => $clientes]);
+            echo $this->Form->input('cliente_id', ['options' => $clientes, 
+                                            'empty' => 'Selectione um cliente']);
             echo $this->Form->input('jogo_id', ['options' => $jogos, 
                                                 'onchange' => 'loadContas(this.value)',
                                                 'empty' => 'Selectione um jogo']);
@@ -22,7 +23,6 @@
             
             echo $this->Form->input('data_inicio');
             echo $this->Form->input('data_fim', ['id' => 'data_fim']);
-            echo $this->Form->input('data_cadastro');
 
             echo $this->Form->label('situação');
 
@@ -35,14 +35,13 @@
 
             echo $this->Form->label('tipo');
 
-            $optionsTipo = ['' => 'Selecione um tipo', 'A' => 'Avulso', 
+            $optionsTipo = ['A' => 'Avulso', 
                             'M' => 'Mercado Livre'];
             
             echo $this->Form->select('tipo', $optionsTipo,
                                     ['empty' => 'Selecione um tipo',
                                     'label' => true]);
 
-            echo $this->Form->input('data_cadastro');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

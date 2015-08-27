@@ -97,6 +97,7 @@ CREATE TRIGGER alugueis_remove_ativo_tg
 
 CREATE OR REPLACE VIEW disponibilidades AS
 	SELECT 
+		J.ID TITULO_ID,
 	   	J.TITULO,
 	    (CASE J.CATEGORIA
 			WHEN 'M' THEN 'Mais Alugados'
@@ -104,6 +105,7 @@ CREATE OR REPLACE VIEW disponibilidades AS
 		 	WHEN 'L' THEN 'Lançamento'
 		  	WHEN 'N' THEN 'Normal'
 	    END) CATEGORIA,
+	    C.ID CONTA_ID,
 	    C.EMAIL, 
 	    (SELECT SENHA FROM SENHAS WHERE CONTA_ID = C.ID ORDER BY ID DESC LIMIT 1 ) SENHA
 	FROM JOGOS J

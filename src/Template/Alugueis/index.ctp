@@ -12,8 +12,6 @@
     <table cellpadding="0" cellspacing="0">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('id_pai') ?></th>
             <th><?= $this->Paginator->sort('cliente_id') ?></th>
             <th><?= $this->Paginator->sort('conta_id') ?></th>
             <th><?= $this->Paginator->sort('data_inicio') ?></th>
@@ -25,8 +23,6 @@
     <tbody>
     <?php foreach ($alugueis as $aluguel): ?>
         <tr>
-            <td><?= $this->Number->format($aluguel->id) ?></td>
-            <td><?= $this->Number->format($aluguel->id_pai) ?></td>
             <td>
                 <?= $aluguel->has('cliente') ? $this->Html->link($aluguel->cliente->nome, ['controller' => 'Clientes', 'action' => 'view', $aluguel->cliente->id]) : '' ?>
             </td>
@@ -39,7 +35,6 @@
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $aluguel->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $aluguel->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $aluguel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $aluguel->id)]) ?>
             </td>
         </tr>
 
