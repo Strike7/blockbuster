@@ -94,3 +94,18 @@ CREATE TRIGGER alugueis_remove_ativo_tg
   ON alugueis
   FOR EACH ROW
   EXECUTE PROCEDURE alugueis_remove_ativo();
+
+CREATE OR REPLACE VIEW disponibilidades AS
+	SELECT 
+	   	J.TITULO,
+	    (CASE J.CATEGORIA
+			WHEN 'M' THEN 'Mais Alugados'
+			WHEN 'E' THEN 'Econômico'
+		 	WHEN 'L' THEN 'Lançamento'
+		  	WHEN 'N' THEN 'Normal'
+	    END) CATEGORIA,
+	    C.EMAIL, 
+	    (SELECT SENHA FROM SENHAS WHERE CONTA_ID = C.ID ORDER BY ID DESC LIMIT 1 ) SENHA
+	FROM JOGOS J
+	INNER JOIN CONTAS C ON C.JOGO_ID = J.ID
+	LEFT JOIN ALUGUEIS A ON A.CONTA_ID = C.ID AND A.ATIVO = 'S' AND A.DATA_FIM < NOW();
