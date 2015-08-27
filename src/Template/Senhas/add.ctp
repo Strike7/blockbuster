@@ -13,10 +13,11 @@
     <fieldset>
         <legend><?= __('Add Senha') ?></legend>
         <?php
-            echo $this->Form->input('conta_id', ['options' => $contas]);
-            echo $this->Form->input('user_id', ['options' => $users]);
+            echo $this->Form->input('conta_id', ['options' => $contas,
+                                        'empty' => 'Selecione uma conta']);
+            echo $this->Form->input('user_id', ['options' => $users,
+                                    'empty' => 'Selecione um usuário']);
             echo $this->Form->input('senha');
-            echo $this->Form->input('data_cadastro');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
