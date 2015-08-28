@@ -146,3 +146,4 @@ CREATE OR REPLACE FUNCTION contas_ultimo_aluguel(p_conta_id bigint)
   $BODY$
   LANGUAGE plpgsql VOLATILE;
   
+
