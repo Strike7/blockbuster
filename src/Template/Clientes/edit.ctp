@@ -7,7 +7,7 @@
                 ['confirm' => __('Are you sure you want to delete # {0}?', $cliente->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Clientes'), ['action' => 'index']) ?></li>
+        <?= $this->cell('Menu'); ?>
     </ul>
 </div>
 <div class="clientes form large-10 medium-9 columns">

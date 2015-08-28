@@ -3,12 +3,7 @@
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit Senha'), ['action' => 'edit', $senha->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Senha'), ['action' => 'delete', $senha->id], ['confirm' => __('Are you sure you want to delete # {0}?', $senha->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Senhas'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Senha'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Contas'), ['controller' => 'Contas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Conta'), ['controller' => 'Contas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
+        <?= $this->cell('Menu'); ?>
     </ul>
 </div>
 <div class="senhas view large-10 medium-9 columns">

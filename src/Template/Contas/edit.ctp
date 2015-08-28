@@ -7,11 +7,7 @@
                 ['confirm' => __('Are you sure you want to delete # {0}?', $conta->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Contas'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Jogos'), ['controller' => 'Jogos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Jogo'), ['controller' => 'Jogos', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Senhas'), ['controller' => 'Senhas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Senha'), ['controller' => 'Senhas', 'action' => 'add']) ?></li>
+        <?= $this->cell('Menu'); ?>
     </ul>
 </div>
 <div class="contas form large-10 medium-9 columns">

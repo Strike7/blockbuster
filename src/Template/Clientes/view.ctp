@@ -3,8 +3,7 @@
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit Cliente'), ['action' => 'edit', $cliente->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Cliente'), ['action' => 'delete', $cliente->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cliente->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Clientes'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Cliente'), ['action' => 'add']) ?> </li>
+        <?= $this->cell('Menu'); ?>
     </ul>
 </div>
 <div class="clientes view large-10 medium-9 columns">

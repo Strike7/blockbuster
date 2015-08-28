@@ -31,12 +31,12 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'loginRedirect' => [
-                'controller' => 'Contas',
+                'controller' => 'Disponibilidades',
                 'action' => 'index'
             ],
             'logoutRedirect' => [
-                'controller' => 'Jogos',
-                'action' => 'index'
+                'controller' => 'Users',
+                'action' => 'login'
             ]
         ]);
     }

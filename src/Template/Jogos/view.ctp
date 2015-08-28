@@ -3,10 +3,7 @@
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit Jogo'), ['action' => 'edit', $jogo->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Jogo'), ['action' => 'delete', $jogo->id], ['confirm' => __('Are you sure you want to delete # {0}?', $jogo->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Jogos'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Jogo'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Contas'), ['controller' => 'Contas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Conta'), ['controller' => 'Contas', 'action' => 'add']) ?> </li>
+        <?= $this->cell('Menu'); ?>
     </ul>
 </div>
 <div class="jogos view large-10 medium-9 columns">

@@ -2,6 +2,7 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('New Cliente'), ['action' => 'add']) ?></li>
+        <?= $this->cell('Menu'); ?>
     </ul>
 </div>
 <div class="clientes index large-10 medium-9 columns">
