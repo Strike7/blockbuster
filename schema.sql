@@ -107,9 +107,43 @@ CREATE VIEW disponibilidades AS
 	    END) CATEGORIA,
 	    C.ID CONTA_ID,
 	    C.EMAIL, 
-	    (SELECT SENHA FROM SENHAS WHERE CONTA_ID = C.ID ORDER BY ID DESC LIMIT 1 ) SENHA
+	    (SELECT SENHA FROM SENHAS WHERE CONTA_ID = C.ID ORDER BY ID DESC LIMIT 1 ) SENHA,
+	    (CASE 
+	       WHEN (CAST(CONTAS_ULTIMA_SENHA(C.ID) AS DATE) - CAST(CONTAS_ULTIMO_ALUGUEL(C.ID) AS DATE)) < 0 THEN 'SIM'
+	       ELSE ' - '
+	     END) ALTERAR_SENHA  
+	    
 	FROM JOGOS J
 	INNER JOIN CONTAS C ON C.JOGO_ID = J.ID
 	WHERE C.ID NOT IN (SELECT CONTA_ID FROM ALUGUEIS WHERE ATIVO =  'S' 
 		AND SITUACAO IN ('U', 'R') AND DATA_FIM > NOW())
 	ORDER BY J.TITULO;
+
+CREATE OR REPLACE FUNCTION contas_ultima_senha(p_conta_id bigint)
+  RETURNS timestamp AS
+  $BODY$
+    DECLARE 
+      data TIMESTAMP;
+    BEGIN
+        SELECT data_cadastro INTO data FROM senhas WHERE conta_id = p_conta_id
+        		ORDER BY DATA_CADASTRO DESC LIMIT 1;
+
+        RETURN data;
+    END;
+  $BODY$
+  LANGUAGE plpgsql VOLATILE;
+
+CREATE OR REPLACE FUNCTION contas_ultimo_aluguel(p_conta_id bigint)
+  RETURNS timestamp AS
+  $BODY$
+    DECLARE 
+      data TIMESTAMP;
+    BEGIN
+        SELECT data_fim INTO data FROM alugueis WHERE conta_id = p_conta_id
+        		ORDER BY data_fim DESC LIMIT 1;
+
+        RETURN data;
+    END;
+  $BODY$
+  LANGUAGE plpgsql VOLATILE;
+  
