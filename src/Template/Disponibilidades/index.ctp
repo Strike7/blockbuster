@@ -15,7 +15,10 @@
 =======
             <th><?= $this->Paginator->sort('senha') ?></th>
             <th><?= $this->Paginator->sort('alterar_senha') ?></th>
+<<<<<<< refs/remotes/origin/master
 >>>>>>> 966a594fc03d8b95f69ff967a7920f5e5efe5366
+=======
+>>>>>>> HEAD~2
         </tr>
     </thead>
     <tbody>
@@ -28,7 +31,10 @@
 =======
             <td><?= h($disponibilidade->senha) ?></td>
             <td><?= h($disponibilidade->alterar_senha) ?></td>
+<<<<<<< refs/remotes/origin/master
 >>>>>>> 966a594fc03d8b95f69ff967a7920f5e5efe5366
+=======
+>>>>>>> HEAD~2
         </tr>
 
     <?php endforeach; ?>
