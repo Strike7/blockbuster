@@ -32,6 +32,7 @@ class MenuCell extends Cell
         $menu[] = $this ->menu( __('Clientes'), array( 'controller' => 'Clientes', 'action' => 'index' ), 'fa-table', [] );
         $menu[] = $this ->menu( __('Users'), array( 'controller' => 'Users', 'action' => 'index' ), 'fa-table', [] );
         $menu[] = $this ->menu( __('Disponibilidades'), array( 'controller' => 'Disponibilidades', 'action' => 'index' ), 'fa-table', [] );
+        $menu[] = $this ->menu( __('Disponiveis'), array( 'controller' => 'Disponiveis', 'action' => 'index' ), 'fa-table', [] );
 
         $this -> set ( 'menu',  $menu );
     }
