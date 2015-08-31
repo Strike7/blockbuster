@@ -14,7 +14,6 @@ class DisponibilidadesController extends AppController
     public $paginate = [
 
         'limit' => 200
-
     ];
 
     public function initialize()
