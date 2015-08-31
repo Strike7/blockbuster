@@ -11,6 +11,7 @@
             <th><?= $this->Paginator->sort('titulo') ?></th>
             <th><?= $this->Paginator->sort('email') ?></th>
             <th><?= $this->Paginator->sort('senha') ?></th>
+            <th><?= $this->Paginator->sort('expirou') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
             <td><?= h($senhasExpirada->titulo) ?></td>
             <td><?= h($senhasExpirada->email) ?></td>
             <td><?= h($senhasExpirada->senha) ?></td>
+            <td><?= h($senhasExpirada->expirou) ?></td>
         </tr>
 
     <?php endforeach; ?>
