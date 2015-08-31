@@ -10,8 +10,7 @@
         <tr>
             <th><?= $this->Paginator->sort('titulo') ?></th>
             <th><?= $this->Paginator->sort('email') ?></th>
-            <th><?= $this->Paginator->sort('senha') ?></th>
-            <th><?= $this->Paginator->sort('alterar_senha') ?></th>
+            <th><?= $this->Paginator->sort('disponivel') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -19,8 +18,7 @@
         <tr>
             <td><?= h($disponibilidade->titulo) ?></td>
             <td><?= h($disponibilidade->email) ?></td>
-            <td><?= h($disponibilidade->senha) ?></td>
-            <td><?= h($disponibilidade->alterar_senha) ?></td>
+            <td><?= h($disponibilidade->disponivel) ?></td>
         </tr>
 
     <?php endforeach; ?>

@@ -12,9 +12,7 @@ class DisponibilidadesController extends AppController
 {
 
     public $paginate = [
-        'fields' => ['Disponibilidades.titulo'],
         'limit' => 200
-        
     ];
 
     public function initialize()
