@@ -138,11 +138,26 @@ CREATE OR REPLACE FUNCTION contas_ultimo_aluguel(p_conta_id bigint)
     DECLARE 
       data TIMESTAMP;
     BEGIN
-        SELECT data_fim INTO data FROM alugueis WHERE conta_id = p_conta_id
-        		ORDER BY data_fim DESC LIMIT 1;
+        SELECT data_fim INTO data 
+        FROM alugueis 
+        WHERE conta_id = p_conta_id
+        	AND ATIVO = 'S' AND SITUACAO IN ('U', 'F')
+        ORDER BY data_fim DESC LIMIT 1;
 
         RETURN data;
     END;
   $BODY$
   LANGUAGE plpgsql VOLATILE;
+
+CREATE VIEW SENHAS_EXPIRADAS AS
+	SELECT J.ID TITULO_ID, 
+		J.TITULO,
+		C.ID CONTA_ID,
+		C.EMAIL,
+		S.SENHA
+	FROM JOGOS J
+	INNER JOIN CONTAS C ON C.JOGO_ID = J.ID
+	INNER JOIN SENHAS S ON S.CONTA_ID = C.ID
+	WHERE CAST(CONTAS_ULTIMO_ALUGUEL(C.ID) AS DATE) < CAST(NOW() AS DATE)
+	 AND CONTAS_ULTIMO_ALUGUEL(C.ID) > CONTAS_ULTIMA_SENHA(C.ID);  
 
