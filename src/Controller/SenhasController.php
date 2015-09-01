@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Senhas Controller
@@ -62,7 +63,11 @@ class SenhasController extends AppController
         $users = $this->Senhas->Users->find('list', ['limit' => 200, 
                                                     'order' => ['Users.username' => 'ASC']
                                                     ]);
-        $this->set(compact('senha', 'contas', 'users'));
+        $jogosTable = TableRegistry::get('Jogos');
+        $query = $jogosTable->find('list')->order(['titulo' => 'ASC']);
+        $jogos = $query->toArray();
+
+        $this->set(compact('senha', 'contas', 'users', 'jogos'));
         $this->set('_serialize', ['senha']);
     }
 

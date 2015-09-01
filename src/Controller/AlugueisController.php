@@ -3,7 +3,6 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
-use App\Controller\Component\ContasComboBoxComponent;
 
 /**
  * Alugueis Controller
