@@ -34,6 +34,10 @@ class ContasTable extends Table
             'foreignKey' => 'jogo_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
+            'joinType' => 'LEFT'
+        ]);
         $this->hasMany('Alugueis', [
             'foreignKey' => 'conta_id'
         ]);
@@ -73,6 +77,7 @@ class ContasTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->existsIn(['jogo_id'], 'Jogos'));
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
         return $rules;
     }
 }

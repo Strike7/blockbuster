@@ -9,8 +9,11 @@
     <fieldset>
         <legend><?= __('Add Conta') ?></legend>
         <?php
-            echo $this->Form->input('jogo_id', ['options' => $jogos]);
+            echo $this->Form->input('jogo_id', ['options' => $jogos,
+                                    'empty' => 'Selecione um jogo']);
             echo $this->Form->input('email');
+            echo $this->Form->input('user_id', ['options' => $users,
+                                    'empty' => 'Selecione um usuário']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

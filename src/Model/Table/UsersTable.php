@@ -31,6 +31,9 @@ class UsersTable extends Table
         $this->hasMany('Senhas', [
             'foreignKey' => 'user_id'
         ]);
+        $this->hasMany('Contas', [
+            'foreignKey' => 'user_id'
+        ]);
     }
 
     /**

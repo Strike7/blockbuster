@@ -14,6 +14,9 @@
             <p><?= $conta->has('jogo') ? $this->Html->link($conta->jogo->titulo, ['controller' => 'Jogos', 'action' => 'view', $conta->jogo->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Email') ?></h6>
             <p><?= h($conta->email) ?></p>
+            <h6 class="subheader"><?= __('User') ?></h6>
+            <p><?= $conta->has('user') ? h($conta->user->username) : '' ?></p>
+            
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>

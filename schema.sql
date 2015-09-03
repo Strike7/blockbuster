@@ -14,18 +14,23 @@ CREATE TABLE jogos (
 	titulo varchar(200) NOT NULL,
 	categoria char(1), -- M - MAIS ALUGADOS, L - LANCAMENTO, N - NORMAL, E - ECONOMICO
 
-	CONSTRAINT jogos_pk PRIMARY KEY (id)
+	CONSTRAINT jogos_pk PRIMARY KEY (id),
+	
 );
 
 CREATE TABLE contas (
 	id bigserial,
 	jogo_id bigint NOT NULL,
 	email varchar(200) NOT NULL,
+	user_id bigint, -- Usuário respońsável pelo jogo
 
 	CONSTRAINT contas_pk PRIMARY KEY (id),
 	CONSTRAINT contas_jogos_fk FOREIGN KEY (jogo_id)
 	  REFERENCES jogos (id) MATCH SIMPLE
-	  ON UPDATE NO ACTION ON DELETE NO ACTION
+	  ON UPDATE NO ACTION ON DELETE NO ACTION,
+	CONSTRAINT contas_users_fk FOREIGN KEY (user_id)
+	  REFERENCES users (id) MATCH SIMPLE
+	  ON UPDATE NO ACTION ON DELETE NO ACTION  
 );
 
 CREATE UNIQUE INDEX unique_email ON contas (email);
