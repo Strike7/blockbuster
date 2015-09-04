@@ -29,7 +29,7 @@ class AlugueisController extends AppController
         $alugueis->where(function ($exp, $q) {
                 return $exp->in('situacao', ['R', 'U']);
             });
-        $alugueis->order(['data_inicio' => 'ASC']);
+        //$alugueis->order(['data_inicio' => 'ASC']);
         $alugueis->contain(['Clientes', 'Contas']);
 
         $this->set('alugueis', $this->paginate($alugueis));
