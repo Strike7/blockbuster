@@ -37,6 +37,8 @@
             echo $this->Form->select('tipo', $optionsTipo,
                                     ['empty' => 'Selecione um tipo',
                                     'label' => true]);
+            echo $this->Form->label('observacao');
+            echo $this->Form->textarea('observacao');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

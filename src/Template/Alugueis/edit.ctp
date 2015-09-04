@@ -26,6 +26,8 @@
             $optionsTipo = ['' => 'Selecione um tipo', 'A' => 'Avulso', 
                             'M' => 'Mercado Livre'];
             echo $this->Form->select('tipo', $optionsTipo);
+            echo $this->Form->label('observacao');
+            echo $this->Form->textarea('observacao');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -14,6 +14,7 @@
             <th><?= $this->Paginator->sort('data_inicio') ?></th>
             <th><?= $this->Paginator->sort('data_fim') ?></th>
             <th><?= $this->Paginator->sort('situacao') ?></th>
+            <th><?= $this->Paginator->sort('observacao') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -29,6 +30,7 @@
             <td><?= h($aluguel->data_inicio) ?></td>
             <td><?= h($aluguel->data_fim) ?></td>
             <td><?= h($aluguel->descricao_situacao) ?></td>
+            <td><?= h($aluguel->observacao) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $aluguel->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $aluguel->id]) ?>
