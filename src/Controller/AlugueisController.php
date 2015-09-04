@@ -20,11 +20,16 @@ class AlugueisController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Clientes', 'Contas']
+            'contain' => ['Clientes', 'Contas'],
+            'limit' => 200
         ];
 
         $alugueis = $this->Alugueis->find();
         $alugueis->where(['ativo' => 'S']);
+        $alugueis->where(function ($exp, $q) {
+                return $exp->in('situacao', ['R', 'U']);
+            });
+        $alugueis->order(['data_inicio' => 'ASC']);
         $alugueis->contain(['Clientes', 'Contas']);
 
         $this->set('alugueis', $this->paginate($alugueis));
