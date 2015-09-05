@@ -52,12 +52,20 @@ class SenhasController extends AppController
         $senha = $this->Senhas->newEntity();
         if ($this->request->is('post')) {
             $senha = $this->Senhas->patchEntity($senha, $this->request->data);
-            if ($this->Senhas->save($senha)) {
-                $this->Flash->success(__('The senha has been saved.'));
-                return $this->redirect(['action' => 'index']);
+            $conta = TableRegistry::get('Contas')->find()->where(['id' => $senha->conta_id])->first();
+            
+            if ($conta->user_id && ($this->Auth->user('id') != $conta->user_id)){
+                $user = TableRegistry::get('Users')->find()->where(['id' => $conta->user_id])->first();
+                $this->Flash->error(__('Apenas quem está monitorando a conta pode alterar a senha. ('.$user->username.')'));
             } else {
-                $this->Flash->error(__('The senha could not be saved. Please, try again.'));
+                if ($this->Senhas->save($senha)) {
+                    $this->Flash->success(__('The senha has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                } else {
+                    $this->Flash->error(__('The senha could not be saved. Please, try again.'));
+                }
             }
+            
         }
         $contas = $this->Senhas->Contas->find('list', ['limit' => 200, 'order' => ['Contas.email' => 'ASC']]);
         $users = $this->Senhas->Users->find('list', ['limit' => 200, 
