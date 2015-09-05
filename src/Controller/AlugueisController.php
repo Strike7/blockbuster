@@ -21,7 +21,9 @@ class AlugueisController extends AppController
     {
         $this->paginate = [
             'contain' => ['Clientes', 'Contas'],
-            'limit' => 200
+            'limit' => 200,
+            'order' => ['data_inicio' => 'ASC'],
+            'sortWhitelist' => ['nome', 'data_inicio', 'data_fim', 'situacao' ]
         ];
 
         $alugueis = $this->Alugueis->find();
@@ -32,7 +34,7 @@ class AlugueisController extends AppController
         //$alugueis->order(['data_inicio' => 'ASC']);
         $alugueis->contain(['Clientes', 'Contas']);
 
-        $this->set('alugueis', $this->paginate($alugueis));
+        $this->set('alugueis', $this->paginate($alugueis, $settings));
         $this->set('_serialize', ['alugueis']);
     }
 
