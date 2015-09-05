@@ -2,8 +2,6 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit Aluguel'), ['action' => 'edit', $aluguel->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Aluguel'), ['action' => 'delete', $aluguel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $aluguel->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Alugueis'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Aluguel'), ['action' => 'add']) ?> </li>
         <?= $this->cell('Menu'); ?>
     </ul>
@@ -20,6 +18,8 @@
             <p><?= h($aluguel->situacao) ?></p>
             <h6 class="subheader"><?= __('Tipo') ?></h6>
             <p><?= h($aluguel->tipo) ?></p>
+            <h6 class="subheader"><?= __('Observacao') ?></h6>
+            <p><?= h($aluguel->observacao) ?></p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
