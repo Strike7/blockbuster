@@ -10,7 +10,7 @@
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('nome') ?></th>
-            <th><?= $this->Paginator->sort('conta_id') ?></th>
+            <th><?= $this->Paginator->sort('titulo') ?></th>
             <th><?= $this->Paginator->sort('data_inicio') ?></th>
             <th><?= $this->Paginator->sort('data_fim') ?></th>
             <th><?= $this->Paginator->sort('situacao') ?></th>
@@ -24,7 +24,7 @@
                 <?= $aluguel->has('cliente') ? $this->Html->link($aluguel->cliente->nome, ['controller' => 'Clientes', 'action' => 'view', $aluguel->cliente->id]) : '' ?>
             </td>
             <td>
-                <?= $aluguel->has('conta') ? $this->Html->link($aluguel->conta->email, ['controller' => 'Contas', 'action' => 'view', $aluguel->conta->id]) : '' ?>
+                <?= $aluguel->conta->has('jogo') ? $this->Html->link($aluguel->conta->jogo->titulo, ['controller' => 'Jogos', 'action' => 'view', $aluguel->conta->jogo->id], ['title' => $aluguel->conta->email ]) : ''  ?>
             </td>
             <td><?= h($aluguel->data_inicio) ?></td>
             <td><?= h($aluguel->data_fim) ?></td>

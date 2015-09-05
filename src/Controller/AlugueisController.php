@@ -23,7 +23,7 @@ class AlugueisController extends AppController
             'contain' => ['Clientes', 'Contas'],
             'limit' => 200,
             'order' => ['data_inicio' => 'ASC'],
-            'sortWhitelist' => ['nome', 'data_inicio', 'data_fim', 'situacao' ]
+            'sortWhitelist' => ['nome', 'data_inicio', 'data_fim', 'situacao', 'titulo' ]
         ];
 
         $alugueis = $this->Alugueis->find();
@@ -31,8 +31,8 @@ class AlugueisController extends AppController
         $alugueis->where(function ($exp, $q) {
                 return $exp->in('situacao', ['R', 'U']);
             });
-        //$alugueis->order(['data_inicio' => 'ASC']);
-        $alugueis->contain(['Clientes', 'Contas']);
+
+        $alugueis->contain(['Clientes', 'Contas' => ['Jogos']]);
 
         $this->set('alugueis', $this->paginate($alugueis, $settings));
         $this->set('_serialize', ['alugueis']);
