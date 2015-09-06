@@ -66,11 +66,23 @@ class AlugueisController extends AppController
             $aluguel = $this->Alugueis->patchEntity($aluguel, $this->request->data);
             $aluguel->set('ativo', 'S');
 
-            if ($this->Alugueis->save($aluguel)) {
-                $this->Flash->success(__('The aluguel has been saved.'));
-                return $this->redirect(['action' => 'index']);
+            $al = TableRegistry::get('Alugueis')
+                                ->find()
+                                ->where(['conta_id' => $aluguel->conta_id,
+                                    'ativo' => 'S',
+                                    'data_fim >= ' => $aluguel->data_inicio ])
+                                ->where(function ($exp, $q) {
+                                        return $exp->in('situacao', ['R', 'U']);
+                                    })->first();
+            if (!$al){
+                if ($this->Alugueis->save($aluguel)) {
+                    $this->Flash->success(__('The aluguel has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                } else {
+                    $this->Flash->error(__('The aluguel could not be saved. Please, try again.'));
+                }
             } else {
-                $this->Flash->error(__('The aluguel could not be saved. Please, try again.'));
+                $this->Flash->error(__('Já existe um aluguel para o período informado.'));
             }
         }
 
