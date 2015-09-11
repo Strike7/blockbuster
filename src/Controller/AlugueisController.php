@@ -15,6 +15,11 @@ use Mailgun\Mailgun;
 class AlugueisController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+    }
     /**
      * Index method
      *
@@ -45,32 +50,40 @@ class AlugueisController extends AppController
     public function email($id = null)
     {
 
+        # Instantiate the client.
+        $mgClient = new Mailgun('key-96a537499df2b5db930a9ad0b4d37e5e');
+        $domain = "dy.bazarxbox.com.br";
 
         $aluguel = $this->Alugueis->get($id,[
-                'contain' => ['Clientes', 'Contas']
+                'contain' => ['Clientes', 'Contas', 'Contas.Jogos']
             ]);
 
 
-
-        if($this->Alugueis->save($aluguel))
-        {
-            $this->Flash->success(__('The aluguel has been saved.'));
-        } else {
-            $this->Flash->error(__('The aluguel could not be saved. Please, try again.'));
-        }
-
-        # Instantiate the client.
-
         # Make the call to the client.
         $result = $mgClient->sendMessage($domain, array(
-            'from'    => 'Excited User <mailgun@dy.bazarxbox.com.br>',
-            'to'      => 'Baz <heatdev@gmail.com>',
-            'subject' => 'Hello',
-            'text'    => 'Testing some Mailgun awesomness!',
+            'from'    => "Strike7 aluguel <aluguel@dy.bazarxbox.com.br>",
+            'to'      => "{$aluguel->cliente->nome} <{$aluguel->cliente->email}>",
+            'subject' => "ALUGUEL {$aluguel->conta->jogo->titulo}",
+            'text'    => 'Obrigado por aluguar',
             'o:tag'   => array('aluguel'),
             'o:testmode' => Configure::read('debug')
         ));
-        debug($result->http_response_body->id);
+        
+
+        if($result->http_response_code == 200)
+        {
+            $aluguel->set('mail', $result->http_response_body->id);
+            if ($this->Alugueis->save($aluguel)) {
+                $this->Flash->success(__('The aluguel has been saved. {0}', $result->http_response_body->message));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('The aluguel could not be saved. Please, try again. But the email was sent'));
+            }
+        } else {
+            $this->Flash->error(__('The email could not be sent. {0}, {1}', $result->http_response_code, $result->http_response_body->message));
+        }
+        
+        return $this->redirect(['action' => 'index']);
     }
     /**
      * View method

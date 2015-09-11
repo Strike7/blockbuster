@@ -30,6 +30,7 @@
             <td><?= h($aluguel->data_fim) ?></td>
             <td><?= h($aluguel->descricao_situacao) ?></td>
             <td class="actions">
+                <?= $this->Html->link(__('Email'), ['action' => 'email', $aluguel->id], ['title' => $aluguel->mail ]) ?>
                 <?= $this->Html->link(__('View'), ['action' => 'view', $aluguel->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $aluguel->id]) ?>
             </td>
