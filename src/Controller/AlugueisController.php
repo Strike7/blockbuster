@@ -7,6 +7,8 @@ use Cake\ORM\TableRegistry;
 
 use Mailgun\Mailgun;
 
+use App\View\Email\AluguelView;
+
 /**
  * Alugueis Controller
  *
@@ -46,13 +48,22 @@ class AlugueisController extends AppController
         $this->set('_serialize', ['alugueis']);
     }
 
+    
+    private function _emailText($aluguel)
+    {
+        $view = new AluguelView($this->request);
+        $view->set('conta', $aluguel->conta);
+        $view->set('cliente', $aluguel->cliente);
+        $view->set('jogo', $aluguel->conta->jogo);
+        return $view->render('Email/Aluguel/Send', 'Email/Text/Default');;
+    }
 
     public function email($id = null)
     {
 
         # Instantiate the client.
-        $mgClient = new Mailgun('key-96a537499df2b5db930a9ad0b4d37e5e');
-        $domain = "dy.bazarxbox.com.br";
+        $mgClient = new Mailgun('key-96a53742918hnd1i1d89012y4129jije');
+        $domain = "dy.bazasdasa.com.br";
 
         $aluguel = $this->Alugueis->get($id,[
                 'contain' => ['Clientes', 'Contas', 'Contas.Jogos']
@@ -64,11 +75,10 @@ class AlugueisController extends AppController
             'from'    => "Strike7 aluguel <aluguel@dy.bazarxbox.com.br>",
             'to'      => "{$aluguel->cliente->nome} <{$aluguel->cliente->email}>",
             'subject' => "ALUGUEL {$aluguel->conta->jogo->titulo}",
-            'text'    => 'Obrigado por aluguar',
+            'html'    => $this->_emailText($aluguel),
             'o:tag'   => array('aluguel'),
             'o:testmode' => Configure::read('debug')
         ));
-        
 
         if($result->http_response_code == 200)
         {
