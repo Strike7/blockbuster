@@ -18,6 +18,8 @@
             <p><?= h($aluguel->situacao) ?></p>
             <h6 class="subheader"><?= __('Tipo') ?></h6>
             <p><?= h($aluguel->tipo) ?></p>
+            <h6 class="subheader"><?= __('Entrega') ?></h6>
+            <p><?= h($aluguel->mail) ?></p>
             <h6 class="subheader"><?= __('Observacao') ?></h6>
             <p><?= h($aluguel->observacao) ?></p>
         </div>

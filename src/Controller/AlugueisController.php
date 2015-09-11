@@ -1,8 +1,11 @@
 <?php
 namespace App\Controller;
 
+use Cake\Core\Configure;
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
+
+use Mailgun\Mailgun;
 
 /**
  * Alugueis Controller
@@ -38,6 +41,37 @@ class AlugueisController extends AppController
         $this->set('_serialize', ['alugueis']);
     }
 
+
+    public function email($id = null)
+    {
+
+
+        $aluguel = $this->Alugueis->get($id,[
+                'contain' => ['Clientes', 'Contas']
+            ]);
+
+
+
+        if($this->Alugueis->save($aluguel))
+        {
+            $this->Flash->success(__('The aluguel has been saved.'));
+        } else {
+            $this->Flash->error(__('The aluguel could not be saved. Please, try again.'));
+        }
+
+        # Instantiate the client.
+
+        # Make the call to the client.
+        $result = $mgClient->sendMessage($domain, array(
+            'from'    => 'Excited User <mailgun@dy.bazarxbox.com.br>',
+            'to'      => 'Baz <heatdev@gmail.com>',
+            'subject' => 'Hello',
+            'text'    => 'Testing some Mailgun awesomness!',
+            'o:tag'   => array('aluguel'),
+            'o:testmode' => Configure::read('debug')
+        ));
+        debug($result->http_response_body->id);
+    }
     /**
      * View method
      *

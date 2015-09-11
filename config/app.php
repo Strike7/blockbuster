@@ -1,7 +1,6 @@
 <?php
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
-
 //export DATABASE_URL=postgres://postgres:postgres@localhost:5432/strike7games
 
 return [
@@ -14,7 +13,7 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    'debug' => false,
+    'debug' => true,
 
     /**
      * Configure basic information about the application.
@@ -214,17 +213,16 @@ return [
             'className' => 'Cake\Database\Connection',
             'driver' => 'Cake\Database\Driver\Postgres',
             'persistent' => false,
-            'host' => $dbopts["host"],
+            'host' => "localhost",
             /**
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
              * the following line and set the port accordingly
              */
-            'port' => $dbopts["port"],
-            'username' => $dbopts["user"],
-            'password' => $dbopts["pass"],
-            'database' => ltrim($dbopts["path"],'/'),
-            'encoding' => 'utf8',
+
+            'username' => "blockbuster",
+            'password' => "blockbuster",
+            'database' => "blockbuster",
             'timezone' => 'UTC',
             'cacheMetadata' => true,
 
@@ -257,10 +255,9 @@ return [
             'persistent' => false,
             'host' => 'localhost',
             //'port' => 'nonstandard_port_number',
-            'username' => 'postgres',
-            'password' => 'postgres',
-            'database' => 'strike7games',
-            'encoding' => 'utf8',
+            'username' => 'blockbuster',
+            'password' => 'blockbuster',
+            'database' => 'blockbuster',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,

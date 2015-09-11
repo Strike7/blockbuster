@@ -14,7 +14,7 @@ CREATE TABLE jogos (
 	titulo varchar(200) NOT NULL,
 	categoria char(1), -- M - MAIS ALUGADOS, L - LANCAMENTO, N - NORMAL, E - ECONOMICO
 
-	CONSTRAINT jogos_pk PRIMARY KEY (id),
+	CONSTRAINT jogos_pk PRIMARY KEY (id)
 	
 );
 
@@ -72,7 +72,7 @@ CREATE TABLE alugueis (
 	tipo char(1), -- A - Avulso, M - Mercado Livre
 	data_cadastro timestamp NOT NULL DEFAULT now(),
 	ativo char(1), -- S - Sim
-
+	mail varchar(200), -- id de confirmacao de envio de conta
 	CONSTRAINT alugueis_pk PRIMARY KEY (id),
 	CONSTRAINT alugueis_clientes_fk FOREIGN KEY (cliente_id)
 	  REFERENCES clientes (id) MATCH SIMPLE
