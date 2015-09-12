@@ -62,7 +62,7 @@ class AlugueisController extends AppController
     {
 
         # Instantiate the client.
-        $mgClient = new Mailgun('key-96a53742918hnd1i1d89012y4129jije');
+        $mgClient = new Mailgun(getenv("MAILGUN_API"));
         $domain = "dy.bazasdasa.com.br";
 
         $aluguel = $this->Alugueis->get($id,[
