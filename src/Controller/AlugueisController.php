@@ -44,7 +44,7 @@ class AlugueisController extends AppController
 
         $alugueis->contain(['Clientes', 'Contas' => ['Jogos']]);
 
-        $this->set('alugueis', $this->paginate($alugueis, $settings));
+        $this->set('alugueis', $this->paginate($alugueis));
         $this->set('_serialize', ['alugueis']);
     }
 
@@ -127,7 +127,7 @@ class AlugueisController extends AppController
                                 ->find()
                                 ->where(['conta_id' => $aluguel->conta_id,
                                     'ativo' => 'S',
-                                    'data_fim >= ' => $aluguel->data_inicio ])
+                                    'data_inicio <= ' => $aluguel->data_fim, ])
                                 ->where(function ($exp, $q) {
                                         return $exp->in('situacao', ['R', 'U']);
                                     })->first();
