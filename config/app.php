@@ -220,9 +220,9 @@ return [
              * the following line and set the port accordingly
              */
 
-            'username' => "blockbuster",
-            'password' => "blockbuster",
-            'database' => "blockbuster",
+            'username' => "postgres",
+            'password' => "postgres",
+            'database' => "strike7games",
             'timezone' => 'UTC',
             'cacheMetadata' => true,
 
