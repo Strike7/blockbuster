@@ -63,7 +63,7 @@ class AlugueisController extends AppController
 
         # Instantiate the client.
         $mgClient = new Mailgun(getenv("MAILGUN_API"));
-        $domain = "dy.bazasdasa.com.br";
+        $domain = getenv("MAILGUN_DOMAIN");
 
         $aluguel = $this->Alugueis->get($id,[
                 'contain' => ['Clientes', 'Contas', 'Contas.Jogos']
