@@ -1,8 +1,6 @@
 <?php
 namespace App\Controller;
 
-use Cake\ORM\TableRegistry;
-
 /**
  * Contas Controller
  *
@@ -29,11 +27,14 @@ class ContasController extends AppController
         $contas = $this->Contas->find();
         $contas->contain(['Jogos', 'Users']);
         if(!empty($jogo_id)) {
-            $disponibilidades = TableRegistry::get('Disponibilidades')->find()
-                ->select(['conta_id'])
-                ->distinct();
-           $contas->where(['jogo_id' => $jogo_id,
-                'Contas.id not in ' => $disponibilidades]);
+            $contas->join([
+                'table' => 'disponibilidades',
+                'alias' => 'd',
+                'type' => 'LEFT',
+                'conditions' => 'd.conta_id = contas.id',
+            ]);
+            $contas->select(['id', 'email', 'd.disponivel']);
+            $contas->where(['jogo_id' => $jogo_id ]);
         }
 
         $this->set('contas', $this->paginate($contas));

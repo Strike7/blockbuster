@@ -68,9 +68,10 @@
                     }));
                 
                 for (var i in contas){
-                    $('#conta_id').append($('<option>', { 
+                    var disponivel = ((contas[i].d.disponivel == null) ? '' : ' - ' + contas[i].d.disponivel);
+                    $('#conta_id').append($('<option>', {
                         value: contas[i].id,
-                        text : contas[i].email}));
+                        text : contas[i].email + disponivel }));
                 }
             });
         }    
