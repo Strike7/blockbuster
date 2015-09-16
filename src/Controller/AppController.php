@@ -26,6 +26,10 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
+    public $paginate = [
+        'limit' => 200
+    ];
+
     public function initialize()
     {
         $this->loadComponent('Flash');
