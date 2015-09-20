@@ -55,7 +55,8 @@ class AlugueisController extends AppController
         $view->set('conta', $aluguel->conta);
         $view->set('cliente', $aluguel->cliente);
         $view->set('jogo', $aluguel->conta->jogo);
-        return $view->render('Email/Aluguel/Send', 'Email/Text/Default');;
+        $view->set('senha', end($aluguel->conta->senhas));
+        return $view->render('Email/Aluguel/send', 'Email/text/default');;
     }
 
     public function email($id = null)
@@ -66,7 +67,7 @@ class AlugueisController extends AppController
         $domain = getenv("MAILGUN_DOMAIN");
 
         $aluguel = $this->Alugueis->get($id,[
-                'contain' => ['Clientes', 'Contas', 'Contas.Jogos']
+                'contain' => ['Clientes', 'Contas', 'Contas.Jogos', 'Contas.Senhas']
             ]);
 
 
