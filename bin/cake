@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 ################################################################################
 #
 # Cake is a shell script for invoking CakePHP shell commands
@@ -40,5 +40,5 @@ export DATABASE_URL="postgres://blockbuster:blockbuster@localhost:5432/blockbust
 export	MAILGUN_API="key-f0f8b08186f7e7d2e9b8dcc1a3e213bc" 
 export	MAILGUN_DOMAIN="sandboxa3546d76c8c044678c1d11415268288f.mailgun.org" 
 
-exec env  php "$CONSOLE"/cake.php "$@"
+exec php "$CONSOLE"/cake.php "$@"
 exit
