@@ -1,13 +1,10 @@
 <?php
 namespace App\Controller;
 
-use Cake\Core\Configure;
-use App\Controller\AppController;
-use Cake\ORM\TableRegistry;
-
-use Mailgun\Mailgun;
-
 use App\View\Email\AluguelView;
+use Cake\Core\Configure;
+use Cake\ORM\TableRegistry;
+use Mailgun\Mailgun;
 
 /**
  * Alugueis Controller
@@ -128,7 +125,7 @@ class AlugueisController extends AppController
                                 ->find()
                                 ->where(['conta_id' => $aluguel->conta_id,
                                     'ativo' => 'S',
-                                    'data_inicio <= ' => $aluguel->data_fim, ])
+                                    'data_fim => ' => $aluguel->data_inicio, ])
                                 ->where(function ($exp, $q) {
                                         return $exp->in('situacao', ['R', 'U']);
                                     })->first();
