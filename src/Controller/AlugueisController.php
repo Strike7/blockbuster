@@ -125,7 +125,7 @@ class AlugueisController extends AppController
                                 ->find()
                                 ->where(['conta_id' => $aluguel->conta_id,
                                     'ativo' => 'S',
-                                    'data_fim => ' => $aluguel->data_inicio, ])
+                                    'data_fim >= ' => $aluguel->data_inicio, ])
                                 ->where(function ($exp, $q) {
                                         return $exp->in('situacao', ['R', 'U']);
                                     })->first();
