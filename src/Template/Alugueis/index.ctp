@@ -21,7 +21,7 @@
     <?php foreach ($alugueis as $aluguel): ?>
         <tr>
             <td>
-                <?= $aluguel->has('cliente') ? $this->Html->link($aluguel->cliente->nome, ['controller' => 'Clientes', 'action' => 'view', $aluguel->cliente->id]) : '' ?>
+                <?= $aluguel->has('cliente') ? $this->Html->link($aluguel->cliente->nome, ['controller' => 'Clientes', 'action' => 'view', $aluguel->cliente->id], ['title' => $aluguel->cliente->email ]) : '' ?>
             </td>
             <td>
                 <?= $aluguel->conta->has('jogo') ? $this->Html->link($aluguel->conta->jogo->titulo, ['controller' => 'Jogos', 'action' => 'view', $aluguel->conta->jogo->id], ['title' => $aluguel->conta->email ]) : ''  ?>
