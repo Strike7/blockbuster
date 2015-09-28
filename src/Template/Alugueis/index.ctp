@@ -5,6 +5,30 @@
         <?= $this->cell('Menu'); ?>
     </ul>
 </div>
+<div class="alugueis form large-10 medium-9 columns">
+    <?= $this->Form->create($aluguel, ['type' => 'get']) ?>
+    <fieldset>
+        <legend><?= __('Filtro Aluguel') ?></legend>
+        <?php
+            echo $this->Form->label('tipo');
+            $optionsTipo = ['A' => 'Avulso',
+                            'M' => 'Mercado Livre'];
+            echo $this->Form->select('tipo', $optionsTipo,
+                             ['empty' => 'Todos']);
+
+            echo $this->Form->label('situação');
+            $optionsSituacao = ['U' => 'Em uso',
+                                'R' => 'Reservado', 'C' => 'Cancelado',
+                                'F' => 'Finalizado'];
+
+            echo $this->Form->select('situacao', $optionsSituacao,
+                                    ['empty' => 'Todos']);
+        ?>
+    </fieldset>
+    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->end() ?>
+</div>
+
 <div class="alugueis index large-10 medium-9 columns">
     <table cellpadding="0" cellspacing="0">
     <thead>

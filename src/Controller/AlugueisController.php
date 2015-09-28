@@ -33,16 +33,32 @@ class AlugueisController extends AppController
             'sortWhitelist' => ['nome', 'data_inicio', 'data_fim', 'situacao', 'titulo' ]
         ];
 
+        $aluguel = $this->Alugueis->newEntity();
         $alugueis = $this->Alugueis->find();
+
+        $tipo = $this->request->query('tipo');
+        $situacao = $this->request->query('situacao');
+
+        if (!empty($tipo)){
+            $aluguel->set('tipo', $tipo);
+            $alugueis->where(['tipo' => $tipo]);
+        }
+
+        if (!empty($situacao)){
+            $aluguel->set('situacao', $situacao);
+            $alugueis->where(['situacao' => $situacao]);
+        }
+
         $alugueis->where(['ativo' => 'S']);
-        $alugueis->where(function ($exp, $q) {
-                return $exp->in('situacao', ['R', 'U']);
-            });
+        /*$alugueis->where(function ($exp, $q) {
+            return $exp->in('situacao', ['R', 'U']);
+        });*/
 
         $alugueis->contain(['Clientes', 'Contas' => ['Jogos']]);
 
         $this->set('alugueis', $this->paginate($alugueis));
         $this->set('_serialize', ['alugueis']);
+        $this->set(compact('aluguel'));
     }
 
     
