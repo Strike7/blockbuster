@@ -1,8 +1,6 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Cliente;
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -27,6 +25,9 @@ class ClientesTable extends Table
         $this->table('clientes');
         $this->displayField('nome');
         $this->primaryKey('id');
+        $this->hasMany('Alugueis', [
+            'foreignKey' => 'cliente_id'
+        ]);
     }
 
     /**

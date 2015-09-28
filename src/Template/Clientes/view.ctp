@@ -25,3 +25,35 @@
         </div>
     </div>
 </div>
+<div class="related row">
+    <div class="column large-12">
+    <h4 class="subheader"><?= __('Related Alugueis') ?></h4>
+    <?php if (!empty($cliente->alugueis)): ?>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th><?= $this->Paginator->sort('titulo') ?></th>
+            <th><?= $this->Paginator->sort('data_inicio') ?></th>
+            <th><?= $this->Paginator->sort('data_fim') ?></th>
+            <th><?= $this->Paginator->sort('situacao') ?></th>
+            <th class="actions"><?= __('Actions') ?></th>
+        </tr>
+        <?php foreach ($cliente->alugueis as $aluguel): ?>
+        <tr>
+             <td>
+                <?= $aluguel->conta->has('jogo') ? $this->Html->link($aluguel->conta->jogo->titulo, ['controller' => 'Jogos', 'action' => 'view', $aluguel->conta->jogo->id], ['title' => $aluguel->conta->email ]) : ''  ?>
+            </td>
+            <td><?= h($aluguel->data_inicio) ?></td>
+            <td><?= h($aluguel->data_fim) ?></td>
+            <td><?= h($aluguel->descricao_situacao) ?></td>
+
+            <td class="actions">
+                <?= $this->Html->link(__('View'), ['controller' => 'Alugueis', 'action' => 'view', $aluguel->id]) ?>
+                <?= $this->Html->link(__('Edit'), ['controller' => 'Alugueis', 'action' => 'edit', $aluguel->id]) ?>
+            </td>
+        </tr>
+
+        <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
+    </div>
+</div>

@@ -1,8 +1,6 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
-
 /**
  * Clientes Controller
  *
@@ -32,8 +30,13 @@ class ClientesController extends AppController
     public function view($id = null)
     {
         $cliente = $this->Clientes->get($id, [
-            'contain' => []
+            'contain' => ['Alugueis' => function($q) {
+                             return $q->contain(['Contas' => ['Jogos']])
+                                 ->where(['Alugueis.ativo' => 'S'])
+                                 ->order(['Alugueis.id' => 'DESC']);
+                         }]
         ]);
+
         $this->set('cliente', $cliente);
         $this->set('_serialize', ['cliente']);
     }
