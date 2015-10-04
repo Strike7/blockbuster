@@ -19,7 +19,7 @@
             echo $this->Form->input('conta_id', ['options' => $contas]);
             echo $this->Form->input('data_inicio');
             echo $this->Form->input('data_fim');
-            $optionsSituacao = ['' => 'Selecione uma situação', 'U' => 'Em uso', 
+            $optionsSituacao = ['' => 'Selecione uma situação', 'U' => 'Em uso',
                                 'R' => 'Reservado', 'C' => 'Cancelado',
                                 'F' => 'Finalizado'];
             echo $this->Form->select('situacao', $optionsSituacao);

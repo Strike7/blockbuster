@@ -12,6 +12,7 @@
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('jogo_id') ?></th>
             <th><?= $this->Paginator->sort('email') ?></th>
+            <th><?= $this->Paginator->sort('tipo') ?></th>
             <th><?= $this->Paginator->sort('user_id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
@@ -24,6 +25,7 @@
                 <?= $conta->has('jogo') ? $this->Html->link($conta->jogo->titulo, ['controller' => 'Jogos', 'action' => 'view', $conta->jogo->id]) : '' ?>
             </td>
             <td><?= h($conta->email) ?></td>
+            <td><?= h($conta->descricao_tipo) ?></td>
             <td>
                 <?= $conta->has('user') ? h($conta->user->username) : '' ?>
             </td>

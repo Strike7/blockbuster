@@ -17,8 +17,16 @@
         <?php
             echo $this->Form->input('jogo_id', ['options' => $jogos]);
             echo $this->Form->input('email');
+            echo $this->Form->label('tipo');
+
+            $optionsTipo = ['S' => 'Assinatura',
+                            'L' => 'Locação'];
+            echo $this->Form->select('tipo', $optionsTipo);
+
             echo $this->Form->input('user_id', ['options' => $users,
-                                        'empty' => 'Selecione um usuário']);
+                                    'empty' => 'Selecione um usuário']);
+
+
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
