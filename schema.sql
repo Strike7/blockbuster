@@ -22,6 +22,7 @@ CREATE TABLE contas (
 	id bigserial,
 	jogo_id bigint NOT NULL,
 	email varchar(200) NOT NULL,
+  tipo char(1), -- S - Assinatura, L - Locação
 	user_id bigint, -- Usuário respońsável pelo jogo
 
 	CONSTRAINT contas_pk PRIMARY KEY (id),
