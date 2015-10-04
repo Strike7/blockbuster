@@ -20,10 +20,10 @@
             echo $this->Form->input('data_inicio');
             echo $this->Form->input('data_fim');
             $optionsSituacao = ['' => 'Selecione uma situação', 'U' => 'Em uso', 
-                                'R' => 'Reservado', 'C' => 'Cancelado', 
+                                'R' => 'Reservado', 'C' => 'Cancelado',
                                 'F' => 'Finalizado'];
             echo $this->Form->select('situacao', $optionsSituacao);
-            $optionsTipo = ['' => 'Selecione um tipo', 'A' => 'Avulso', 
+            $optionsTipo = ['' => 'Selecione um tipo','S' => 'Assinatura', 'A' => 'Avulso',
                             'M' => 'Mercado Livre'];
             echo $this->Form->select('tipo', $optionsTipo);
             echo $this->Form->label('observacao');

@@ -9,21 +9,21 @@
     <fieldset>
         <legend><?= __('Add Aluguel') ?></legend>
         <?php
-            echo $this->Form->input('cliente_id', ['options' => $clientes, 
+            echo $this->Form->input('cliente_id', ['options' => $clientes,
                                             'empty' => 'Selectione um cliente']);
-            echo $this->Form->input('jogo_id', ['options' => $jogos, 
+            echo $this->Form->input('jogo_id', ['options' => $jogos,
                                                 'onchange' => 'loadContas(this.value)',
                                                 'empty' => 'Selectione um jogo']);
             echo $this->Form->label('Conta');
             echo $this->Form->select('conta_id', null, ['id' => 'conta_id']);
-            
+
             echo $this->Form->input('data_inicio');
             echo $this->Form->input('data_fim', ['id' => 'data_fim']);
 
             echo $this->Form->label('situação');
 
-            $optionsSituacao = ['U' => 'Em uso', 
-                                'R' => 'Reservado', 'C' => 'Cancelado', 
+            $optionsSituacao = ['U' => 'Em uso',
+                                'R' => 'Reservado', 'C' => 'Cancelado',
                                 'F' => 'Finalizado'];
 
             echo $this->Form->select('situacao', $optionsSituacao,
@@ -31,9 +31,10 @@
 
             echo $this->Form->label('tipo');
 
-            $optionsTipo = ['A' => 'Avulso', 
+            $optionsTipo = ['S' => 'Assinatura',
+                            'A' => 'Avulso',
                             'M' => 'Mercado Livre'];
-            
+
             echo $this->Form->select('tipo', $optionsTipo,
                                     ['empty' => 'Selecione um tipo',
                                     'label' => true]);
@@ -47,11 +48,11 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        
+
     });
 
     function loadContas(jogo_id) {
-        
+
         if (jogo_id) {
             var url = '/contas.json?jogo_id=' + jogo_id;
             $.ajax({
@@ -62,11 +63,11 @@
 
                 $('#conta_id').find('option').remove().end();
                 $('#conta_id')
-                    .append($('<option>', { 
+                    .append($('<option>', {
                         value: '',
-                        text : 'Selecione uma conta' 
+                        text : 'Selecione uma conta'
                     }));
-                
+
                 for (var i in contas){
                     var disponivel = ((contas[i].d.disponivel == null) ? '' : ' - ' + contas[i].d.disponivel);
                     $('#conta_id').append($('<option>', {
@@ -74,6 +75,6 @@
                         text : contas[i].email + disponivel }));
                 }
             });
-        }    
+        }
     }
 </script>

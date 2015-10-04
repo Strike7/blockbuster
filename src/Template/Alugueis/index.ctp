@@ -11,7 +11,8 @@
         <legend><?= __('Filtro Aluguel') ?></legend>
         <?php
             echo $this->Form->label('tipo');
-            $optionsTipo = ['A' => 'Avulso',
+            $optionsTipo = ['S' => 'Assinatura',
+                            'A' => 'Avulso',
                             'M' => 'Mercado Livre'];
             echo $this->Form->select('tipo', $optionsTipo,
                              ['empty' => 'Todos']);

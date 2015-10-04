@@ -15,7 +15,7 @@ CREATE TABLE jogos (
 	categoria char(1), -- M - MAIS ALUGADOS, L - LANCAMENTO, N - NORMAL, E - ECONOMICO
 
 	CONSTRAINT jogos_pk PRIMARY KEY (id)
-	
+
 );
 
 CREATE TABLE contas (
@@ -30,7 +30,7 @@ CREATE TABLE contas (
 	  ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT contas_users_fk FOREIGN KEY (user_id)
 	  REFERENCES users (id) MATCH SIMPLE
-	  ON UPDATE NO ACTION ON DELETE NO ACTION  
+	  ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE UNIQUE INDEX unique_email ON contas (email);
@@ -48,7 +48,7 @@ CREATE TABLE senhas (
 	  ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT senhas_users_fk FOREIGN KEY (user_id)
 	  REFERENCES users (id) MATCH SIMPLE
-	  ON UPDATE NO ACTION ON DELETE NO ACTION  
+	  ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE clientes (
@@ -69,7 +69,7 @@ CREATE TABLE alugueis (
 	data_inicio timestamp NOT NULL,
 	data_fim timestamp NOT NULL,
 	situacao char(1), -- U - EM USO, R - RESERVADO, C - CANCELADO, F - FINALIZADO
-	tipo char(1), -- A - Avulso, M - Mercado Livre
+	tipo char(1), -- A - Avulso, M - Mercado Livre, S - Assinatura
 	data_cadastro timestamp NOT NULL DEFAULT now(),
 	ativo char(1), -- S - Sim
 	mail varchar(200), -- id de confirmacao de envio de conta
@@ -79,7 +79,7 @@ CREATE TABLE alugueis (
 	  ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT alugueis_contas_fk FOREIGN KEY (conta_id)
 	  REFERENCES contas (id) MATCH SIMPLE
-	  ON UPDATE NO ACTION ON DELETE NO ACTION  
+	  ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE OR REPLACE FUNCTION alugueis_remove_ativo()
@@ -101,16 +101,16 @@ CREATE TRIGGER alugueis_remove_ativo_tg
   EXECUTE PROCEDURE alugueis_remove_ativo();
 
 CREATE VIEW disponibilidades AS
-	SELECT 
+	SELECT
 		J.ID TITULO_ID,
 		J.TITULO,
 	    C.ID CONTA_ID,
-	    C.EMAIL, 
+	    C.EMAIL,
 	    TO_CHAR((CAST(A.DATA_FIM AS DATE) + INTERVAL '1 DAYS'), 'DD/MM/YYYY') DISPONIVEL
 	FROM JOGOS J
 	INNER JOIN CONTAS C ON C.JOGO_ID = J.ID
 	INNER JOIN ALUGUEIS A ON A.CONTA_ID = C.ID AND A.ATIVO = 'S'
-	WHERE A.SITUACAO IN ('U', 'R') AND A.ATIVO = 'S' 
+	WHERE A.SITUACAO IN ('U', 'R') AND A.ATIVO = 'S'
 		AND CAST(A.DATA_FIM AS DATE) = (SELECT CAST(MAX(DATA_FIM) AS DATE) FROM ALUGUEIS WHERE CONTA_ID = C.ID
 					AND SITUACAO IN ('R','U') AND ATIVO = 'S')
 	ORDER BY J.TITULO;
@@ -121,7 +121,7 @@ CREATE VIEW disponiveis AS
 	   	J.TITULO
 	FROM JOGOS J
 	INNER JOIN CONTAS C ON C.JOGO_ID = J.ID
-	WHERE C.ID NOT IN (SELECT CONTA_ID FROM ALUGUEIS WHERE ATIVO =  'S' 
+	WHERE C.ID NOT IN (SELECT CONTA_ID FROM ALUGUEIS WHERE ATIVO =  'S'
 		AND SITUACAO IN ('U', 'R') AND CAST(DATA_FIM AS DATE) >= CAST(NOW() AS DATE))
 		AND C.ID NOT IN (SELECT CONTA_ID FROM SENHAS_EXPIRADAS)
 	ORDER BY J.TITULO;
@@ -129,7 +129,7 @@ CREATE VIEW disponiveis AS
 CREATE OR REPLACE FUNCTION contas_ultima_senha(p_conta_id bigint)
   RETURNS date AS
   $BODY$
-    DECLARE 
+    DECLARE
       data TIMESTAMP;
     BEGIN
         SELECT CAST(data_cadastro AS DATE) INTO data FROM senhas WHERE conta_id = p_conta_id
@@ -143,11 +143,11 @@ CREATE OR REPLACE FUNCTION contas_ultima_senha(p_conta_id bigint)
 CREATE OR REPLACE FUNCTION contas_ultimo_aluguel(p_conta_id bigint)
   RETURNS date AS
   $BODY$
-    DECLARE 
+    DECLARE
       data TIMESTAMP;
     BEGIN
-        SELECT CAST(data_fim AS DATE) INTO data 
-        FROM alugueis 
+        SELECT CAST(data_fim AS DATE) INTO data
+        FROM alugueis
         WHERE conta_id = p_conta_id
         	AND ATIVO = 'S' AND SITUACAO IN ('U', 'F')
         ORDER BY data_fim DESC LIMIT 1;
@@ -158,7 +158,7 @@ CREATE OR REPLACE FUNCTION contas_ultimo_aluguel(p_conta_id bigint)
   LANGUAGE plpgsql VOLATILE;
 
 CREATE VIEW SENHAS_EXPIRADAS AS
-	SELECT J.ID TITULO_ID, 
+	SELECT J.ID TITULO_ID,
 		J.TITULO,
 		C.ID CONTA_ID,
 		C.EMAIL,
@@ -169,5 +169,4 @@ CREATE VIEW SENHAS_EXPIRADAS AS
 	INNER JOIN SENHAS S ON S.CONTA_ID = C.ID
 	WHERE CAST(CONTAS_ULTIMO_ALUGUEL(C.ID) AS DATE) < CAST(NOW() AS DATE)
 	 AND CONTAS_ULTIMO_ALUGUEL(C.ID) > CONTAS_ULTIMA_SENHA(C.ID)
-	 AND CAST(S.DATA_CADASTRO AS DATE) = (SELECT CAST(MAX(DATA_CADASTRO) AS DATE) FROM SENHAS WHERE CONTA_ID = C.ID );  
-
+	 AND CAST(S.DATA_CADASTRO AS DATE) = (SELECT CAST(MAX(DATA_CADASTRO) AS DATE) FROM SENHAS WHERE CONTA_ID = C.ID );

@@ -29,10 +29,10 @@ class Aluguel extends Entity
                 break;
             case 'C':
                 return 'Cancelado';
-                break;    
+                break;
             case 'F':
                 return 'Finalizado';
-                break;    
+                break;
             default:
                 return ' - ';
                 break;
@@ -41,6 +41,9 @@ class Aluguel extends Entity
 
     protected function _getDescricaoTipo(){
         switch ($this->_properties['tipo']) {
+            case 'S':
+                return 'Assinatura';
+                break;
             case 'A':
                 return 'Avulso';
                 break;
