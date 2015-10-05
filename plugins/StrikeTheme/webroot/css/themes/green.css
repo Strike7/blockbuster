@@ -1,0 +1,50 @@
+  /*==========================================================================
+	GREEN THEME
+  ========================================================================== */
+	a,
+	a:hover,
+	a:focus, 
+	section .main-title a:hover,
+	section .details a:hover,
+	.thumbnail h4 a:hover,
+	.section .box li .details h5 a:hover,
+	.nav-tabs > li.active > a,
+	.nav-tabs > li.active > a h3, 
+	.nav-tabs > li.active > a:hover, 
+	.nav-tabs > li.active > a:focus,
+	.section-title h3, 
+	.main-carousel .carousel-caption h2,
+	.mega-dropdown-menu .dropdown-sub-header,
+	.mega-dropdown-menu .dropdown-header { 
+		color: #107c10;
+	}
+	header {
+		background-color: #159615;
+		border-color: #107c10;
+	}
+	.bg-primary,
+	.main-carousel .carousel-indicators li.active,
+	.pace .pace-progress	{
+		background-color: #107c10;
+	}
+	.btn-primary {
+		background-color: #159615;
+	}
+	.bg-primary {
+		background-color: #159615 !important;
+	}
+	.btn.btn-primary:hover,
+	.btn.btn-primary:active,
+	.btn.btn-primary:focus {
+		background-color: #22af22;
+	}
+	.header-color {
+		background: rgba(21,150,21,0.93);
+	}
+	.no-cover .header-color {
+		background: rgba(21,150,21,1);
+	}
+	.dropdown-submenu > .dropdown-menu,
+	nav ul li .dropdown-menu {
+		border-color: #107c10;
+	}

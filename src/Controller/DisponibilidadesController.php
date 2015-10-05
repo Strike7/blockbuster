@@ -26,6 +26,7 @@ class DisponibilidadesController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
+        $this->viewBuilder()->theme('StrikeTheme');
         $this->Auth->allow('index');
     }
 

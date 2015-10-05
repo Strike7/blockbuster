@@ -1,0 +1,50 @@
+  /*==========================================================================
+	RED THEME
+  ========================================================================== */
+	a,
+	a:hover,
+	a:focus, 
+	section .main-title a:hover,
+	section .details a:hover,
+	.thumbnail h4 a:hover,
+	.section .box li .details h5 a:hover,
+	.nav-tabs > li.active > a,
+	.nav-tabs > li.active > a h3, 
+	.nav-tabs > li.active > a:hover, 
+	.nav-tabs > li.active > a:focus,
+	.section-title h3, 
+	.main-carousel .carousel-caption h2,
+	.mega-dropdown-menu .dropdown-sub-header,
+	.mega-dropdown-menu .dropdown-header { 
+		color: #d32f2f;
+	}
+	header {
+		background-color: #e53935;
+		border-color: #d32f2f;
+	}
+	.bg-primary,
+	.main-carousel .carousel-indicators li.active,
+	.pace .pace-progress	{
+		background-color: #d32f2f;
+	}
+	.btn-primary {
+		background-color: #e53935;
+	}
+	.bg-primary {
+		background-color: #e53935 !important;
+	}
+	.btn.btn-primary:hover,
+	.btn.btn-primary:active,
+	.btn.btn-primary:focus {
+		background-color: #f65652;
+	}
+	.header-color {
+		background: rgba(229,57,53,0.93);
+	}
+	.no-cover .header-color {
+		background: rgba(229,57,53,1);
+	}
+	.dropdown-submenu > .dropdown-menu,
+	nav ul li .dropdown-menu {
+		border-color: #d32f2f;
+	}

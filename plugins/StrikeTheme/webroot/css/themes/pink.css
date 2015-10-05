@@ -1,0 +1,50 @@
+  /*==========================================================================
+	PINK THEME
+  ========================================================================== */
+	a,
+	a:hover,
+	a:focus, 
+	section .main-title a:hover,
+	section .details a:hover,
+	.thumbnail h4 a:hover,
+	.section .box li .details h5 a:hover,
+	.nav-tabs > li.active > a,
+	.nav-tabs > li.active > a h3, 
+	.nav-tabs > li.active > a:hover, 
+	.nav-tabs > li.active > a:focus,
+	.section-title h3, 
+	.main-carousel .carousel-caption h2,
+	.mega-dropdown-menu .dropdown-sub-header,
+	.mega-dropdown-menu .dropdown-header { 
+		color: #7b1fa2;
+	}
+	header {
+		background-color: #8e24aa;
+		border-color: #7b1fa2;
+	}
+	.bg-primary,
+	.main-carousel .carousel-indicators li.active,
+	.pace .pace-progress	{
+		background-color: #7b1fa2;
+	}
+	.btn-primary {
+		background-color: #8e24aa;
+	}
+	.bg-primary {
+		background-color: #8e24aa !important;
+	}
+	.btn.btn-primary:hover,
+	.btn.btn-primary:active,
+	.btn.btn-primary:focus {
+		background-color: #ac3fc9;
+	}
+	.header-color {
+		background: rgba(142,36,170,0.93);
+	}
+	.no-cover .header-color {
+		background: rgba(142,36,170,,1);
+	}
+	.dropdown-submenu > .dropdown-menu,
+	nav ul li .dropdown-menu {
+		border-color: #7b1fa2;
+	}
