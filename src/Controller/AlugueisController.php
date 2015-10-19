@@ -28,7 +28,6 @@ class AlugueisController extends AppController
     {
         $this->paginate = [
             'contain' => ['Clientes', 'Contas'],
-            'limit' => 200,
             'order' => ['data_inicio' => 'ASC'],
             'sortWhitelist' => ['nome', 'data_inicio', 'data_fim', 'situacao', 'titulo' ]
         ];
@@ -157,8 +156,7 @@ class AlugueisController extends AppController
             }
         }
 
-        $clientes = $this->Alugueis->Clientes->find('list', ['limit' => 200,
-                                                             'order' => ['Clientes.nome' => 'ASC']  
+        $clientes = $this->Alugueis->Clientes->find('list', [ 'order' => ['Clientes.nome' => 'ASC']  
                                                             ]);
                                                         
         $jogosTable = TableRegistry::get('Jogos');
@@ -196,8 +194,9 @@ class AlugueisController extends AppController
             }
         }
 
-        $clientes = $this->Alugueis->Clientes->find('list', ['limit' => 200]);
-        $contas = $this->Alugueis->Contas->find('list', ['limit' => 200]);
+        $clientes = $this->Alugueis->Clientes->find('list', [ 'order' => ['Clientes.nome' => 'ASC']  
+                                                            ]);
+        $contas = $this->Alugueis->Contas->find('list');
         $this->set(compact('aluguel', 'clientes', 'contas'));
         $this->set('_serialize', ['aluguel']);
     }
