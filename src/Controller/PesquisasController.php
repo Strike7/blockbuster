@@ -26,18 +26,36 @@ class PesquisasController extends AppController
      *
      * @return void
      */
-    public function index($palavra='')
+    public function index()
     {
-        debug($palavra);
         $query = $this->Pesquisas->find()
-            ->where(function($builder){
-                return $builder->or(
-                    $builder->regexp('nome',".*$palavra.*"),
-                    $builder->regexp('descricao',".*$palavra.*"),
-                    $builder->regexp('termos',".*$palavra.*"));
-            })->all();
+            ->all();
         $this->set('pesquisas', $query);
         $this->set('_serialize', ['pesquisas']);
+    }
+
+    /**
+    * recupera pesquisas baseado em um termo
+    */
+    public function search($match = '')
+    {
+        $matches = array_map(function($term) {
+            return new \Elastica\Query\QueryString(implode('', ['*', $term, '*']));
+        }, explode(' ', $match));
+
+        $query = $this->Pesquisas->find()
+            ->where(function($builder) use(&$match, &$matches) {
+                return 
+                    call_user_func_array(array($builder, 'or'),
+                        array_map(function($q) use(&$builder, &$matches) {
+                            return $builder->query($q);
+                        }, $matches)
+                        );
+                        
+            })->all();
+        debug($query);
+        $this->set('pesquisas', $query);
+        $this->set('_serialize', ['pesquisas']);        
     }
 
     /**
