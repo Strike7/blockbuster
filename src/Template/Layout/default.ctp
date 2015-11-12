@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'BLOCKBUSTER - ALUGUEIS [c] strike7';
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,8 +41,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <span><?= $this->fetch('title') ?></span>
         </div>
         <div class="header-help">
-            <span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
-            <span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
+            <span><?= $this->Html->link(__('Novo Aluguel'), ['controller' => 'alugueis' , 'action' => 'add' ], ['title' => 'Novo Aluguel' ]) ?></span>
             <span><a href="/users/logout">Sair</a></span>
         </div>
     </header>
