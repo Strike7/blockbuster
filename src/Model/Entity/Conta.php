@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\ORM\TableRegistry;
 
 /**
  * Conta Entity.
@@ -10,7 +11,7 @@ class Conta extends Entity
 {
 
     protected static $_senhas;
-    
+
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -33,11 +34,11 @@ class Conta extends Entity
                 'conta_id' => $this->id ])
             ->order(['data_cadastro' => 'DESC']);
 
-        return $query->first()->senha;
+        return $query->first()->senha ?: '';
     }
 
     protected function _getDescricaoTipo(){
-        switch ($this->_properties['tipo']) {
+        switch ($this->tipo) {
             case 'S':
                 return 'Assinatura';
                 break;
