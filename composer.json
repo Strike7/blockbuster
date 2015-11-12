@@ -10,7 +10,8 @@
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "@stable",
         "cakephp/plugin-installer": "*",
-        "mailgun/mailgun-php": "~1.7.2"
+        "mailgun/mailgun-php": "~1.7.2",
+        "cakephp/elastic-search": "@stable"
     },
     "require-dev": {
         "psy/psysh": "@stable",

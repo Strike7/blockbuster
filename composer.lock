@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7c9187998d4e5a3cfe11cbeb95f994b3",
-    "content-hash": "bdba5f88c4543ed11f45618ea0eb1730",
+    "hash": "c6fa63c5a470774c6023bd223e494161",
+    "content-hash": "a5f83bfda8e0ea0172660a4c1408011e",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -128,16 +128,16 @@
         },
         {
             "name": "cakephp/cakephp",
-            "version": "3.0.13",
+            "version": "3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "5921b2facedbc4cdcdc4daa5f736118838796bad"
+                "reference": "46abd7761c0528ad6eee5da6dde292abbeade851"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/5921b2facedbc4cdcdc4daa5f736118838796bad",
-                "reference": "5921b2facedbc4cdcdc4daa5f736118838796bad",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/46abd7761c0528ad6eee5da6dde292abbeade851",
+                "reference": "46abd7761c0528ad6eee5da6dde292abbeade851",
                 "shasum": ""
             },
             "require": {
@@ -168,11 +168,6 @@
                 "phpunit/phpunit": "*"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Cake\\": "src"
@@ -199,26 +194,73 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-09-07 01:53:22"
+            "time": "2015-11-06 03:48:56"
         },
         {
-            "name": "cakephp/migrations",
-            "version": "1.3",
+            "name": "cakephp/elastic-search",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/cakephp/migrations.git",
-                "reference": "eb3d2cddf14148fa7d1ea1e083c301ccae733c59"
+                "url": "https://github.com/cakephp/elastic-search.git",
+                "reference": "62d65a816857ce25c564e05f217da44bd75b3413"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/migrations/zipball/eb3d2cddf14148fa7d1ea1e083c301ccae733c59",
-                "reference": "eb3d2cddf14148fa7d1ea1e083c301ccae733c59",
+                "url": "https://api.github.com/repos/cakephp/elastic-search/zipball/62d65a816857ce25c564e05f217da44bd75b3413",
+                "reference": "62d65a816857ce25c564e05f217da44bd75b3413",
                 "shasum": ""
             },
             "require": {
-                "cakephp/cakephp": "~3.0",
+                "ruflin/elastica": "~2.2"
+            },
+            "require-dev": {
+                "cakephp/cakephp": "dev-master",
+                "cakephp/cakephp-codesniffer": "dev-master",
+                "phpunit/phpunit": "~4.0",
+                "psr/log": "~1.0"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Cake\\ElasticSearch\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CakePHP Community",
+                    "homepage": "https://github.com/cakephp/elastic-search/graphs/contributors"
+                }
+            ],
+            "description": "An Elastic Search datasource and data mapper for CakePHP 3.0",
+            "homepage": "https://github.com/cakephp/elastic-search",
+            "keywords": [
+                "cakephp",
+                "elasticsearch"
+            ],
+            "time": "2015-10-12 02:10:31"
+        },
+        {
+            "name": "cakephp/migrations",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cakephp/migrations.git",
+                "reference": "8fd5d9fddde441a7324b5f5198172215f8e804fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cakephp/migrations/zipball/8fd5d9fddde441a7324b5f5198172215f8e804fc",
+                "reference": "8fd5d9fddde441a7324b5f5198172215f8e804fc",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.1",
                 "php": ">=5.4",
-                "robmorgan/phinx": ">=0.4.2 <1.0"
+                "robmorgan/phinx": "dev-master"
             },
             "require-dev": {
                 "cakephp/bake": "@stable",
@@ -249,7 +291,7 @@
                 "cakephp",
                 "migrations"
             ],
-            "time": "2015-09-05 13:42:09"
+            "time": "2015-10-16 20:29:10"
         },
         {
             "name": "cakephp/plugin-installer",
@@ -608,16 +650,16 @@
         },
         {
             "name": "robmorgan/phinx",
-            "version": "v0.4.6",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/robmorgan/phinx.git",
-                "reference": "1351ca36dd2419d7de02afd1aaa415929112d7f1"
+                "reference": "06740769d9b02365cfbed104f9a44776a3d14478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robmorgan/phinx/zipball/1351ca36dd2419d7de02afd1aaa415929112d7f1",
-                "reference": "1351ca36dd2419d7de02afd1aaa415929112d7f1",
+                "url": "https://api.github.com/repos/robmorgan/phinx/zipball/06740769d9b02365cfbed104f9a44776a3d14478",
+                "reference": "06740769d9b02365cfbed104f9a44776a3d14478",
                 "shasum": ""
             },
             "require": {
@@ -666,28 +708,82 @@
                 "migrations",
                 "phinx"
             ],
-            "time": "2015-09-11 15:44:41"
+            "time": "2015-11-04 21:03:56"
         },
         {
-            "name": "symfony/config",
-            "version": "v2.7.4",
+            "name": "ruflin/elastica",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Config.git",
-                "reference": "5ab9ff48b3cb5b40951a607f77fc1cbfd29edba8"
+                "url": "https://github.com/ruflin/Elastica.git",
+                "reference": "0df1d7b513960ba11d3075652dcd71fcab8dd37a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/5ab9ff48b3cb5b40951a607f77fc1cbfd29edba8",
-                "reference": "5ab9ff48b3cb5b40951a607f77fc1cbfd29edba8",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/0df1d7b513960ba11d3075652dcd71fcab8dd37a",
+                "reference": "0df1d7b513960ba11d3075652dcd71fcab8dd37a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "5.3.*",
+                "munkie/elasticsearch-thrift-php": "1.4.*"
+            },
+            "suggest": {
+                "egeloen/http-adapter": "Allow using httpadapter transport",
+                "guzzlehttp/guzzle": "Allow using guzzle 5.3.x as the http transport (Requires php 5.4)",
+                "monolog/monolog": "Logging request",
+                "munkie/elasticsearch-thrift-php": "Allow using thrift transport"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Elastica\\": "lib/Elastica/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Ruflin",
+                    "homepage": "http://ruflin.com/"
+                }
+            ],
+            "description": "Elasticsearch Client",
+            "homepage": "http://elastica.io/",
+            "keywords": [
+                "client",
+                "search"
+            ],
+            "time": "2015-10-19 07:09:10"
+        },
+        {
+            "name": "symfony/config",
+            "version": "v2.7.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/config.git",
+                "reference": "831f88908b51b9ce945f5e6f402931d1ac544423"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/config/zipball/831f88908b51b9ce945f5e6f402931d1ac544423",
+                "reference": "831f88908b51b9ce945f5e6f402931d1ac544423",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9",
                 "symfony/filesystem": "~2.3"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -716,20 +812,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2015-08-27 06:45:45"
+            "time": "2015-10-11 09:39:48"
         },
         {
             "name": "symfony/console",
-            "version": "v2.7.4",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Console.git",
-                "reference": "9ff9032151186bd66ecee727d728f1319f52d1d8"
+                "url": "https://github.com/symfony/console.git",
+                "reference": "5efd632294c8320ea52492db22292ff853a43766"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/9ff9032151186bd66ecee727d728f1319f52d1d8",
-                "reference": "9ff9032151186bd66ecee727d728f1319f52d1d8",
+                "url": "https://api.github.com/repos/symfony/console/zipball/5efd632294c8320ea52492db22292ff853a43766",
+                "reference": "5efd632294c8320ea52492db22292ff853a43766",
                 "shasum": ""
             },
             "require": {
@@ -738,7 +834,6 @@
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/event-dispatcher": "~2.1",
-                "symfony/phpunit-bridge": "~2.7",
                 "symfony/process": "~2.1"
             },
             "suggest": {
@@ -773,20 +868,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2015-09-03 11:40:38"
+            "time": "2015-10-20 14:38:46"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.7.4",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "b58c916f1db03a611b72dd702564f30ad8fe83fa"
+                "url": "https://github.com/symfony/event-dispatcher.git",
+                "reference": "87a5db5ea887763fa3a31a5471b512ff1596d9b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/b58c916f1db03a611b72dd702564f30ad8fe83fa",
-                "reference": "b58c916f1db03a611b72dd702564f30ad8fe83fa",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/87a5db5ea887763fa3a31a5471b512ff1596d9b8",
+                "reference": "87a5db5ea887763fa3a31a5471b512ff1596d9b8",
                 "shasum": ""
             },
             "require": {
@@ -797,7 +892,6 @@
                 "symfony/config": "~2.0,>=2.0.5",
                 "symfony/dependency-injection": "~2.6",
                 "symfony/expression-language": "~2.6",
-                "symfony/phpunit-bridge": "~2.7",
                 "symfony/stopwatch": "~2.3"
             },
             "suggest": {
@@ -831,27 +925,24 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2015-08-24 07:13:45"
+            "time": "2015-10-11 09:39:48"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.7.4",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "f079e9933799929584200b9a926f72f29e291654"
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "56fd6df73be859323ff97418d97edc1d756df6df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/f079e9933799929584200b9a926f72f29e291654",
-                "reference": "f079e9933799929584200b9a926f72f29e291654",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/56fd6df73be859323ff97418d97edc1d756df6df",
+                "reference": "56fd6df73be859323ff97418d97edc1d756df6df",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -880,27 +971,24 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2015-08-27 07:03:44"
+            "time": "2015-10-18 20:23:18"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.7.4",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Yaml.git",
-                "reference": "2dc7b06c065df96cc686c66da2705e5e18aef661"
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "eca9019c88fbe250164affd107bc8057771f3f4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/2dc7b06c065df96cc686c66da2705e5e18aef661",
-                "reference": "2dc7b06c065df96cc686c66da2705e5e18aef661",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/eca9019c88fbe250164affd107bc8057771f3f4d",
+                "reference": "eca9019c88fbe250164affd107bc8057771f3f4d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -929,26 +1017,26 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-08-24 07:13:45"
+            "time": "2015-10-11 09:39:48"
         }
     ],
     "packages-dev": [
         {
             "name": "cakephp/bake",
-            "version": "1.0.14",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/bake.git",
-                "reference": "3b03927c661d5f26de2e291241ecf9600bae507b"
+                "reference": "a7d5ed3ef3022264db6d059784b1ad438c8744c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/bake/zipball/3b03927c661d5f26de2e291241ecf9600bae507b",
-                "reference": "3b03927c661d5f26de2e291241ecf9600bae507b",
+                "url": "https://api.github.com/repos/cakephp/bake/zipball/a7d5ed3ef3022264db6d059784b1ad438c8744c3",
+                "reference": "a7d5ed3ef3022264db6d059784b1ad438c8744c3",
                 "shasum": ""
             },
             "require": {
-                "cakephp/cakephp": "~3.0",
+                "cakephp/cakephp": "3.1.*",
                 "php": ">=5.4"
             },
             "require-dev": {
@@ -977,24 +1065,24 @@
                 "bake",
                 "cakephp"
             ],
-            "time": "2015-09-12 15:22:04"
+            "time": "2015-10-31 17:24:20"
         },
         {
             "name": "cakephp/debug_kit",
-            "version": "3.1.10",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "960b96b47a2f4ebd44b1d484807b80ce6e691576"
+                "reference": "61e838edf26fc4df1becf59afb77ba10e5400924"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/960b96b47a2f4ebd44b1d484807b80ce6e691576",
-                "reference": "960b96b47a2f4ebd44b1d484807b80ce6e691576",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/61e838edf26fc4df1becf59afb77ba10e5400924",
+                "reference": "61e838edf26fc4df1becf59afb77ba10e5400924",
                 "shasum": ""
             },
             "require": {
-                "cakephp/cakephp": "3.0.*",
+                "cakephp/cakephp": "3.1.*",
                 "jdorn/sql-formatter": "~1.2"
             },
             "require-dev": {
@@ -1005,11 +1093,6 @@
                 "ext-sqlite": "DebugKit needs to store panel data in a database. SQLite is simple and easy to use."
             },
             "type": "cakephp-plugin",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "DebugKit\\": "src",
@@ -1038,7 +1121,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2015-08-24 06:26:27"
+            "time": "2015-10-21 19:57:25"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1329,23 +1412,20 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v2.7.4",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "b39221998ff5fc26ba63f96d2b833dfddc233d57"
+                "reference": "eb033050050916b6bfa51be71009ef67b16046c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/b39221998ff5fc26ba63f96d2b833dfddc233d57",
-                "reference": "b39221998ff5fc26ba63f96d2b833dfddc233d57",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/eb033050050916b6bfa51be71009ef67b16046c9",
+                "reference": "eb033050050916b6bfa51be71009ef67b16046c9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "~2.7"
             },
             "suggest": {
                 "ext-symfony_debug": ""
@@ -1384,13 +1464,14 @@
                 "debug",
                 "dump"
             ],
-            "time": "2015-08-31 12:28:11"
+            "time": "2015-10-25 17:17:38"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "cakephp/migrations": 0,
+        "cakephp/elastic-search": 0,
         "psy/psysh": 0
     },
     "prefer-stable": true,
