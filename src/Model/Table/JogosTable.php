@@ -7,6 +7,8 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
+use App\Model\Behavior\SearcableBehavior;
+
 /**
  * Jogos Model
  *
@@ -14,7 +16,6 @@ use Cake\Validation\Validator;
  */
 class JogosTable extends Table
 {
-
     /**
      * Initialize method
      *
@@ -31,6 +32,10 @@ class JogosTable extends Table
         $this->hasMany('Contas', [
             'foreignKey' => 'jogo_id'
         ]);
+
+        $this->addBehavior('Searchable', [
+            "titulo" => "titulo",
+            "fields" => ["titulo", "categoria", "categoria_descricao"]]);
     }
 
     /**

@@ -2,12 +2,14 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use App\Model\Entity\DescribeTrait;
 
 /**
  * Jogo Entity.
  */
 class Jogo extends Entity
 {
+    use DescribeTrait;
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -19,8 +21,15 @@ class Jogo extends Entity
         'id' => false,
     ];
 
-    protected function _getDescricaoCategoria(){
-        switch ($this->_properties['categoria']) {
+    protected function _discribe() 
+    {
+        return $this->get('titulo') . " categoria " . $this->get('descricaoCategoria');
+    }
+
+    protected function _getDescricaoCategoria()
+    {
+        switch ($this->_properties['categoria'])
+        {
             case 'E':
                 return 'Econômico';
                 break;
