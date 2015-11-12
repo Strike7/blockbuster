@@ -65,7 +65,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => '__SALT__',
+        'salt' => 'ce4f76f9213d64f74585fc13a398680708cbc589e4b1d88e06253c0b2214fd2d',
     ],
 
     /**
@@ -241,7 +241,14 @@ return [
              */
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
         ],
-
+        
+        'elastic' => [
+                'className' => 'Cake\ElasticSearch\Datasource\Connection',
+                'driver' => 'Cake\ElasticSearch\Datasource\Connection',
+                'host' => '127.0.0.1',
+                'port' => 9200,
+                'index' => 'blockbuster',
+        ],
         /**
          * The test connection is used during the test suite.
          */
