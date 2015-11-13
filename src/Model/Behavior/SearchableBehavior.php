@@ -43,7 +43,9 @@ class SearchableBehavior extends Behavior
 		$pesquisas = TypeRegistry::get('Pesquisas');
 
 		$pesquisa = $pesquisas->newEntity([
-				"element_id" => $entity->get('id'),
+				"_src" => [
+				'id' => $entity->get('id'),
+				'type' => $entity->source() ],
 				"name" => $entity->get($config['name']),
 				"desc" => $entity->get($config['desc']),				
 				"terms" => explode(" ", $allTerms)
