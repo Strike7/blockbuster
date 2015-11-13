@@ -44,6 +44,10 @@ class ContasTable extends Table
         $this->hasMany('Senhas', [
             'foreignKey' => 'conta_id'
         ]);
+
+        $this->addBehavior('Searchable', [
+            'titulo' => 'email',
+            'fields' =>[ 'email', 'titulo', 'descricaoTipo']])
     }
 
     /**
