@@ -69,8 +69,14 @@ class SearchableBehavior extends Behavior
 		$config = $this->config();
 		$pesquisas = TypeRegistry::get('Pesquisas');
 
-		$pesquisas->deleteAll([
-			'_src.id' => $entity->get('id'),
-			'_src.type' => $entity->source() ]);
+		$query  = $pesquisas->find()->where([
+			'AND' => [ 
+			'fonte.id' => $entity->get('id'),
+			'fonte.tipo' => strtolower($entity->source()) ]])->all();
+
+		foreach( $query as $pesquisa)
+		{
+			$pesquisas->delete($pesquisa);
+		}
 	}
 }
