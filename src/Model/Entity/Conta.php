@@ -27,7 +27,7 @@ class Conta extends Entity
 
     protected function _describe()
     {
-        return "Jogo " . $this->jogo->titulo . " conta " . this->email . " tipo " . this->descricaoTipo
+        return "Jogo " . $this->titulo . " conta " . $this->email . " tipo " . $this->descricaoTipo;
     }
 
     protected function _getSenha()
@@ -46,7 +46,10 @@ class Conta extends Entity
     }
 
     protected function _getTitulo(){
-        return $this->jogo->titulo;
+        $repository = TableRegistry::get('Jogos');
+        $_jogo = $repository->get($this->jogo_id);
+
+        return $_jogo->titulo;
     }
 
     protected function _getDescricaoTipo(){

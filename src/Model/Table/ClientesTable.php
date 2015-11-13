@@ -30,8 +30,8 @@ class ClientesTable extends Table
         ]);
 
         $this->addBehavior('Searchable', [
-            'titulo' => 'nome'
-            'fields' => ['nome', 'email', 'game_tag']])
+            'titulo' => 'nome',
+            'fields' => ['nome', 'email', 'game_tag']]);
     }
 
     /**

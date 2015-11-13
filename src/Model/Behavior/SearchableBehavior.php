@@ -31,7 +31,10 @@ class SearchableBehavior extends Behavior
 	public function afterSave(Event $event, Entity $entity, $options)
 	{
 		$config = $this->config();
-		if(!isset($config['fields']) && is_array($config['fields'])){
+		$pesquisas = TypeRegistry::get('Pesquisas');
+
+		if(!isset($config['fields']) && is_array($config['fields']))
+		{
 			return;
 		}
 
@@ -40,9 +43,15 @@ class SearchableBehavior extends Behavior
 				return implode(" ", [$v, $entity->get($w)]);
 			});
 
-		$pesquisas = TypeRegistry::get('Pesquisas');
 
-		$pesquisa = $pesquisas->newEntity([
+		$query = $pesquisas->find()->where([
+			'_src.id' => $entity->get('id'),
+			'_src.type' => $entity->source() ])->all();
+
+		// recupera a entidade ou cria uma nova */
+		$pesquisa = $pesquisas->newEntity();
+
+		$pesquisa = $pesquisas->patchEntity($pesquisa, [
 				"_src" => [
 				'id' => $entity->get('id'),
 				'type' => $entity->source() ],
@@ -50,9 +59,19 @@ class SearchableBehavior extends Behavior
 				"desc" => $entity->get($config['desc']),				
 				"terms" => explode(" ", $allTerms)
 			]);
-
-		if ($pesquisas->save($pesquisa)) {
+		if ($pesquisas->save($pesquisa))
+		{
 		    // Document was indexed
-		}
+		}	
+	}
+
+	public function afterDelete(Event $event, Entity $entity, $options)
+	{
+		$config = $this->config();
+		$pesquisas = TypeRegistry::get('Pesquisas');
+
+		$pesquisas->deleteAll([
+			'_src.id' => $entity->get('id'),
+			'_src.type' => $entity->source() ]);
 	}
 }

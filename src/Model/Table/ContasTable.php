@@ -47,7 +47,7 @@ class ContasTable extends Table
 
         $this->addBehavior('Searchable', [
             'titulo' => 'email',
-            'fields' =>[ 'email', 'titulo', 'descricaoTipo']])
+            'fields' =>[ 'email', 'titulo', 'descricaoTipo']]);
     }
 
     /**
