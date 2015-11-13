@@ -43,7 +43,7 @@ class PesquisasController extends AppController
             return new \Elastica\Query\QueryString(implode('', ['*', $term, '*']));
         }, explode(' ', $match));
 
-        $query = $this->Pesquisas->find()
+        /* $query = $this->Pesquisas->find()
             ->where(function($builder) use(&$match, &$matches) {
                 return 
                     call_user_func_array(array($builder, 'or'),
@@ -52,8 +52,11 @@ class PesquisasController extends AppController
                         }, $matches)
                         );
                         
-            })->all();
-        debug($query);
+            })->all(); */
+        $query = $this->Pesquisas->find()
+            ->where([ 'fonte.tipo' =>  'jogos']
+                )
+            ->all();
         $this->set('pesquisas', $query);
         $this->set('_serialize', ['pesquisas']);        
     }

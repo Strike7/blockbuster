@@ -35,7 +35,7 @@ class JogosTable extends Table
 
         $this->addBehavior('Searchable', [
             "titulo" => "titulo",
-            "fields" => ["titulo", "categoria", "categoria_descricao"]]);
+            "fields" => ["titulo", "categoria", "descricao_categoria"]]);
     }
 
     /**

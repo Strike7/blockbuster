@@ -45,24 +45,23 @@ class SearchableBehavior extends Behavior
 
 
 		$query = $pesquisas->find()->where([
-			'_src.id' => $entity->get('id'),
-			'_src.type' => $entity->source() ])->all();
-
-		// recupera a entidade ou cria uma nova */
-		$pesquisa = $pesquisas->newEntity();
-
-		$pesquisa = $pesquisas->patchEntity($pesquisa, [
-				"_src" => [
+			'AND' => [ 
+			'fonte.id' => $entity->get('id'),
+			'fonte.tipo' => strtolower($entity->source()) ]])->all();
+		
+			$pesquisa = $query->isEmpty() ? $pesquisas->newEntity() : $query->first();	
+			$pesquisa = $pesquisas->patchEntity($pesquisa, [
+				"fonte" => [
 				'id' => $entity->get('id'),
-				'type' => $entity->source() ],
+				'tipo' => $entity->source() ],
 				"name" => $entity->get($config['name']),
 				"desc" => $entity->get($config['desc']),				
 				"terms" => explode(" ", $allTerms)
 			]);
-		if ($pesquisas->save($pesquisa))
-		{
-		    // Document was indexed
-		}	
+			if ($pesquisas->save($pesquisa))
+			{
+			    // Document was indexed
+			}	
 	}
 
 	public function afterDelete(Event $event, Entity $entity, $options)

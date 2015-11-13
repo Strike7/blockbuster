@@ -23,7 +23,7 @@ class Jogo extends Entity
 
     protected function _describe() 
     {
-        return $this->get('titulo') . " categoria " . $this->get('descricaoCategoria');
+        return $this->get('titulo') . " categoria " . $this->_getDescricaoCategoria;
     }
 
     protected function _getDescricaoCategoria()
