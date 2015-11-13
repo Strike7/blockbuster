@@ -28,6 +28,10 @@ class ClientesTable extends Table
         $this->hasMany('Alugueis', [
             'foreignKey' => 'cliente_id'
         ]);
+
+        $this->addBehavior('Searchable', [
+            'titulo' => 'nome'
+            'fields' => ['nome', 'email', 'game_tag']])
     }
 
     /**

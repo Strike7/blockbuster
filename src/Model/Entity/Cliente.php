@@ -8,6 +8,7 @@ use Cake\ORM\Entity;
  */
 class Cliente extends Entity
 {
+	use DescribeTrait;
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -18,4 +19,9 @@ class Cliente extends Entity
         '*' => true,
         'id' => false,
     ];
+
+    protected function _describe()
+    {
+    	return $this->nome . " contato " . $this->email . " gametag " . $this->game_tag;
+    }
 }
