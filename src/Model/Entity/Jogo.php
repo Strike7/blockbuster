@@ -21,7 +21,7 @@ class Jogo extends Entity
         'id' => false,
     ];
 
-    protected function _discribe() 
+    protected function _describe() 
     {
         return $this->get('titulo') . " categoria " . $this->get('descricaoCategoria');
     }

@@ -7,8 +7,8 @@ trait DescribeTrait {
 
     public function _getDesc()
     {
-       	if(method_exists($this, '_discribe')){
-    		return $this->_discribe();
+       	if(method_exists($this, '_describe')){
+    		return $this->_describe();
     	}
 		$repository = $this->source();
     	$table = TableRegistry::get($repository);
