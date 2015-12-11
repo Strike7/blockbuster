@@ -37,6 +37,12 @@ class SenhasTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
+
+        $this->addBehavior('Disabled',[
+            'events' => [
+                'Model.afterSave' => [
+                    'field' => 'conta_id'
+                ]]]);
     }
 
     /**
