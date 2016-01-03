@@ -38,11 +38,9 @@ class SenhasTable extends Table
             'joinType' => 'INNER'
         ]);
 
-        $this->addBehavior('Disabled',[
-            'events' => [
-                'Model.afterSave' => [
-                    'field' => 'conta_id'
-                ]]]);
+        $this->addBehavior('Disabled', [
+            'field' => 'conta_id',
+            'entityField' => 'conta_id']);
     }
 
     /**

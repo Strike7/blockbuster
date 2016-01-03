@@ -37,6 +37,10 @@ class AlugueisTable extends Table
             'foreignKey' => 'conta_id',
             'joinType' => 'INNER'
         ]);
+
+        $this->addBehavior('Disabled', [
+            'field' => 'id',
+            'entityField' => 'id_pai']);
     }
 
     /**
