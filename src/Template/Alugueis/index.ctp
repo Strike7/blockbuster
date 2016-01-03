@@ -6,7 +6,7 @@
     </ul>
 </div>
 <div class="alugueis form large-10 medium-9 columns">
-    <?= $this->Form->create($aluguel, ['type' => 'get']) ?>
+    <?= $this->Form->create($filtro, ['type' => 'get']) ?>
     <fieldset>
         <legend><?= __('Filtro Aluguel') ?></legend>
         <?php

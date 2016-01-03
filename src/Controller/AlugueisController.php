@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\View\Email\AluguelView;
+use App\Form\FilterForm;
 use Cake\Core\Configure;
 use Cake\ORM\TableRegistry;
 use Mailgun\Mailgun;
@@ -28,39 +29,31 @@ class AlugueisController extends AppController
     {
         $this->paginate = [
             'contain' => ['Clientes', 'Contas'],
-            'order' => ['data_inicio' => 'ASC'],
+            'order' => ['data_inicio' => 'DESC'],
             'sortWhitelist' => ['nome', 'data_inicio', 'data_fim', 'situacao', 'titulo' ]
         ];
 
-        $aluguel = $this->Alugueis->newEntity();
-        $alugueis = $this->Alugueis->find();
+        $filtro = new FilterForm();
+        $data = array_merge(['situacao' => 'U', 'tipo' => 'L'], array_filter($this->request->query));
 
-        $tipo = $this->request->query('tipo');
-        $situacao = $this->request->query('situacao');
+        $this->request->data = $data;
+        $query = $this->Alugueis->find();
+        $query
+          ->where(function($exp, $q) use ($data) {
+            $tipo = $exp->or_(['Alugueis.tipo' => $data['tipo']])
+              ->add($q->newExpr("'L' = '{$data['tipo']}'"));
+            return $exp
+           ->add($tipo)
+           ->eq('situacao', $data['situacao'])
+           ->eq('ativo', 'S');})
+          ->contain(['Clientes', 'Contas' => ['Jogos']]);
 
-        if (!empty($tipo)){
-            $aluguel->set('tipo', $tipo);
-            $alugueis->where(['tipo' => $tipo]);
-        }
-
-        if (!empty($situacao)){
-            $aluguel->set('situacao', $situacao);
-            $alugueis->where(['situacao' => $situacao]);
-        }
-
-        $alugueis->where(['ativo' => 'S']);
-        /*$alugueis->where(function ($exp, $q) {
-            return $exp->in('situacao', ['R', 'U']);
-        });*/
-
-        $alugueis->contain(['Clientes', 'Contas' => ['Jogos']]);
-
-        $this->set('alugueis', $this->paginate($alugueis));
+        $this->set('alugueis', $this->paginate($query));
         $this->set('_serialize', ['alugueis']);
-        $this->set(compact('aluguel'));
+        $this->set('filtro', $filtro);
     }
 
-    
+
     private function _emailText($aluguel)
     {
         $view = new AluguelView($this->request);
@@ -105,7 +98,7 @@ class AlugueisController extends AppController
         } else {
             $this->Flash->error(__('The email could not be sent. {0}, {1}', $result->http_response_code, $result->http_response_body->message));
         }
-        
+
         return $this->redirect(['action' => 'index']);
     }
     /**
@@ -156,9 +149,9 @@ class AlugueisController extends AppController
             }
         }
 
-        $clientes = $this->Alugueis->Clientes->find('list', [ 'order' => ['Clientes.nome' => 'ASC']  
+        $clientes = $this->Alugueis->Clientes->find('list', [ 'order' => ['Clientes.nome' => 'ASC']
                                                             ]);
-                                                        
+
         $jogosTable = TableRegistry::get('Jogos');
         $query = $jogosTable->find('list')->order(['titulo' => 'ASC']);
         $jogos = $query->toArray();
@@ -179,13 +172,13 @@ class AlugueisController extends AppController
         $aluguel = $this->Alugueis->get($id, [
             'contain' => []
         ]);
-        
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $aluguel = $this->Alugueis->newEntity();
             $aluguel = $this->Alugueis->patchEntity($aluguel, $this->request->data);
             $aluguel->set('id_pai', $id);
             $aluguel->set('ativo', 'S');
-            
+
             if ($this->Alugueis->save($aluguel)) {
                 $this->Flash->success(__('The aluguel has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -194,7 +187,7 @@ class AlugueisController extends AppController
             }
         }
 
-        $clientes = $this->Alugueis->Clientes->find('list', [ 'order' => ['Clientes.nome' => 'ASC']  
+        $clientes = $this->Alugueis->Clientes->find('list', [ 'order' => ['Clientes.nome' => 'ASC']
                                                             ]);
         $contas = $this->Alugueis->Contas->find('list');
         $this->set(compact('aluguel', 'clientes', 'contas'));
