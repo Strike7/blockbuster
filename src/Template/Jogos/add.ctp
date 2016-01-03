@@ -10,7 +10,8 @@
         <legend><?= __('Add Jogo') ?></legend>
         <?php
             echo $this->Form->input('titulo');
-            $options = ['' => 'Selecione uma categoria', 'E' => 'Econômico', 'L' => 'Lançamento', 'N' => 'Normal', 
+            echo $this->Form->input('codigo');
+            $options = ['' => 'Selecione uma categoria', 'E' => 'Econômico', 'L' => 'Lançamento', 'N' => 'Normal',
                         'M' => 'Mais alugados'];
             echo $this->Form->select('categoria', $options);
         ?>

@@ -15,3 +15,6 @@ WHERE s.conta_id = a.conta_id
   /* adiciona coluna de ativo na senha */
 
   ALTER TABLE Senhas ADD COLUMN ativo character (1) NOT NULL DEFAULT 'A';
+
+	ALTER TABLE jogos ADD COLUMN codigo_externo bigint;
+COMMENT ON COLUMN jogos.codigo_externo IS 'Representa os ids dos jogos no sistema de disponibilidade.';

@@ -30,14 +30,27 @@ class DisponibilidadeBehavior extends Behavior
 		$config = $this->config();
 		$http = new Client();
 
-		$response = $http->put('http://45.55.11.19/api/jogos/75',
-		                   json_encode( [
-						             'jogo' => [
-														'id'     => 75  ,
-														'titulo' => 'Evolve',
-														'capa'   => 'evolve.png',
-														'disponibilidade' => true
-												 ]]), ['type' => 'json'] );
-								debug($response);
+    $contas = TableRegistry::get('Contas');
+		$conta = $contas->get($entity->conta_id, [ 'contain' => ['Jogos']]);
+
+		$responsejogos = $http->get('http://45.55.11.19/api/jogos');
+		$json = $responsejogos->json;
+
+		$jogojson = array_pop(array_filter($json['jogos'], function($var){
+			if ($var['id']==75) return true;
+		}));
+
+		$jogojson['disponibilidade'] = !$jogojson['disponibilidade'];
+
+		debug($jogojson);
+    if (!empty($jogojson)){
+			$response = $http->put('http://45.55.11.19/api/jogos/75',
+			                   json_encode( [
+							             'jogo' => $jogojson
+													 ]), ['type' => 'json'] );
+
+		 }
+
 	}
+
 }
