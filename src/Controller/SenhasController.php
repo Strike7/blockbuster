@@ -12,6 +12,11 @@ use Cake\ORM\TableRegistry;
 class SenhasController extends AppController
 {
 
+    public function initialize()
+    {
+        Parent::initialize();
+        $this->loadComponent('Paginator');
+    }
     /**
      * Index method
      *
@@ -20,7 +25,9 @@ class SenhasController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Contas', 'Users']
+            'contain' => ['Contas', 'Users'],
+            'limit' => 200,
+            'conditions' => ['ativo' => 'A']
         ];
         $this->set('senhas', $this->paginate($this->Senhas));
         $this->set('_serialize', ['senhas']);
@@ -53,7 +60,7 @@ class SenhasController extends AppController
         if ($this->request->is('post')) {
             $senha = $this->Senhas->patchEntity($senha, $this->request->data);
             $conta = TableRegistry::get('Contas')->find()->where(['id' => $senha->conta_id])->first();
-            
+
             if ($conta->user_id && ($this->Auth->user('id') != $conta->user_id)){
                 $user = TableRegistry::get('Users')->find()->where(['id' => $conta->user_id])->first();
                 $this->Flash->error(__('Apenas quem está monitorando a conta pode alterar a senha. ('.$user->username.')'));
@@ -65,10 +72,10 @@ class SenhasController extends AppController
                     $this->Flash->error(__('The senha could not be saved. Please, try again.'));
                 }
             }
-            
+
         }
         $contas = $this->Senhas->Contas->find('list', ['limit' => 200, 'order' => ['Contas.email' => 'ASC']]);
-        $users = $this->Senhas->Users->find('list', ['limit' => 200, 
+        $users = $this->Senhas->Users->find('list', ['limit' => 200,
                                                     'order' => ['Users.username' => 'ASC']
                                                     ]);
         $jogosTable = TableRegistry::get('Jogos');
