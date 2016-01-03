@@ -41,6 +41,8 @@ class AlugueisTable extends Table
         $this->addBehavior('Disabled', [
             'field' => 'id',
             'entityField' => 'id_pai']);
+
+        $this->addBehavior('Disponibilidade');
     }
 
     /**
