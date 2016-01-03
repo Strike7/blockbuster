@@ -38,30 +38,25 @@ class SearchableBehavior extends Behavior
 			return;
 		}
 
-		$allTerms = array_reduce($config['fields'], function($v, $w) use (&$entity) 
+		$allTerms = array_reduce($config['fields'], function($v, $w) use (&$entity)
 			{
 				return implode(" ", [$v, $entity->get($w)]);
 			});
 
 
-		$query = $pesquisas->find()->where([
-			'AND' => [ 
-			'fonte.id' => $entity->get('id'),
-			'fonte.tipo' => strtolower($entity->source()) ]])->all();
-		
-			$pesquisa = $query->isEmpty() ? $pesquisas->newEntity() : $query->first();	
+			$pesquisa = $pesquisas->newEntity();
 			$pesquisa = $pesquisas->patchEntity($pesquisa, [
 				"fonte" => [
 				'id' => $entity->get('id'),
 				'tipo' => $entity->source() ],
 				"name" => $entity->get($config['name']),
-				"desc" => $entity->get($config['desc']),				
+				"desc" => $entity->get($config['desc']),
 				"terms" => explode(" ", $allTerms)
 			]);
 			if ($pesquisas->save($pesquisa))
 			{
 			    // Document was indexed
-			}	
+			}
 	}
 
 	public function afterDelete(Event $event, Entity $entity, $options)
@@ -70,10 +65,9 @@ class SearchableBehavior extends Behavior
 		$pesquisas = TypeRegistry::get('Pesquisas');
 
 		$query  = $pesquisas->find()->where([
-			'AND' => [ 
+			'AND' => [
 			'fonte.id' => $entity->get('id'),
 			'fonte.tipo' => strtolower($entity->source()) ]])->all();
-
 		foreach( $query as $pesquisa)
 		{
 			$pesquisas->delete($pesquisa);
