@@ -31,7 +31,7 @@ class Conta extends Entity
     }
 
     protected function _getSenha()
-    {        
+    {
         if( !isset(Conta::$_senhas) ) {
             Conta::$_senhas = TableRegistry::get('Senhas');
         }

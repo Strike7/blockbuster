@@ -26,7 +26,7 @@ class DisponiveisTable extends Table
         parent::initialize($config);
 
         $this->table('disponiveis');
-        
+
     }
 
     /**

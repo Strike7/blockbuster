@@ -21,7 +21,7 @@ class Jogo extends Entity
         'id' => false,
     ];
 
-    protected function _describe() 
+    protected function _describe()
     {
         return $this->get('titulo') . " categoria " . $this->_getDescricaoCategoria;
     }
@@ -38,10 +38,10 @@ class Jogo extends Entity
                 break;
             case 'N':
                 return 'Normal';
-                break;    
+                break;
             case 'M':
                 return 'Mais Alugados';
-                break;    
+                break;
             default:
                 return ' - ';
                 break;

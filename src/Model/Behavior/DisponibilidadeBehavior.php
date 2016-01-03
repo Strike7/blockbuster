@@ -33,24 +33,22 @@ class DisponibilidadeBehavior extends Behavior
     $contas = TableRegistry::get('Contas');
 		$conta = $contas->get($entity->conta_id, [ 'contain' => ['Jogos']]);
 
-		$responsejogos = $http->get('http://45.55.11.19/api/jogos');
-		$json = $responsejogos->json;
-
-		$jogojson = array_pop(array_filter($json['jogos'], function($var){
-			if ($var['id']==75) return true;
-		}));
+		$json = $http->get('http://45.55.11.19/api/jogos')->json;
+		$jogos = array_filter($json['jogos'], function($var)use($conta){
+			if ($var['id']== $conta->jogo->codigo) return true;
+		});
+		$jogojson = array_pop($jogos);
 
 		$jogojson['disponibilidade'] = !$jogojson['disponibilidade'];
 
-		debug($jogojson);
+		
     if (!empty($jogojson)){
-			$response = $http->put('http://45.55.11.19/api/jogos/75',
+			$response = $http->put('http://45.55.11.19/api/jogos/'.$conta->jogo->codigo,
 			                   json_encode( [
 							             'jogo' => $jogojson
 													 ]), ['type' => 'json'] );
 
 		 }
-
 	}
 
 }

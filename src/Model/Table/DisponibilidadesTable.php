@@ -25,7 +25,7 @@ class DisponibilidadesTable extends Table
         parent::initialize($config);
 
         $this->table('disponibilidades');
-        
+
     }
 
     /**
