@@ -3,6 +3,7 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 use App\Model\Entity\DescribeTrait;
+use Cake\ORM\TableRegistry;
 
 /**
  * Jogo Entity.
@@ -24,6 +25,15 @@ class Jogo extends Entity
     protected function _describe()
     {
         return $this->get('titulo') . " categoria " . $this->_getDescricaoCategoria;
+    }
+
+
+    protected function _getDisponivel()
+    {
+        $disponiveis = TableRegistry::get('Disponiveis');
+        return $disponiveis->find('all')
+               ->where(['jogo_id' => $this->id])
+               ->first();
     }
 
     protected function _getDescricaoCategoria()

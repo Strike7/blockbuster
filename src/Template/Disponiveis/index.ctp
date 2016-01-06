@@ -9,12 +9,17 @@
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('titulo') ?></th>
+            <th><?= $this->Paginator->sort('disponivel') ?></th>
+            <th><?= $this->Paginator->sort('datareserva') ?></th>
         </tr>
     </thead>
     <tbody>
     <?php foreach ($disponiveis as $disponivei): ?>
         <tr>
             <td><?= h($disponivei->titulo) ?></td>
+            <td><?= h($disponivei->disponivel) ?></td>
+            <td><?= h($disponivei->datareserva) ?></td>
+
         </tr>
 
     <?php endforeach; ?>
