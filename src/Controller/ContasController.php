@@ -21,7 +21,7 @@ class ContasController extends AppController
      */
     public function index()
     {
-        
+
         $jogo_id = $this->request->query('jogo_id');
 
         $contas = $this->Contas->find();
@@ -33,8 +33,9 @@ class ContasController extends AppController
                 'type' => 'LEFT',
                 'conditions' => 'd.conta_id = contas.id',
             ]);
-            $contas->select(['id', 'email', 'd.disponivel']);
-            $contas->where(['jogo_id' => $jogo_id ]);
+            $contas->select(['id', 'email', 'd.disponivel','tipo']);
+            $contas->where(['Contas.jogo_id' => $jogo_id , 'tipo' => 'L' ]);
+
         }
 
         $this->set('contas', $this->paginate($contas));
@@ -75,7 +76,7 @@ class ContasController extends AppController
             }
         }
         $jogos = $this->Contas->Jogos->find('list', ['limit' => 200, 'order' => ['Jogos.titulo' => 'ASC']]);
-        $users = $this->Contas->Users->find('list', ['limit' => 200, 
+        $users = $this->Contas->Users->find('list', ['limit' => 200,
                                                     'order' => ['Users.username' => 'ASC']
                                                     ]);
         $this->set(compact('conta', 'jogos', 'users'));

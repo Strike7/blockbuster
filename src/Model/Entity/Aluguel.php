@@ -50,6 +50,9 @@ class Aluguel extends Entity
             case 'M':
                 return 'Mercado Livre';
                 break;
+            case 'L':
+                return 'Loja Virtual';
+                break;
             default:
                 return ' - ';
                 break;

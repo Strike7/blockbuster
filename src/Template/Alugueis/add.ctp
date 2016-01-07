@@ -33,7 +33,8 @@
 
             $optionsTipo = ['S' => 'Assinatura',
                             'A' => 'Avulso',
-                            'M' => 'Mercado Livre'];
+                            'M' => 'Mercado Livre',
+                            'L' => 'Loja Virtual'];
 
             echo $this->Form->select('tipo', $optionsTipo,
                                     ['empty' => 'Selecione um tipo',
@@ -59,6 +60,7 @@
                 url: url,
                 dataType: 'json'
             }).done(function(data) {
+
                 var contas = data.contas;
 
                 $('#conta_id').find('option').remove().end();
@@ -69,6 +71,7 @@
                     }));
 
                 for (var i in contas){
+
                     var disponivel = ((contas[i].d.disponivel == null) ? '' : ' - ' + contas[i].d.disponivel);
                     $('#conta_id').append($('<option>', {
                         value: contas[i].id,
