@@ -9,10 +9,10 @@ use Cake\ORM\Entity;
 class SenhasExpirada extends Entity
 {
 
-	protected _getNovaSenha()
+/*	protected _getNovaSenha()
 	{
 		$chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-	    $length = 8;
+	  $length = 8;
 		$len = strlen($chars);
 		$pw = '';
  		for ($i=0;$i<$length;$i++)
@@ -21,4 +21,5 @@ class SenhasExpirada extends Entity
 		$pw = str_shuffle($pw);
 		return $pw;
 	}
+	*/
 }
