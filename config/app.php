@@ -1,7 +1,7 @@
 <?php
 
 $DATABASE  = parse_url(getenv('DATABASE_URL'));
-
+$ELASTICSEARCH   = parse_url(getenv('ELASTIC_URL'));
 return [
     /**
      * Debug Level:
@@ -245,8 +245,8 @@ return [
         'elastic' => [
                 'className' => 'Cake\ElasticSearch\Datasource\Connection',
                 'driver' => 'Cake\ElasticSearch\Datasource\Connection',
-                'host' => '127.0.0.1',
-                'port' => 9200,
+                'host' => $ELASTICSEARCH['host'],
+                'port' => $ELASTICSEARCH['port'],
                 'index' => 'blockbuster',
         ],
         /**
