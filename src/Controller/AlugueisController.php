@@ -60,7 +60,7 @@ class AlugueisController extends AppController
         $view->set('conta', $aluguel->conta);
         $view->set('cliente', $aluguel->cliente);
         $view->set('jogo', $aluguel->conta->jogo);
-        $view->set('senha', end($aluguel->conta->senhas));
+        $view->set('senha', $aluguel->conta->senha);
         return $view->render('Email/Aluguel/send', 'Email/text/default');;
     }
 
