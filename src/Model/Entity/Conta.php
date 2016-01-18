@@ -40,6 +40,7 @@ class Conta extends Entity
 
         $query = $query->where([
                 'conta_id' => $this->id ])
+            ->where(['ativo' => 'A'])
             ->order(['data_cadastro' => 'DESC']);
 
         return $query->first()->senha ?: '';
