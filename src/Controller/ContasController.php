@@ -34,7 +34,7 @@ class ContasController extends AppController
                 'conditions' => 'd.conta_id = contas.id',
             ]);
             $contas->select(['id', 'email', 'd.disponivel','tipo']);
-            $contas->where(['Contas.jogo_id' => $jogo_id , 'tipo' => 'L' ]);
+            $contas->where(['Contas.jogo_id' => $jogo_id ]);
 
         }
 
