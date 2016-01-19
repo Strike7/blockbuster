@@ -56,6 +56,7 @@ class AlugueisController extends AppController
 
     private function _emailText($aluguel)
     {
+        
         $view = new AluguelView($this->request);
         $view->set('conta', $aluguel->conta);
         $view->set('cliente', $aluguel->cliente);
