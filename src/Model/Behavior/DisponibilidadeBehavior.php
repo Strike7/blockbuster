@@ -40,8 +40,9 @@ class DisponibilidadeBehavior extends Behavior
 			if ($var['id']== $jogo->codigo) return true;
 		});
 		$jogojson = array_pop($jogos);
-
+  
 		$jogojson['disponibilidade'] = $jogo->disponivel->disponivel=='S';
+		$jogojson['data_reserva'] = $jogo->disponivel->datareserva->i18nFormat('yyyy-MM-dd');
 
     if (!empty($jogojson)){
 			$response = $http->put('http://45.55.11.19/api/jogos/'.$conta->jogo->codigo,
