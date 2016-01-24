@@ -7,6 +7,7 @@ use Cake\ORM\Behavior;
 use Cake\ORM\Entity;
 use Cake\ORM\TableRegistry;
 use Cake\Network\Http\Client;
+use Cake\I18n\Time;
 
 
 /**
@@ -40,10 +41,12 @@ class DisponibilidadeBehavior extends Behavior
 			if ($var['id']== $jogo->codigo) return true;
 		});
 		$jogojson = array_pop($jogos);
-  
 		$jogojson['disponibilidade'] = $jogo->disponivel->disponivel=='S';
-		$jogojson['data_reserva'] = $jogo->disponivel->datareserva->i18nFormat('yyyy-MM-dd');
 
+		$time =  $jogo->disponivel->datareserva?: Time::now();
+		$jogojson['data_reserva'] = $time->i18nFormat('yyyy-MM-dd');
+		unset( $jogojson['dataReservaFormatada'] );
+    
     if (!empty($jogojson)){
 			$response = $http->put('http://45.55.11.19/api/jogos/'.$conta->jogo->codigo,
 			                   json_encode( [
