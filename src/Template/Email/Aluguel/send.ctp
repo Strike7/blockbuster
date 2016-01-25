@@ -67,9 +67,10 @@ background-color: #f6f6f6;
 						</td>
 					</tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-wrap" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 20px;" valign="top">
 							<table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-										Você alugou <strong style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><?= h($jogo->titulo) ?></strong> com a strike7.
+										Você alugou <strong style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><?= h($jogo->titulo) ?></strong> com a Strike7 Games.
 									</td>
-								</tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+								</tr>
+                <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
 										Utilize sua a conta para jogar <strong><?= h($conta->email) ?></strong> e a senha abaixo
 									</td>
 								</tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
@@ -77,9 +78,26 @@ background-color: #f6f6f6;
 									</td>
 								</tr>
                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-										Instruções de instalação: <a href="http://loja.strikesete.com.br/instrucoes" target="blank"> loja.strikesete.com.br/instrucoes </a>
+                  <b>Período da Locação:</b> <?= h($aluguel->data_inicio) ?> à <?= h($aluguel->data_fim) ?>
 									</td>
 								</tr>
+
+
+<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+										<b>Procedimento de Ativação do Perfil:  </b> </br> Após inserir o email e a senha do perfil em seu xbox, você será redirecionado para a tela de autorização, essa tela é semelhante a tela da imagem abaixo.
+<img src="https://s3-sa-east-1.amazonaws.com/strike7-image/imagens_instrucoes/6.jpg" />
+Pedimos que nesse momento, em que estiver visualizando a tela de autorização, <b> apenas tire uma foto dessa tela com o codigo exibido e envie para o nosso  whatsapp 799 9993-8381 </b> ou para o nosso e-mail strike7games@gmail.com <b> e aguarde nessa mesma tela até que seja realizada a aprovação por nós </b>. Assim que realizarmos a aprovação você já terá acesso ao perfil automaticamente. Caso não seja exibida a tela de autorização por favor consulte nosso tutorial passo a passo o link está logo abaixo.
+
+
+									</td>
+								</tr>
+</tr>
+<tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+
+<b>Instruções de instalação passo à passo: </b><a href="http://loja.strikesete.com.br/instrucoes" target="blank"> loja.strikesete.com.br/instrucoes </a>
+									</td>
+								</tr>
+
                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
 										Obrigado por alugar com a gente.
 									</td>
