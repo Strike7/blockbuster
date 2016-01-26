@@ -6,6 +6,7 @@ use App\Form\FilterForm;
 use Cake\Core\Configure;
 use Cake\ORM\TableRegistry;
 use Mailgun\Mailgun;
+use Cake\I18n\Time;
 
 /**
  * Alugueis Controller
@@ -56,12 +57,15 @@ class AlugueisController extends AppController
 
     private function _emailText($aluguel)
     {
-        
+
         $view = new AluguelView($this->request);
         $view->set('conta', $aluguel->conta);
         $view->set('cliente', $aluguel->cliente);
         $view->set('jogo', $aluguel->conta->jogo);
         $view->set('senha', $aluguel->conta->senha);
+        $view->set('data_inicio', $aluguel->data_inicio->i18nFormat('dd/MM/yyyy'));
+        $view->set('data_fim', $aluguel->data_fim->i18nFormat('dd/MM/yyyy'));
+      
         return $view->render('Email/Aluguel/send', 'Email/text/default');;
     }
 
