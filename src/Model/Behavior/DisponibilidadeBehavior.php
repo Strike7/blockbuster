@@ -16,7 +16,7 @@ use Cake\I18n\Time;
 */
 class DisponibilidadeBehavior extends Behavior
 {
-	 protected $_defaultConfig = [
+	protected $_defaultConfig = [
 		'desc' => 'desc',
 		'fields' => []
 		];
@@ -44,9 +44,14 @@ class DisponibilidadeBehavior extends Behavior
 		$jogojson['disponibilidade'] = $jogo->disponivel->disponivel=='S';
 
 		$time =  $jogo->disponivel->datareserva?: Time::now();
+		$time = $time->modify('+1 days');
+
+
 		$jogojson['data_reserva'] = $time->i18nFormat('yyyy-MM-dd');
+		debug($jogojson['data_reserva']);
+
 		unset( $jogojson['dataReservaFormatada'] );
-    
+
     if (!empty($jogojson)){
 			$response = $http->put('http://45.55.11.19/api/jogos/'.$conta->jogo->codigo,
 			                   json_encode( [
